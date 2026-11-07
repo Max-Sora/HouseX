@@ -34,7 +34,7 @@ A small builder or nonprofit project manager submitting a new home, ADU, duplex,
 7. **Requirements.** Before uploading anything, the page lists everything Irvine requires for the chosen project type, with sources.
 8. **Ask a question.** A chat popup on every page answers questions about permits, the rules and the user's own report. It answers only from HouseX's rule data and the current report, cites sources, and says when it doesn't know.
 
-**Demo video:** [`video/housex-demo.mp4`](video/housex-demo.mp4) (86 s, made with Remotion from real screens of the app; source in [`video/remotion`](video/remotion))
+**Demo video:** [`video/housex-demo.mp4`](video/housex-demo.mp4) (29 s, made with Remotion from real screens of the app; source in [`video/remotion`](video/remotion), narration script in [`video/narration30.txt`](video/narration30.txt))
 **Live demo:** _TODO_
 
 ## Try it
