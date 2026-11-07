@@ -1,0 +1,30 @@
+{
+ "1": {
+  "audio": 3.71,
+  "text": "Introducing HouseX, from Team HouseX at the Claude Impact Lab."
+ },
+ "2": {
+  "audio": 12.23,
+  "text": "In Orange County it takes about four years from land to keys, and every month of waiting adds cost. Each of OC's 34 cities has its own checklist, and one missing document sends a permit application back as incomplete."
+ },
+ "3": {
+  "audio": 5.57,
+  "text": "HouseX tells a small builder or nonprofit everything an Irvine plan set is missing, before they submit."
+ },
+ "4": {
+  "audio": 10.29,
+  "text": "Type the address, load a real duplex plan set, and run the check. HouseX stamps it FAIL, lets you filter missing documents by type, and links every correction to its source."
+ },
+ "5": {
+  "audio": 11.77,
+  "text": "Claude reads the plans and reports only what is printed, with the sheet as evidence. A plain rule engine makes every pass or fail decision, so the AI never decides. Every rule links to Irvine's or the state's own page."
+ },
+ "7": {
+  "audio": 16.08,
+  "text": "Fewer correction rounds means fewer months of loan interest, taxes and insurance. The challenge brief's example puts time costs at $85k of a $535k home. Each new city is one rule file, which is how this scales to all 34 OC cities."
+ },
+ "6": {
+  "audio": 16.17,
+  "text": "A duplex approved by Fresno County in 2024 fails in Irvine for 12 concrete reasons, plus 23 missing documents, including 2022 codes where Irvine now requires 2025. HouseX finds them in under two minutes, instead of a correction round."
+ }
+}
