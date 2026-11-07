@@ -21,8 +21,8 @@ const SECTIONS: { kind: FindingKind; title: string; blurb: string }[] = [
   },
   {
     kind: "unknown",
-    title: "Not stated or not checked",
-    blurb: "The plans don't say, or the rule isn't confirmed yet",
+    title: "Not stated on the plans",
+    blurb: "The plans don't state these values",
   },
   {
     kind: "needs_human",

@@ -45,7 +45,7 @@ const SCHEMA = obj({
     type: "array",
     items: obj({
       id: { type: "string" },
-      status: { type: "string", enum: ["present", "missing", "unclear"] },
+      status: { type: "string", enum: ["present", "missing", "unclear", "not_applicable"] },
       evidence: { type: "string" },
     }),
   },
@@ -91,6 +91,7 @@ Rules for reading:
 - Convert units to feet and square feet. Height means overall building height if stated.
 - "evidence" must name the sheet or page and quote the short text you relied on. If nothing was found, say what you looked for.
 - A required item is "present" only if the document itself contains it or its sheet index lists it. "unclear" if it is referenced but not included.
+- Use "not_applicable" for a required item only when the item itself is conditional ("if ...", "only if ...", "optional") and the plans clearly state the condition does not apply (for example "no lot split", "not in a Fire Hazard Severity Zone").
 
 Required submittal items to look for (report every id, in this order):
 ${docs}

@@ -28,9 +28,10 @@ function zoningFindings(
   ) => {
     if (limit === null) {
       out.push({
-        kind: "unknown",
+        kind: "needs_human",
         title,
-        detail: `City standard for district ${d.code} not confirmed, so this was not checked.`,
+        detail: `Irvine's limit for district ${d.code} is not confirmed in HouseX's rules (it varies by sub-district or planning area). A plan checker confirms this value.`,
+        planValue: fmt(plan, unit),
         ...base,
       });
       return;
@@ -127,7 +128,7 @@ function constructionFindings(c: ConstructionRules, projectType: string, p: Extr
   }
   const row = c.allowable.find((r) => r.occupancy === pt.occupancy && r.construction_type === type);
   if (!row) {
-    return [{ kind: "unknown", title: `Construction type ${type}`, detail: `No verified ${c.code_edition} limits for ${pt.occupancy} Type ${type}.` }];
+    return [{ kind: "needs_human", title: `Construction type ${type}`, detail: `No verified ${c.code_edition} limits for ${pt.occupancy} Type ${type} in HouseX's rules. A plan checker confirms them.` }];
   }
   const col = sprinklerColumn(p);
   const label = `${pt.occupancy}, Type ${type}, ${col === "NS" ? "no sprinklers" : col}`;
@@ -136,7 +137,7 @@ function constructionFindings(c: ConstructionRules, projectType: string, p: Extr
     if (max === "UL") {
       out.push({ kind: "passed", title, detail: `No limit (UL) for ${label}.`, required: "unlimited", source: row.source, sourceStatus: row.status });
     } else if (max === null || max === undefined) {
-      out.push({ kind: "unknown", title, detail: `No verified limit for ${label}.`, source: row.source, sourceStatus: row.status });
+      out.push({ kind: "needs_human", title, detail: `No verified limit for ${label} in HouseX's rules. A plan checker confirms it.`, source: row.source, sourceStatus: row.status });
     } else if (plan === null) {
       out.push({ kind: "unknown", title, detail: "The plans do not state this value.", required: `≤ ${max} ${unit}`, source: row.source, sourceStatus: row.status });
     } else {
@@ -178,6 +179,7 @@ export function runCheck(
   )) {
     const seen = plan.required_items.find((r) => r.id === doc.id);
     const status = seen?.status ?? "missing";
+    if (status === "not_applicable") continue; // conditional item whose condition the plans rule out
     findings.push({
       category: doc.category,
       kind: status === "present" ? "passed" : "missing_document",

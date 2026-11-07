@@ -131,7 +131,7 @@ export interface ExtractedPlan {
   sheet_index: { sheet_id: string; title: string }[];
   required_items: {
     id: string;
-    status: "present" | "missing" | "unclear";
+    status: "present" | "missing" | "unclear" | "not_applicable";
     evidence: string;
   }[];
   code_triggers: {
