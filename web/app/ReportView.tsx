@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Finding, FindingKind } from "@/lib/types";
 import { useStore } from "./Store";
 import NeedReport from "./NeedReport";
+import More from "./More";
 import styles from "./page.module.css";
 
 const SECTIONS: { kind: FindingKind; title: string; blurb: string }[] = [
@@ -41,25 +42,22 @@ function FindingRow({ f }: { f: Finding }) {
           <span className={styles.badge}>unverified source</span>
         )}
       </div>
-      <p>{f.detail}</p>
       {(f.planValue || f.required) && (
         <p className={styles.values}>
           {f.planValue && <span>Plans: {f.planValue}</span>}
           {f.required && <span>Required: {f.required}</span>}
         </p>
       )}
-      {f.evidence && <p className={styles.evidence}>Evidence: {f.evidence}</p>}
-      {f.source && (
-        <a
-          className={styles.source}
-          href={f.source.url}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {f.source.title}
-          {f.source.section ? ` · ${f.source.section}` : ""}
-        </a>
-      )}
+      <More>
+        <p>{f.detail}</p>
+        {f.evidence && <p className={styles.evidence}>Evidence: {f.evidence}</p>}
+        {f.source && (
+          <a className={styles.source} href={f.source.url} target="_blank" rel="noreferrer">
+            {f.source.title}
+            {f.source.section ? ` · ${f.source.section}` : ""}
+          </a>
+        )}
+      </More>
     </li>
   );
 }

@@ -892,3 +892,31 @@ a.primary {
 .explain strong {
   color: var(--pass);
 }
+
+/* Hidden-by-default details */
+
+.more {
+  margin-top: 4px;
+}
+
+.more summary {
+  cursor: pointer;
+  width: fit-content;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--muted);
+  transition: color 160ms var(--ease);
+}
+
+.more summary:hover {
+  color: var(--foreground);
+}
+
+.more summary:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+.moreBody {
+  margin-top: 4px;
+}

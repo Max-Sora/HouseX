@@ -1,10 +1,20 @@
 import type { RuleSet, Source, Status } from "@/lib/types";
+import More from "./More";
 import styles from "./page.module.css";
 
 const trio = (l: Record<string, number | "UL" | null>, keys: string[]) =>
   keys.map((k) => (l[k] === null || l[k] === undefined ? "—" : l[k]!.toLocaleString())).join(" / ");
 const ft = (v: number | null, unit = "") =>
   v === null ? "varies / not confirmed" : `${v}${unit}`;
+
+function Title({ text, status }: { text: string; status: Status }) {
+  return (
+    <div className={styles.findingHead}>
+      <strong>{text}</strong>
+      {status === "UNVERIFIED" && <span className={styles.badge}>unverified</span>}
+    </div>
+  );
+}
 
 function Cite({ source, status }: { source: Source; status: Status }) {
   return (
@@ -66,10 +76,12 @@ export default function Requirements({
         <ul>
           {docs.map((d) => (
             <li key={d.id} className={styles.finding}>
-              <strong>{d.name}</strong>
-              <p>{d.description}</p>
-              {d.note && <p className={styles.evidence}>{d.note}</p>}
-              <Cite source={d.source} status={d.status} />
+              <Title text={d.name} status={d.status} />
+              <More>
+                <p>{d.description}</p>
+                {d.note && <p className={styles.evidence}>{d.note}</p>}
+                <Cite source={d.source} status={d.status} />
+              </More>
             </li>
           ))}
         </ul>
@@ -122,9 +134,11 @@ export default function Requirements({
         <ul>
           {districts.map((d) => (
             <li key={d.code} className={styles.finding}>
-              <strong>District {d.code} notes</strong>
-              {d.note && <p className={styles.evidence}>{d.note}</p>}
-              <Cite source={d.source} status={d.status} />
+              <Title text={`District ${d.code} notes`} status={d.status} />
+              <More>
+                {d.note && <p className={styles.evidence}>{d.note}</p>}
+                <Cite source={d.source} status={d.status} />
+              </More>
             </li>
           ))}
         </ul>
@@ -138,10 +152,12 @@ export default function Requirements({
         <ul>
           {codes.map((t) => (
             <li key={t.id} className={styles.finding}>
-              <strong>{t.rule}</strong>
-              <p className={styles.evidence}>Applies when: {t.applies_when}</p>
-              <p>Plans must show: {t.required_evidence_on_plans}</p>
-              <Cite source={t.source} status={t.status} />
+              <Title text={t.rule} status={t.status} />
+              <More>
+                <p className={styles.evidence}>Applies when: {t.applies_when}</p>
+                <p>Plans must show: {t.required_evidence_on_plans}</p>
+                <Cite source={t.source} status={t.status} />
+              </More>
             </li>
           ))}
         </ul>
@@ -155,7 +171,9 @@ export default function Requirements({
               Allowable height, stories and area per story by construction type and sprinkler system, {c.code_edition}
             </em>
           </summary>
-          <p className={styles.evidence}>{pt.note}</p>
+          <More label="How this project type is classified">
+            <p className={styles.evidence}>{pt.note}</p>
+          </More>
           <div className={styles.tableWrap}>
             <table className={styles.table}>
               <thead>
@@ -181,7 +199,11 @@ export default function Requirements({
               </tbody>
             </table>
           </div>
-          {rows[0] && <Cite source={rows[0].source} status={rows[0].status} />}
+          {rows[0] && (
+            <More label="Source">
+              <Cite source={rows[0].source} status={rows[0].status} />
+            </More>
+          )}
         </details>
       )}
 
@@ -193,13 +215,11 @@ export default function Requirements({
         <ul>
           {laws.map((s) => (
             <li key={s.id} className={styles.finding}>
-              <strong>{s.rule}</strong>
-              {s.applies_when && (
-                <p className={styles.evidence}>
-                  Applies when: {s.applies_when}
-                </p>
-              )}
-              <Cite source={s.source} status={s.status} />
+              <Title text={s.rule} status={s.status} />
+              <More>
+                {s.applies_when && <p className={styles.evidence}>Applies when: {s.applies_when}</p>}
+                <Cite source={s.source} status={s.status} />
+              </More>
             </li>
           ))}
         </ul>
@@ -213,8 +233,10 @@ export default function Requirements({
         <ul>
           {rules.process.map((s) => (
             <li key={s.id} className={styles.finding}>
-              <strong>{s.rule}</strong>
-              <Cite source={s.source} status={s.status} />
+              <Title text={s.rule} status={s.status} />
+              <More label="Source">
+                <Cite source={s.source} status={s.status} />
+              </More>
             </li>
           ))}
         </ul>
