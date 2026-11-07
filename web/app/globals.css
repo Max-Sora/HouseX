@@ -14,6 +14,8 @@
   --warn: #8a5a00;
   --warn-bg: #f6ead2;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-sans: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,7 +54,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   line-height: 22px;
   -webkit-font-smoothing: antialiased;
