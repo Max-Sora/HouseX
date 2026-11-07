@@ -59,3 +59,33 @@ Data file: `research/construction-types.json`. All pages are 2025-edition UpCode
 - **R-2 13R limits differ from the IBC model.** In California, R-2 with 13R is limited to V-A 50 ft / 3 stories and V-B 40 ft / 2 stories. These values come from the page as published.
 - **Townhouse definition not read.** This matters for whether a 3-unit townhouse row can use the CRC.
 - **2025 code effective date (Jan 1, 2026) not confirmed** from a BSC page in this pass.
+
+## New project types: sfr, sfr_adu, mixed_use (checked 2026-11-07)
+
+Data file: `research/new-project-types.json`.
+
+| #   | URL | What it gave | Status |
+| --- | --- | ------------ | ------ |
+| N1  | https://cityofirvine.gov/building-permits-and-inspections/project-constructing-accessory-dwelling-unit-adu | ADU submittal list (ADU Verification Form from Planning, covenant notarized and recorded when the planner says so, hold harmless, Form 67-01 checklist, school fee, TCA, address application, deposit set-up, e-signature); goPost "For Permitting--Other"; completeness check in about 2 business days | VERIFIED |
+| N2  | https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34716-adu-application-package_updated-2025.pdf | ADU E-Submittal Checklist (Form 66-02 rev 10/24), Form 65-59 rev 04/23 (ADU questions), Residential Take-Off Sheet 42-51, OCFA **SFR** Plan Submittal Criteria form (PR160 / PR400-402; 140 ft and 3,600/6,200 sf triggers), Form 42-97 (ADU 749 sf or less is exempt from school fees), Address Application 41-60. Part of the text uses a shifted font and was decoded | VERIFIED |
+| N3  | https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35890-67-01.pdf | Form 67-01: 4 ft side and rear, 6 ft building to building, size caps, 1 parking space for an ADU with 1+ bedrooms, mechanical equipment 2 ft from property line | VERIFIED |
+| N4  | https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35928-67-02.pdf | Hold Harmless Affidavit. Its title limits it to Pre-Approved ADU plans | VERIFIED |
+| N5  | https://cityofirvine.gov/building-permits-and-inspections/pre-approved-adu-plans-program | Program exists; plan list says "Coming soon"; no time or fee figures | VERIFIED |
+| N6  | https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf | HCD ADU Handbook, March 2026: 66317 ministerial review, 60 days, 15 business days for completeness, concurrent approval with a new SFR; 66314(d)(7) 4 ft; 66321 heights 16/18/25 ft and sizes 800/850/1,000; 66314(d)(4) 1,200 sf; 66322 parking exemptions; 66315 no owner occupancy; 66333 JADU; 66323 combinations; sprinklers; fees | VERIFIED |
+| N7  | https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf | Commercial E-Submittal Checklist (Form 66-02 rev 05/22): IB 278/251/309/254, Security Code, non-residential green notes, OC Health approval for food, pool or body art, site data summary, Commercial Take-Off Sheet 66-61 | VERIFIED |
+| N8  | https://cityofirvine.gov/node/60926 | Packet list. No packet is titled for custom SFR or mixed use | VERIFIED |
+| N9  | https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas | CBC 508.2, 508.3.3, 508.4.4, Table 508.4 read from page HTML: R to B/F-1/M/S-1 is 1 h (S) / 2 h (NS); R to F-2/S-2/U is 1 h / 2 h (footnote c) | VERIFIED |
+| N10 | https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf | Mixed-use districts 3.1, 4.7, 5.0, 5.1, 8.1 and Estate 2.1 (Tables 5-3 and 5-4); IBC Vision Plan districts; FAA height and 75 ft overlay; Irvine defers to state ADU law | VERIFIED (city summary) |
+| N11 | https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/aff-hsg-high-roads-jobs-act-ab-2011.pdf | AB 2011 fact sheet, April 2026: ministerial and CEQA-exempt on commercial sites; two pathways; prevailing wage; in effect July 1, 2023 to January 1, 2033; amended by AB 2243 and AB 893 | VERIFIED |
+
+### Gaps for the new types
+
+- **Packet for a custom SFR is unconfirmed.** Irvine has no packet named for a single custom home, so sfr uses the "New Residential Models/Production" packet. It is also unconfirmed whether an SFR with an ADU is one submittal or two (the new-construction packet plus the ADU packet).
+- **Packet for mixed use is unconfirmed.** The commercial packet is assumed. The residential-only forms (TCA residential fee, area tabulations, address sequence) are not tagged for mixed_use. It is unconfirmed whether the City wants them too.
+- **Not read:** the ADU Verification Form and the covenant text. Neither is posted online.
+- **Older text in Form 67-01.** It allows a JADU to add 150 sf and cites 65852.2. Both are older than the HCD 2026 handbook.
+- **Not read: AB 2011 site, density and affordability criteria, and SB 6 (65852.24).** These are UNVERIFIED. It is also unknown whether Irvine adopted AB 2011 parcel exemptions.
+- **Zoning values come from the Housing Element summary.** The ordinance text is still unread. Column alignment between the 5.0 and 5.1 rows is ambiguous, and the 3.1 minimum lot of 10,890 sf is 0.25 acre converted.
+- **B and M allowable height/area rows are not in construction-types.json.** Mixed-use checks against 504.2 for the commercial occupancy can't run yet.
+- **Existing construction requirements that also fit the new types.** crc_scope, crc_sprinklers, crc_exterior_wall_fsd and cbc_occupancy_r2_r3 fit sfr and sfr_adu. cbc_unit_separation_*, cbc_group_r_sprinklers, cbc_nfpa13r_limits, cbc_s_increase_choice_r, cbc_allowable_table_caveats and cbc_exterior_wall_fsd fit mixed_use. These were not tagged because the output shape has no field for them.
+- **Master Plan for a single SFR in 2.2 is unconfirmed.** For that reason master_plan_entitlement is not tagged for sfr. The Housing Element lists 2.2 among districts needing a Master Plan for residential uses.
