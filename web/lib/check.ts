@@ -199,9 +199,9 @@ export function runCheck(
   const fromPlans = code(p.zoning_district_on_plans);
   const fromSite = code(site?.zoning);
   const district =
-    rules.zoning_districts.find(
-      (d) => d.code === (districtCode || fromSite || fromPlans),
-    ) ?? null;
+    [districtCode, fromSite, fromPlans]
+      .map((c) => rules.zoning_districts.find((d) => d.code === c))
+      .find(Boolean) ?? null;
   // Lot area from the parcel record when the plans don't state it; coverage computed from stated footprint.
   const lotArea = p.lot_area_sf ?? site?.lot_area_sf ?? null;
   const coverage =
@@ -255,6 +255,14 @@ export function runCheck(
   if (site) {
     if (site.lat === null) {
       findings.push({ kind: "unknown", title: "Project address", detail: `"${site.address}" could not be located, so no site facts were looked up.` });
+    }
+    if (site.zoning && !rules.zoning_districts.some((d) => d.code === fromSite)) {
+      findings.push({
+        kind: "unknown",
+        title: `City map zoning: ${site.zoning}`,
+        detail: `HouseX has residential standards for districts ${rules.zoning_districts.map((d) => d.code).join(", ")} only, so this district's standards were not checked. Confirm the use is allowed here with Irvine Planning.`,
+        source: sourceOf("Zoning district"),
+      });
     }
     if (fromSite && fromPlans && fromSite !== fromPlans) {
       findings.push({
