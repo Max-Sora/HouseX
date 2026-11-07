@@ -1,6 +1,6 @@
 # HouseX Pre-Check
 
-> For a small builder or nonprofit putting a new duplex or triplex on a lot in Irvine. Upload the plan set and get back every missing document and rule conflict, each with its source, before the city sees it.
+> For a small builder or nonprofit building new homes in Irvine. Upload the plan set and get back every missing document and rule conflict, each with its source, before the city sees it, plus a drafted fix for each one.
 
 **Team:** HouseX
 **Members:** _TODO: names_
@@ -9,23 +9,29 @@
 
 ## The real user
 
-A small builder or nonprofit project manager submitting a new duplex or triplex in Irvine. Each Orange County city has its own submittal checklist, zoning standards and forms, and state housing law overrides some of them. A package missing one document comes back as incomplete, and every correction round adds weeks while loan interest, taxes and insurance keep running.
+A small builder or nonprofit project manager submitting a new home, ADU, duplex, triplex or mixed-use building in Irvine. Each Orange County city has its own submittal checklist, zoning standards and forms, and state housing law overrides some of them. A package missing one document comes back as incomplete, and every correction round adds weeks while loan interest, taxes and insurance keep running.
 
 **Before:** the applicant pieces the package together from several city pages and PDFs, submits it, and learns what was missing from the completeness review and the plan-check comments.
 **After:** the applicant uploads the PDF and gets a correction list in 1 to 2 minutes: missing documents, rule conflicts, values the plans don't state, and what only a licensed plan checker can decide. A city permit tech can run the same check on an incoming package.
 
 ## What we built
 
-1. **Read.** Claude reads the plan set and reports only what is printed: units, height, stories, setbacks, lot area, parking, occupancy, construction type, sprinkler system, the sheet index, which required documents are included and which code items are shown. Each value comes with the sheet and the text it was read from. Anything not printed stays empty.
-2. **Check.** A plain TypeScript rule engine compares those values with Irvine's rules. Claude never decides pass or fail.
+1. **Locate.** The project address is looked up in public map data: City of Irvine geocoder, zoning map and parcel map, FEMA flood zones and CAL FIRE fire hazard zones. This gives the zoning district, parcel number, lot area, flood zone and fire zone. Owner names are never requested.
+2. **Read.** Claude reads the plan set and reports only what is printed: units, height, stories, setbacks, lot area, parking, occupancy, construction type, sprinkler system, the sheet index, which required documents are included and which code items are shown. Each value comes with the sheet and the text it was read from. Anything not printed stays empty.
+3. **Check.** A plain TypeScript rule engine compares those values with Irvine's rules. Claude never decides pass or fail.
    - Completeness against Irvine's New Residential submittal checklist
-   - Zoning standards by residential district (2.2 to 2.5)
+   - Project types: single-family home, SFR + ADU, duplex, triplex, and mixed use (residential + commercial)
+   - Zoning standards by district (residential 2.1 to 2.5, mixed-use 3.1, 4.7, 5.0, 5.1, 8.1), using the district from the city map when none is chosen
+   - State ADU law (Gov Code 66310 to 66342) and mixed-occupancy separations (CBC 508)
    - Allowable height, stories and area per story by construction type (Type I-A to V-B) and sprinkler system, from 2025 CBC Tables 504.3, 504.4 and 506.2
    - Unit separation, exterior wall and sprinkler rules for a duplex (CRC, R-3) or a triplex (CBC, R-2)
    - Irvine's local amendments, 2025 Energy Code and CALGreen items
    - Outdated code editions and statute numbers printed on the plans
-3. **Report.** A PASS, FAIL or INCOMPLETE stamp with counts, then the findings grouped as missing documents, corrections, not stated, needs a plan checker and passed. Each finding links to its source.
-4. **Requirements.** Before uploading anything, the page lists everything Irvine requires for the chosen project type, with sources.
+4. **Report.** A PASS, FAIL or INCOMPLETE stamp with counts, then the findings grouped as missing documents, corrections, not stated, needs a plan checker and passed. Each finding links to its source.
+   Missing documents can be filtered by type: city forms, fees, plan sheets, reports, fire and outside agencies.
+5. **Savings.** An estimate of the weeks and dollars saved by catching these problems before submittal. Every input is shown and editable: the waiting cost per home is derived from the challenge brief's mock example, review times from AB 2234 legal maximums, and the rest are labelled assumptions.
+6. **Fix my plan.** Claude drafts a correction package from the findings: updated title-sheet notes and code list, the exact text for each correction, a checklist of missing documents with the city's form links, and a letter to the plan checker. Values the designer must decide stay as [designer to confirm]. Downloads as Markdown for the architect to review and stamp. The savings step then shows the estimate with the package included.
+7. **Requirements.** Before uploading anything, the page lists everything Irvine requires for the chosen project type, with sources.
 
 **Demo video:** _TODO_
 **Live demo:** _TODO_
