@@ -39,7 +39,7 @@ echo "ANTHROPIC_API_KEY=your-key-here" > .env.local
 npm run dev
 ```
 
-Open http://localhost:3000 and upload a plan set PDF. Sample public plan sheets go in [`samples/`](samples/).
+Open http://localhost:3000 and upload a plan set PDF, or click "try a fictional triplex sample". That sample ([`samples/fictional-triplex-cover-sheet.html`](samples/fictional-triplex-cover-sheet.html)) is made up and contains deliberate errors (height, rear setback, lot coverage, parking, missing sprinklers, 2019 code editions, an outdated Gov Code citation) so the report shows a FAIL. A full check takes about 45 seconds.
 
 ## Sources and assumptions
 
