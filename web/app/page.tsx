@@ -19,7 +19,7 @@ export default function Home() {
           standards and state housing law, citing a source for every finding.
         </p>
       </header>
-      <PreCheck districts={districts} rulesChecked={rules.checked} />
+      <PreCheck districts={districts} rulesChecked={rules.checked} rules={rules} />
       <footer className={styles.footer}>
         Prototype for the UCI Impact Lab. Not legal advice and not a city
         decision. Rules were checked on {rules.checked}; items marked

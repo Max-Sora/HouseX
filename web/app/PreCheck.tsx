@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { Finding, FindingKind, Report } from "@/lib/types";
+import type { Finding, FindingKind, Report, RuleSet } from "@/lib/types";
+import Requirements from "./Requirements";
 import styles from "./page.module.css";
 
 type District = { code: string; name: string; allows: string[] };
@@ -65,9 +66,11 @@ function FindingRow({ f }: { f: Finding }) {
 export default function PreCheck({
   districts,
   rulesChecked,
+  rules,
 }: {
   districts: District[];
   rulesChecked: string;
+  rules: RuleSet;
 }) {
   const [file, setFile] = useState<File | null>(null);
   const [projectType, setProjectType] = useState("duplex");
@@ -245,6 +248,8 @@ export default function PreCheck({
           </details>
         </section>
       )}
+
+      <Requirements rules={rules} projectType={projectType} district={district || report?.district || ""} />
     </>
   );
 }

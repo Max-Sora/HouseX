@@ -51,6 +51,7 @@ export interface StateLawRule {
 export interface CodeTrigger {
   id: string;
   rule: string;
+  applies_to: string[];
   applies_when: string;
   required_evidence_on_plans: string;
   source: Source;

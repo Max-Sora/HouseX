@@ -888,7 +888,11 @@
         "url": "https://www.cityofirvine.gov/community-development/key-amendments",
         "section": "Fire sprinklers - new residential buildings"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ]
     },
     {
       "id": "irvine_5_9_401_over_5000sf",
@@ -900,7 +904,11 @@
         "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34538-new-construction-ver-2025.0-1-of-2-cover-sheet.pdf",
         "section": "Sprinkler note"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ]
     },
     {
       "id": "crc_r313_sprinklers",
@@ -912,7 +920,10 @@
         "url": "https://codes.iccsafe.org/content/CARC2022P1/chapter-3-building-planning",
         "section": "R313"
       },
-      "status": "UNVERIFIED"
+      "status": "UNVERIFIED",
+      "applies_to": [
+        "duplex"
+      ]
     },
     {
       "id": "crc_scope_duplex",
@@ -924,7 +935,10 @@
         "url": null,
         "section": "R101.2"
       },
-      "status": "UNVERIFIED"
+      "status": "UNVERIFIED",
+      "applies_to": [
+        "duplex"
+      ]
     },
     {
       "id": "cbc_r2_for_3plus",
@@ -936,7 +950,10 @@
         "url": null,
         "section": "CBC 310 / CRC R101.2"
       },
-      "status": "UNVERIFIED"
+      "status": "UNVERIFIED",
+      "applies_to": [
+        "triplex"
+      ]
     },
     {
       "id": "cbc_11a_removed_2025",
@@ -948,7 +965,10 @@
         "url": "https://www.dgs.ca.gov/BSC/Resources/2025-Title-24-California-Code-Changes/2025-Part-2-Chapter-11A-Housing-Accessibility",
         "section": "1101A.1 Scope and 1102A.1 Where required"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "triplex"
+      ]
     },
     {
       "id": "energy_pv_single_family",
@@ -960,7 +980,10 @@
         "url": "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center-12",
         "section": "150.1(c)14"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "duplex"
+      ]
     },
     {
       "id": "energy_pv_multifamily",
@@ -972,7 +995,10 @@
         "url": null,
         "section": ""
       },
-      "status": "UNVERIFIED"
+      "status": "UNVERIFIED",
+      "applies_to": [
+        "triplex"
+      ]
     },
     {
       "id": "energy_code_2025_effective",
@@ -984,7 +1010,11 @@
         "url": "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency",
         "section": ""
       },
-      "status": "UNVERIFIED"
+      "status": "UNVERIFIED",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ]
     },
     {
       "id": "calgreen_ev_one_two_family",
@@ -996,7 +1026,10 @@
         "url": null,
         "section": "4.106.4.1"
       },
-      "status": "UNVERIFIED"
+      "status": "UNVERIFIED",
+      "applies_to": [
+        "duplex"
+      ]
     },
     {
       "id": "calgreen_ev_multifamily",
@@ -1008,7 +1041,10 @@
         "url": null,
         "section": "4.106.4.2"
       },
-      "status": "UNVERIFIED"
+      "status": "UNVERIFIED",
+      "applies_to": [
+        "triplex"
+      ]
     },
     {
       "id": "calgreen_cd_waste",
@@ -1020,7 +1056,11 @@
         "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
         "section": "IMC 6-7-900; CALGreen 4.408"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ]
     },
     {
       "id": "ocfa_arch_plan_3units_3stories",
@@ -1032,7 +1072,10 @@
         "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
         "section": "Question 5"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "triplex"
+      ]
     },
     {
       "id": "irvine_class_a_roof",
@@ -1044,7 +1087,11 @@
         "url": "https://www.cityofirvine.gov/community-development/key-amendments",
         "section": "Roofing"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ]
     },
     {
       "id": "irvine_underground_wiring",
@@ -1056,7 +1103,11 @@
         "url": "https://www.cityofirvine.gov/community-development/key-amendments",
         "section": "Electrical"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ]
     },
     {
       "id": "fhsz_chapter_7a",
@@ -1068,7 +1119,11 @@
         "url": "https://www.cityofirvine.gov/community-development/key-amendments",
         "section": "Wildfire"
       },
-      "status": "VERIFIED"
+      "status": "VERIFIED",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ]
     }
   ],
   "process": [

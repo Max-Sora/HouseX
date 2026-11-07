@@ -142,7 +142,7 @@ export function runCheck(
     });
 
   // 3. Building and energy code items the plans must show.
-  for (const t of rules.code_triggers) {
+  for (const t of rules.code_triggers.filter((t) => t.applies_to.includes(projectType))) {
     const seen = plan.code_triggers.find((c) => c.id === t.id);
     if (!seen || seen.status === "not_applicable") continue;
     findings.push({

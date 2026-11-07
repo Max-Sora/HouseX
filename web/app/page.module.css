@@ -252,3 +252,27 @@
   cursor: pointer;
   padding: 0;
 }
+
+.requirements {
+  margin-top: 40px;
+}
+
+.requirements h2 {
+  font-size: 22px;
+}
+
+.cite {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.tableWrap .table th {
+  width: auto;
+  white-space: nowrap;
+}
