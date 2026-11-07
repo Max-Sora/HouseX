@@ -2,6 +2,7 @@
 
 import type { FixPackage } from "@/lib/fix";
 import type { Report } from "@/lib/types";
+import WaitPanel from "./WaitPanel";
 import styles from "./page.module.css";
 
 function toMarkdown(report: Report, pkg: FixPackage): string {
@@ -77,9 +78,17 @@ export default function Fix({
           {loading ? "Drafting the package…" : "Draft my correction package"}
         </button>
         {loading && (
-          <p className={styles.hint}>
-            Writing a fix for every finding, 1 to 2 minutes
-          </p>
+          <WaitPanel
+            title="Drafting your correction package"
+            typical="about 2 minutes"
+            steps={[
+              { label: "Collecting the findings from your report", at: 0 },
+              { label: "AI is drafting the updated title-sheet notes and code list", at: 4 },
+              { label: "AI is writing the exact fix for each correction", at: 25 },
+              { label: "Matching each missing document to the city's form", at: 70 },
+              { label: "AI is writing your letter to the plan checker", at: 95 },
+            ]}
+          />
         )}
         {error && <p className={styles.error}>{error}</p>}
       </section>

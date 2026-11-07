@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { rules } from "@/lib/rules";
 import { useStore } from "./Store";
+import WaitPanel from "./WaitPanel";
 import styles from "./page.module.css";
 
 const SAMPLES = [
@@ -136,7 +137,19 @@ export default function PreCheck() {
         </button>
       </div>
       {loading && (
-        <p className={styles.hint}>Reading every sheet, 1 to 2 minutes</p>
+        <WaitPanel
+          title="Pre-checking your plan set"
+          typical="1 to 2 minutes"
+          steps={[
+            { label: "Uploading your plan set", at: 0 },
+            ...(address.trim() ? [{ label: "Looking up the lot in Irvine's zoning and parcel maps", at: 2 }] : []),
+            { label: "AI is reading every sheet of your plans", at: 5 },
+            { label: "AI is finding the project data: units, height, setbacks, parking", at: 22 },
+            { label: "Checking against Irvine's submittal checklist", at: 42 },
+            { label: "Checking zoning, building code and state housing law", at: 58 },
+            { label: "Linking every finding to its source", at: 74 },
+          ]}
+        />
       )}
       {error && <p className={styles.error}>{error}</p>}
     </form>
