@@ -8,6 +8,7 @@ import { DEFAULTS, type Assumptions } from "./Savings";
 // Shared across pages so a report, its fix package and the savings inputs survive navigation.
 // Also kept in sessionStorage so a reload of the tab keeps them.
 interface Store {
+  loaded: boolean;
   projectType: string;
   setProjectType: (v: string) => void;
   district: string;
@@ -103,6 +104,7 @@ export default function StoreProvider({
   return (
     <Ctx.Provider
       value={{
+        loaded,
         projectType,
         setProjectType,
         district,

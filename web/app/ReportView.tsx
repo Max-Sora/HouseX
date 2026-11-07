@@ -65,8 +65,9 @@ function FindingRow({ f }: { f: Finding }) {
 }
 
 export default function ReportView() {
-  const { report } = useStore();
+  const { report, loaded } = useStore();
   const [docType, setDocType] = useState("All");
+  if (!loaded) return null;
   if (!report) return <NeedReport />;
 
   const count = (k: FindingKind) =>

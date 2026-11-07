@@ -11,7 +11,8 @@ import Requirements from "./Requirements";
 import styles from "./page.module.css";
 
 export function SavingsView({ withFix }: { withFix: boolean }) {
-  const { report, pkg, assume, setAssume } = useStore();
+  const { report, pkg, assume, setAssume, loaded } = useStore();
+  if (!loaded) return null;
   if (!report) return <NeedReport />;
   if (withFix && !pkg) {
     return (
@@ -47,7 +48,8 @@ export function SavingsView({ withFix }: { withFix: boolean }) {
 }
 
 export function FixView() {
-  const { report, pkg, fixing, fixError, draft } = useStore();
+  const { report, pkg, fixing, fixError, draft, loaded } = useStore();
+  if (!loaded) return null;
   if (!report) return <NeedReport />;
   return (
     <>
@@ -68,7 +70,8 @@ export function FixView() {
 }
 
 export function CostBenefitView() {
-  const { report, pkg, assume } = useStore();
+  const { report, pkg, assume, loaded } = useStore();
+  if (!loaded) return null;
   const e = report ? estimate(report, assume) : null;
   return (
     <CostBenefit
