@@ -87,7 +87,7 @@ export function estimate(report: Report, a: Assumptions) {
   const fixes = count("violation") + count("unknown");
   const units =
     report.extracted.project.unit_count ??
-    ({ duplex: 2, triplex: 3, sfr_adu: 2 } as Record<string, number>)[
+    ({ sfr: 1, duplex: 2, triplex: 3, sfr_adu: 2 } as Record<string, number>)[
       report.projectType
     ] ??
     1;

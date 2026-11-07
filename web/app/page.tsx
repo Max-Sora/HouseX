@@ -14,7 +14,7 @@ export default function Home() {
         <p className={styles.kicker}>HouseX · {rules.city} plan pre-check</p>
         <h1>Find every correction before the city does</h1>
         <p className={styles.lede}>
-          Upload a duplex or triplex plan set. HouseX reads it with Claude and
+          Upload a residential or mixed-use plan set. HouseX reads it with Claude and
           checks it against {rules.city}&rsquo;s submittal checklist, zoning
           standards and state housing law. Every finding links to its source.
         </p>

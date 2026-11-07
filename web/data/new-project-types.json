@@ -1,0 +1,1155 @@
+{
+  "checked": "2026-11-07",
+  "project_types": [
+    { "id": "sfr", "label": "Single-family home (SFR)" },
+    { "id": "sfr_adu", "label": "SFR + ADU" },
+    { "id": "mixed_use", "label": "Mixed use (residential + commercial)" }
+  ],
+  "existing_document_ids_by_type": {
+    "sfr": [
+      "e_submittal_checklist",
+      "esignature_disclosure",
+      "building_permit_application",
+      "cd_waste_assessment",
+      "developer_deposit_case_setup",
+      "area_tabulations",
+      "address_sequence_sheet",
+      "tca_fee_form",
+      "school_fee_form",
+      "title_sheet",
+      "site_plan",
+      "architectural_plans",
+      "structural_plans_calcs",
+      "soils_report",
+      "title24_energy",
+      "calgreen_checklist",
+      "fire_sprinkler_plans",
+      "grading_plan",
+      "landscape_plan",
+      "erosion_stormwater_notes",
+      "wqmp",
+      "fhsz_wui_notes",
+      "irwd_clearance"
+    ],
+    "sfr_adu": [
+      "e_submittal_checklist",
+      "esignature_disclosure",
+      "building_permit_application",
+      "cd_waste_assessment",
+      "developer_deposit_case_setup",
+      "area_tabulations",
+      "address_sequence_sheet",
+      "tca_fee_form",
+      "school_fee_form",
+      "title_sheet",
+      "site_plan",
+      "architectural_plans",
+      "structural_plans_calcs",
+      "soils_report",
+      "title24_energy",
+      "calgreen_checklist",
+      "fire_sprinkler_plans",
+      "grading_plan",
+      "landscape_plan",
+      "erosion_stormwater_notes",
+      "wqmp",
+      "fhsz_wui_notes",
+      "irwd_clearance"
+    ],
+    "mixed_use": [
+      "esignature_disclosure",
+      "building_permit_application",
+      "building_data_sheet",
+      "cd_waste_assessment",
+      "ocfa_plan_submittal_criteria",
+      "fire_master_plan",
+      "developer_deposit_case_setup",
+      "school_fee_form",
+      "title_sheet",
+      "site_plan",
+      "architectural_plans",
+      "structural_plans_calcs",
+      "soils_report",
+      "title24_energy",
+      "calgreen_checklist",
+      "fire_sprinkler_plans",
+      "grading_plan",
+      "landscape_plan",
+      "erosion_stormwater_notes",
+      "wqmp",
+      "fhsz_wui_notes",
+      "master_plan_entitlement",
+      "irwd_clearance"
+    ]
+  },
+  "new_required_documents": [
+    {
+      "id": "adu_verification_form",
+      "name": "ADU Verification Form (signed by City Planning staff)",
+      "description": "All residential ADU permit applications must be accompanied by a completed ADU Verification Form, obtained from the Planning Team (planning@cityofirvine.org) to verify the property is eligible for an ADU before submittal. The form must be completed and signed by City Planning staff. Also determines whether the property is single-family or multi-family.",
+      "applies_to": ["sfr_adu"],
+      "detect_hints": [
+        "ADU VERIFICATION FORM",
+        "ADU VERIFICATION",
+        "ACCESSORY DWELLING UNIT VERIFICATION"
+      ],
+      "source": {
+        "title": "City of Irvine - Project: Constructing an ADU; ADU Application Package (E-Submittal Checklist, Form 66-02 rev 10/24)",
+        "url": "https://cityofirvine.gov/building-permits-and-inspections/project-constructing-accessory-dwelling-unit-adu",
+        "section": "Required documents; package Additional Information item 1"
+      },
+      "status": "VERIFIED",
+      "note": "Form itself is not posted online (request by email); its fields were not read.",
+      "category": "City forms"
+    },
+    {
+      "id": "adu_e_submittal_checklist",
+      "name": "E-Submittal Checklist and Questionnaire - Residential Accessory Dwelling Unit (Form 66-02 rev 10/24)",
+      "description": "Cover checklist for project group Building and Grading, project type 'Residential Accessory Dwelling Unit'. Documents required: Electronic/Digital Signature Disclosure, Building Permit Application, Residential Take-Off Sheet, C&D Waste Assessment 2.0, OCFA Plan Submittal Criteria, Developer Deposit Case Set Up, TCA Residential Fee Determination, School Facilities Fee Determination, ADU Verification Form, and an updated City Standard Title Sheet as the first page of the architectural plan set. Notes that an online C&D Waste Management Plan must be approved before permit, fees are billed before review starts, and the HOA may have its own approval process.",
+      "applies_to": ["sfr_adu"],
+      "detect_hints": [
+        "E-SUBMITTAL CHECKLIST AND QUESTIONNAIRE",
+        "RESIDENTIAL ACCESSORY DWELLING UNIT",
+        "FORM 66-02"
+      ],
+      "source": {
+        "title": "City of Irvine - ADU Application Package (updated 2025)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34716-adu-application-package_updated-2025.pdf",
+        "section": "E-Submittal Checklist and Questionnaire, Form 66-02 rev 10/24"
+      },
+      "status": "VERIFIED",
+      "note": "Part of the package text uses a shifted font; the item names were decoded from it. Building Permit Application in this package is Form 65-59 rev 04/23 and asks whether the project includes an ADU (attached / detached / garage conversion) and ADU solar PV. When the ADU is submitted with a new SFR, whether one combined submittal or two separate submittals (new-construction packet + ADU packet) is expected was not confirmed.",
+      "category": "City forms"
+    },
+    {
+      "id": "residential_take_off_sheet",
+      "name": "Residential Take-Off Sheet (Form 42-51 rev 08/24)",
+      "description": "Counts of electrical, mechanical and plumbing items (fixtures, circuits, meter/service, panel, furnace, A/C, water heater, etc.) used for fee calculation.",
+      "applies_to": ["sfr_adu"],
+      "detect_hints": ["RESIDENTIAL TAKE-OFF SHEET", "FORM 42-51"],
+      "source": {
+        "title": "City of Irvine - ADU Application Package (updated 2025)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34716-adu-application-package_updated-2025.pdf",
+        "section": "Form 42-51 rev 08/24"
+      },
+      "status": "VERIFIED",
+      "note": "Listed in the ADU package. Not listed in the 4/14/23 new-construction packet, so it is not tagged for sfr.",
+      "category": "City forms"
+    },
+    {
+      "id": "ocfa_sfr_plan_submittal_criteria",
+      "name": "OCFA Plan Submittal Criteria Form - SFR (Single Family or Duplex Residences)",
+      "description": "OCFA questionnaire 'Required for Single Family or Duplex Residences' (use the Commercial form for lots with 3+ dwelling units or new residential tracts). Q1 new SFR/duplex -> PR160 Residential Site with Water Availability and PR400-402 Fire Sprinkler; Q2 new ADU on a property whose house has or will get sprinklers -> PR400-402; Q4 most remote portion of ADU/detached structure > 140 ft from fire access roadway -> PR160; Q5 total area > 3,600 sf non-sprinklered or > 6,200 sf sprinklered (incl. garages and detached structures within 10 ft) -> PR160; Q8 gate across fire access; Q9 methane (DOGGR / seep / landfill distances); Q10 vegetation / FHSZ -> PR125 Fuel Modification. PR-types marked * need OCFA approval before grading/building permit; others may be deferred.",
+      "applies_to": ["sfr", "sfr_adu"],
+      "detect_hints": [
+        "ORANGE COUNTY FIRE AUTHORITY",
+        "Plan Submittal Criteria Form",
+        "Single Family or Duplex Residences",
+        "PR160",
+        "PR400"
+      ],
+      "source": {
+        "title": "City of Irvine - ADU Application Package (updated 2025), OCFA SFR form",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34716-adu-application-package_updated-2025.pdf",
+        "section": "OCFA Plan Submittal Criteria Form (SFR), Questions 1-10"
+      },
+      "status": "VERIFIED",
+      "note": "The existing ocfa_plan_submittal_criteria entry is the Commercial/Multifamily/Residential Tract version; this SFR version is the one for a single house or house + ADU. Form revision date did not extract.",
+      "category": "Fire (OCFA)"
+    },
+    {
+      "id": "adu_development_standards_checklist",
+      "name": "Pre-Approved ADU Development Standards Checklist (Form 67-01 rev 01/25) - site plan items",
+      "description": "Items to identify on plans: SFD vs multifamily; type (JADU / attached / detached); number of units; property lines; easements (or owner's no-easement note); minimum 4-ft side and rear setbacks and 6-ft building-to-building; existing primary residence footprint sf; proposed unit sf (JADU up to 500 sf; detached up to 1,200 sf; attached up to 1,200 sf or 50% of primary, whichever is less; may exceed lot coverage to allow 800 sf); garage sf; lot size; lot coverage; building height; ADU parking (one space for one or more bedrooms); walls/fences; mechanical equipment 2 ft from property line and screened; solid waste bins.",
+      "applies_to": ["sfr_adu"],
+      "detect_hints": [
+        "DEVELOPMENT STANDARDS CHECKLIST",
+        "FORM 67-01",
+        "PRE-APPROVED ADU",
+        "BUILDING TO BUILDING",
+        "ADU PARKING"
+      ],
+      "source": {
+        "title": "City of Irvine - Pre-Approved ADU Development Standards Checklist",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35890-67-01.pdf",
+        "section": "Form 67-01 rev 01/25"
+      },
+      "status": "VERIFIED",
+      "note": "Form title says 'Pre-Approved ADU' but the ADU page lists it as the 'Development Standards Checklist (Site Plan)' for ADU submittals generally. Some checklist text is older than the HCD March 2026 handbook: it says JADU may add 150 sf for ingress/egress (HCD says that allowance is only for ADUs converted from accessory structures, 66323(a)(1)(A)) and cites Gov. Code 65852.2 (renumbered to 66314 et seq.).",
+      "category": "Plan sheets"
+    },
+    {
+      "id": "adu_hold_harmless_affidavit",
+      "name": "Hold Harmless Affidavit - Pre-Approved ADU Plans (Form 67-02)",
+      "description": "Owner releases, defends and indemnifies the City and the plan authors for use of Pre-Approved ADU construction documents; plans are copyrighted and restricted to the original project.",
+      "applies_to": ["sfr_adu"],
+      "detect_hints": [
+        "HOLD HARMLESS AFFIDAVIT",
+        "PRE-APPROVED ACCESSORY DWELLING UNIT PLANS"
+      ],
+      "source": {
+        "title": "City of Irvine - Hold Harmless Affidavit",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35928-67-02.pdf",
+        "section": "Form 67-02"
+      },
+      "status": "VERIFIED",
+      "note": "The form's own title limits it to projects using Pre-Approved ADU plans; the ADU page lists it without that condition. Irvine's Pre-Approved ADU Plans Program page showed its plan list as 'Coming soon' when read.",
+      "category": "City forms"
+    },
+    {
+      "id": "adu_covenant",
+      "name": "ADU Covenant (notarized, recorded with the Orange County Recorder)",
+      "description": "Covenant obtained from Planning (planning@cityofirvine.org); must be notarized and recorded with the County of Orange Recorder's office when notified by the case planner.",
+      "applies_to": ["sfr_adu"],
+      "detect_hints": [
+        "COVENANT",
+        "DEED RESTRICTION",
+        "RECORDING REQUESTED BY",
+        "COUNTY RECORDER"
+      ],
+      "source": {
+        "title": "City of Irvine - Project: Constructing an ADU",
+        "url": "https://cityofirvine.gov/building-permits-and-inspections/project-constructing-accessory-dwelling-unit-adu",
+        "section": "Required documents - Covenant"
+      },
+      "status": "VERIFIED",
+      "note": "Covenant text not read. HCD March 2026 handbook: a city cannot impose an affordability deed restriction or owner-occupancy on an ADU (Gov. Code 66315), but a JADU ordinance must require a recorded deed restriction (66333(c)). Recording happens after the planner's notice, so it is not a submittal-day blocker.",
+      "category": "Approvals and outside agencies"
+    },
+    {
+      "id": "address_application",
+      "name": "Address Application (Form 41-60 rev 02/24)",
+      "description": "Request for a new address: parcel/tract and lot(s), planning area, APN, permanent/temporary, building/structure/utility meter; must include an exhibit showing the location of the building being addressed. Submitted to planning@cityofirvine.org.",
+      "applies_to": ["sfr_adu"],
+      "detect_hints": ["ADDRESS APPLICATION", "FORM 41-60"],
+      "source": {
+        "title": "City of Irvine - ADU Application Package (updated 2025)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34716-adu-application-package_updated-2025.pdf",
+        "section": "Form 41-60 rev 02/24"
+      },
+      "status": "VERIFIED",
+      "note": "Standalone copy: https://cityofirvine.gov/sites/default/files/legacy-documents/civica-19334-41-60.pdf",
+      "category": "City forms"
+    },
+    {
+      "id": "commercial_e_submittal_checklist",
+      "name": "E-Submittal Checklist and Questionnaire - Commercial/Industrial New Construction or Additions (Form 66-02 rev 05/22)",
+      "description": "Documents: Electronic/Digital Signature Disclosure, Building Permit Application, Building Data Sheet(s), C&D Waste Assessment 2.0, OCFA Plan Submittal Criteria, School Facilities Fee Determination, Developer Deposit Case Set Up. Plan content: City Standard Title Sheet, Statement of Special Inspection (IB 278), Structural Observation Program (IB 251), sprinkler note, stormwater notes, Green Building Standard Notes Non-Residential, Security Code notes, Construction Site Security, Public Safety Radio Coverage (IB 309), Disabled Access Plan Submittal (IB 254); Title 24 calcs with compliance forms on plans; soils report and soils summary; structural calcs; site plan with land-use area summary and parking summary; landscape/irrigation (before permit); precise grading plan (before or with building submittal); OC Health Care Agency approval for food/pool/body-art uses.",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "E-SUBMITTAL CHECKLIST AND QUESTIONNAIRE",
+        "COMMERCIAL/INDUSTRIAL NEW CONSTRUCTION OR ADDITIONS",
+        "FORM 66-02"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information items 1-15; DOCUMENTS"
+      },
+      "status": "VERIFIED",
+      "note": "Irvine has no packet titled for mixed-use; this is the commercial new-construction packet. The residential units in the same building would normally also need residential items (e.g. TCA residential fee form) - which packet the City expects for a combined building was not confirmed.",
+      "category": "City forms"
+    },
+    {
+      "id": "commercial_take_off_sheet",
+      "name": "Commercial Take-Off Sheet (Form 66-61 rev 08/24)",
+      "description": "Counts of electrical (incl. service/meter amps, switchboards, solar kW), mechanical and plumbing items for commercial fee calculation.",
+      "applies_to": ["mixed_use"],
+      "detect_hints": ["COMMERCIAL TAKE-OFF SHEET", "FORM 66-61"],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Form 66-61 rev 08/24 (3 pages)"
+      },
+      "status": "VERIFIED",
+      "note": "Included in the package but not named in its DOCUMENTS checkbox list.",
+      "category": "City forms"
+    },
+    {
+      "id": "statement_special_inspection",
+      "name": "City of Irvine Statement of Special Inspection (Informational Bulletin No. 278)",
+      "description": "Required plan content for commercial new construction.",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "STATEMENT OF SPECIAL INSPECTION",
+        "SPECIAL INSPECTION",
+        "BULLETIN 278"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information item 7"
+      },
+      "status": "VERIFIED",
+      "note": "IB 278 itself not read.",
+      "category": "Reports and calculations"
+    },
+    {
+      "id": "structural_observation_program",
+      "name": "City of Irvine Structural Observation Program (Informational Bulletin No. 251)",
+      "description": "Required plan content for commercial new construction.",
+      "applies_to": ["mixed_use"],
+      "detect_hints": ["STRUCTURAL OBSERVATION", "BULLETIN 251"],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information item 7"
+      },
+      "status": "VERIFIED",
+      "note": "IB 251 itself not read.",
+      "category": "Reports and calculations"
+    },
+    {
+      "id": "nonresidential_green_building_notes",
+      "name": "Green Building Standard Notes, Non-Residential",
+      "description": "City standard CALGreen non-residential notes on the plans (package lists the 2019 edition).",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "GREEN BUILDING STANDARD NOTES",
+        "NON-RESIDENTIAL",
+        "CALGREEN",
+        "5.106",
+        "5.408"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information item 7"
+      },
+      "status": "VERIFIED",
+      "note": "Package cites a 2019 edition of the notes; a 2025-cycle version was not checked.",
+      "category": "Plan sheets"
+    },
+    {
+      "id": "security_code_notes",
+      "name": "Irvine Security Code standard notes + Construction Site Security",
+      "description": "Security Code Standard Plan Requirements and Definitions; Standard Non-Residential Provisions (2017); Standard Parking Facility Provisions (enclosed or covered parking); Construction Site Security General Requirements (all new buildings).",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "SECURITY CODE",
+        "CONSTRUCTION SITE SECURITY",
+        "PARKING FACILITY PROVISIONS"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information item 7"
+      },
+      "status": "VERIFIED",
+      "note": "Note contents not read. Housing Element says Public Safety also reviews ADUs for Security Code addressing/wayfinding.",
+      "category": "Plan sheets"
+    },
+    {
+      "id": "public_safety_radio_coverage",
+      "name": "Public Safety Radio System Coverage (Informational Bulletin No. 309)",
+      "description": "Required plan content for commercial new construction.",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "PUBLIC SAFETY RADIO",
+        "EMERGENCY RESPONDER RADIO",
+        "ERRCS",
+        "BULLETIN 309"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information item 7"
+      },
+      "status": "VERIFIED",
+      "note": "IB 309 trigger thresholds not read.",
+      "category": "Fire (OCFA)"
+    },
+    {
+      "id": "disabled_access_plan",
+      "name": "Disabled Access Plan Submittal (Informational Bulletin No. 254)",
+      "description": "Accessibility plan content for commercial new construction (CBC Chapter 11B).",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "DISABLED ACCESS",
+        "ACCESSIBILITY",
+        "11B",
+        "PATH OF TRAVEL",
+        "BULLETIN 254"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information item 7"
+      },
+      "status": "VERIFIED",
+      "note": "IB 254 not read; '11B' as the governing chapter is from the existing cbc_11a_removed_2025 trigger, not from IB 254.",
+      "category": "Plan sheets"
+    },
+    {
+      "id": "resolutions_approval_letters",
+      "name": "Copies of all resolutions and approval letters for the project",
+      "description": "Copies of all resolutions and approval letters related to the project are required and must be included (e.g. Master Plan / CUP resolution and conditions).",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "RESOLUTION NO.",
+        "CONDITIONS OF APPROVAL",
+        "APPROVAL LETTER"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information item 6"
+      },
+      "status": "VERIFIED",
+      "note": "",
+      "category": "Approvals and outside agencies"
+    },
+    {
+      "id": "oc_environmental_health_approval",
+      "name": "OC Health Care Agency Environmental Health stamped approval (food establishment / public pool / body art)",
+      "description": "Before permits, plans must be approved and stamped by Environmental Health of the County of Orange Health Care Agency for any new public pool, new food establishment, or body-art establishment. Commercial kitchens also need Clearance Requirements for Commercial Appliances (IB 313).",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "ENVIRONMENTAL HEALTH",
+        "HEALTH CARE AGENCY",
+        "FOOD ESTABLISHMENT",
+        "COMMERCIAL KITCHEN",
+        "HOOD"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information items 7 and 15"
+      },
+      "status": "VERIFIED",
+      "note": "Conditional: only when the commercial space has a food use, public pool or body art. A shell building with unknown tenants may defer this to the tenant improvement.",
+      "category": "Approvals and outside agencies"
+    },
+    {
+      "id": "site_plan_data_summary",
+      "name": "Site plan data summary (area by land use + parking summary)",
+      "description": "Site plan showing all building footprints on the legal parcel, a data summary of gross sf in each building broken down by land use, and a parking summary of spaces required by code vs provided. Package asks for the Site Plan Data Summary or equivalent.",
+      "applies_to": ["mixed_use"],
+      "detect_hints": [
+        "SITE PLAN DATA SUMMARY",
+        "PARKING SUMMARY",
+        "PARKING REQUIRED",
+        "PARKING PROVIDED",
+        "LAND USE"
+      ],
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information items 5 and 11"
+      },
+      "status": "VERIFIED",
+      "note": "",
+      "category": "Plan sheets"
+    }
+  ],
+  "existing_code_trigger_ids_by_type": {
+    "sfr": [
+      "irvine_sprinklers_new_residential",
+      "irvine_5_9_401_over_5000sf",
+      "crc_r313_sprinklers",
+      "energy_pv_single_family",
+      "energy_code_2025_effective",
+      "calgreen_ev_one_two_family",
+      "calgreen_cd_waste",
+      "irvine_class_a_roof",
+      "irvine_underground_wiring",
+      "fhsz_chapter_7a"
+    ],
+    "sfr_adu": [
+      "irvine_sprinklers_new_residential",
+      "irvine_5_9_401_over_5000sf",
+      "crc_r313_sprinklers",
+      "energy_pv_single_family",
+      "energy_code_2025_effective",
+      "calgreen_ev_one_two_family",
+      "calgreen_cd_waste",
+      "irvine_class_a_roof",
+      "irvine_underground_wiring",
+      "fhsz_chapter_7a"
+    ],
+    "mixed_use": [
+      "irvine_sprinklers_new_residential",
+      "irvine_5_9_401_over_5000sf",
+      "cbc_r2_for_3plus",
+      "cbc_11a_removed_2025",
+      "energy_pv_multifamily",
+      "energy_code_2025_effective",
+      "calgreen_ev_multifamily",
+      "calgreen_cd_waste",
+      "ocfa_arch_plan_3units_3stories",
+      "irvine_class_a_roof",
+      "irvine_underground_wiring",
+      "fhsz_chapter_7a"
+    ]
+  },
+  "new_code_triggers": [
+    {
+      "id": "ocfa_sfr_residential_site_plan",
+      "rule": "OCFA SFR form: a new single-family residence needs an OCFA PR160 Residential Site (with Water Availability) review and PR400-402 fire sprinkler plans. PR160 is also triggered if the most remote portion of an ADU or detached structure is more than 140 ft from the fire access roadway, or total area exceeds 3,600 sf (non-sprinklered) / 6,200 sf (sprinklered) counting garages and detached structures within 10 ft. PR160 needs OCFA approval before the grading/building permit; sprinkler plans may be deferred.",
+      "applies_when": "New SFR, or SFR + ADU where the ADU is far from the fire access road or total area is large.",
+      "required_evidence_on_plans": "Site plan with fire access roadway and hose-pull distance to the farthest point of each building; total area tabulation incl. garages; OCFA SFR form answered; sprinkler note (deferred).",
+      "source": {
+        "title": "OCFA Plan Submittal Criteria Form - SFR (in Irvine ADU Application Package 2025)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34716-adu-application-package_updated-2025.pdf",
+        "section": "Questions 1, 2, 4, 5"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr", "sfr_adu"]
+    },
+    {
+      "id": "irvine_adu_building_separation_6ft",
+      "rule": "Irvine ADU checklist: show minimum 4-ft side and rear setbacks and a 6-ft building-to-building setback; mechanical equipment set back 2 ft from the property line and screened from off-site views.",
+      "applies_when": "Detached ADU on the same lot as the new SFR.",
+      "required_evidence_on_plans": "Site plan dimensions: ADU to side/rear property lines (>= 4 ft shown), ADU to primary dwelling (6 ft), mechanical equipment to property line (2 ft).",
+      "source": {
+        "title": "City of Irvine - Pre-Approved ADU Development Standards Checklist (Form 67-01 rev 01/25)",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35890-67-01.pdf",
+        "section": "Setbacks; Mechanical Equipment"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "irvine_adu_parking_one_space",
+      "rule": "Irvine ADU checklist: one parking space is required for an ADU with one or more bedrooms, in addition to the primary residence's required parking. State law exempts ADUs from parking in listed cases (Gov. Code 66322(a)), including an ADU permit submitted together with a new single-family dwelling permit where the ADU or parcel meets one of the other 66322(a)(1)-(5) criteria (e.g. within 1/2 mile walking distance of public transit).",
+      "applies_when": "SFR + ADU with 1+ bedroom ADU, unless a 66322(a) exemption applies.",
+      "required_evidence_on_plans": "Dimensioned and labeled ADU parking space (tandem on driveway allowed), or a note citing the 66322(a) exemption (e.g. transit distance).",
+      "source": {
+        "title": "City of Irvine Form 67-01; HCD ADU Handbook (March 2026) Parking Requirements",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35890-67-01.pdf",
+        "section": "Parking; Gov. Code 66314(d)(10), 66322(a)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "cbc_508_mixed_occupancy",
+      "rule": "A building with residential (R-2) and commercial (B or M) occupancies must be designed under CBC 508 as accessory, nonseparated or separated occupancies. Nonseparated: most restrictive Chapter 9 provisions apply to the whole nonseparated area and no occupancy separation is required, but R-2/R-3 dwelling units must still be separated from other units and from contiguous occupancies per Section 420 (508.3.3). Separated: each occupancy is separated per Table 508.4 with fire barriers (707) and/or horizontal assemblies (711) (508.4.4, 508.4.4.1).",
+      "applies_when": "Any mixed-use building with dwelling units and commercial space.",
+      "required_evidence_on_plans": "Code analysis stating the 508 method used, occupancy of each area, separation ratings, and fire barrier / horizontal assembly details between dwelling units and commercial space.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "508.1, 508.3.3, 508.4, 508.4.4, 508.4.4.1"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["mixed_use"]
+    },
+    {
+      "id": "irvine_commercial_plan_content",
+      "rule": "Irvine commercial new construction requires on the plans: Statement of Special Inspection (IB 278), Structural Observation Program (IB 251), sprinkler note, stormwater notes, Non-Residential Green Building notes, Security Code notes, Construction Site Security (all new buildings), Public Safety Radio Coverage (IB 309), Disabled Access Plan (IB 254); precise grading plan before or with the building submittal; landscape/irrigation plan before permit.",
+      "applies_when": "Mixed-use building submitted through the commercial new-construction packet.",
+      "required_evidence_on_plans": "Those notes/sheets in the plan set; grading plan check number if grading was submitted first.",
+      "source": {
+        "title": "City of Irvine - Commercial/Industrial New Construction or Additions Package (updated 2024)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/commercial-new-construction-or-additions-package_updated-2024_.pdf",
+        "section": "Additional Information items 7, 13, 14"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["mixed_use"]
+    },
+    {
+      "id": "irvine_ibc_faa_height",
+      "rule": "IBC areas zoned 5.0, 5.1 and 5.3 are subject to FAA Part 77 height limits near John Wayne Airport (Housing Element: structures in the IBC kept below 203.68 ft AMSL); the IBC Residential Mixed Use Overlay has a 75-ft (above ground) maximum, about seven stories.",
+      "applies_when": "Mixed-use project in the Irvine Business Complex (Planning Area 36).",
+      "required_evidence_on_plans": "Building height above grade and top elevation AMSL on elevations; FAA/ALUC filing if required.",
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Section 5.3.3.7 Height Limits",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "5.3.3.7; Figure 5-2"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["mixed_use"]
+    }
+  ],
+  "new_state_law": [
+    {
+      "id": "adu_ministerial_review",
+      "rule": "ADUs and JADUs must be approved or denied ministerially, without discretionary review or a hearing, against objective standards only.",
+      "value": null,
+      "unit": null,
+      "applies_when": "Any ADU/JADU application.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Permit Applications FAQ; Gov. Code 66317(a), 66335(a), 66314(b)(1)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_concurrent_with_new_sfr",
+      "rule": "A permitting agency may concurrently approve or deny an ADU (and a JADU) submitted together with a new single-family dwelling; the ADU application is still considered without discretionary review or hearing. The 60-day approve/deny clock in 66317(a)(3) applies when there is an existing dwelling on the lot.",
+      "value": 60,
+      "unit": "days to approve or deny (existing dwelling on lot)",
+      "applies_when": "SFR + ADU submitted together (new SFR is not yet an existing dwelling, so the 60-day clock may not run until the SFR is approved).",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Summary of Recent Changes - Permitting Process / Concurrent Permitting; Gov. Code 66317(a)(3), 66335(a)(3)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_completeness_15_business_days",
+      "rule": "The permitting agency must determine whether an ADU/JADU application is complete and give written notice within 15 business days of receipt; an incomplete notice must list the missing items and how to fix them. An appeal process is required, with a final written determination within 60 business days of the appeal.",
+      "value": 15,
+      "unit": "business days",
+      "applies_when": "ADU/JADU application submitted (Irvine states it checks completeness in about 2 business days).",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Application Requirements; Gov. Code 66317(a)(2)(A)-(B), 66317(d)(1)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_denial_written_comments_60_days",
+      "rule": "If an ADU/JADU application is denied, the agency must return in writing a full set of comments listing defective items and how to remedy them within 60 days of receiving a complete application.",
+      "value": 60,
+      "unit": "days",
+      "applies_when": "ADU/JADU application denied.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Permitting Agency Denials; Gov. Code 66317(b), 66335(b)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_side_rear_setback_4ft",
+      "rule": "A city may require no more than 4 ft side and rear setbacks for an attached or detached ADU. No setback for an ADU in an existing structure or rebuilt in the same location and dimensions.",
+      "value": 4,
+      "unit": "ft (max that may be required)",
+      "applies_when": "Attached or detached ADU; a plan showing more than 4 ft is fine.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Setbacks FAQ; Gov. Code 66314(d)(7)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_800sf_guarantee",
+      "rule": "Lot coverage, FAR, open space, front setback, minimum lot size and size-percentage limits cannot preclude an ADU of at least 800 sf of interior livable space with 4-ft side and rear setbacks. No minimum lot size may be imposed for ADUs.",
+      "value": 800,
+      "unit": "sq ft interior livable space",
+      "applies_when": "ADU that would otherwise exceed local coverage/FAR/front setback limits.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Zoning & Setbacks; Size FAQ; Gov. Code 66321(b)(3), 66314(b)(1)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_max_size_floor_ordinance",
+      "rule": "A local maximum ADU size must allow at least 850 sf of interior livable space, or 1,000 sf for an ADU with more than one bedroom.",
+      "value": 850,
+      "unit": "sq ft (1,000 if more than one bedroom)",
+      "applies_when": "City has a compliant ADU ordinance with a max size.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Size Requirements FAQ; Gov. Code 66321(b)(2)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_max_size_no_ordinance",
+      "rule": "Without a compliant local ordinance: max 1,200 sf interior livable space for a new detached ADU; attached ADU up to 50% of the existing primary dwelling floor area (but at least 800 sf allowed). Irvine's ADU checklist uses detached up to 1,200 sf and attached up to 1,200 sf or 50% of primary, whichever is less.",
+      "value": 1200,
+      "unit": "sq ft (detached)",
+      "applies_when": "Irvine (Housing Element says Irvine defers to current State ADU law).",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026); City of Irvine Form 67-01",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Gov. Code 66314(d)(4), 66314(d)(5), 66321(b)(3)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_min_size_efficiency_unit",
+      "rule": "A local minimum size may not prohibit an efficiency unit (Health and Safety Code 17958.1), which may be as small as 150 sf of floor area.",
+      "value": 150,
+      "unit": "sq ft",
+      "applies_when": "Small ADU.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Size Requirements FAQ; HSC 17958.1"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_height_detached_16ft",
+      "rule": "A city may not set a detached ADU height limit below 16 ft on a lot with a proposed or existing single-family or multifamily dwelling.",
+      "value": 16,
+      "unit": "ft",
+      "applies_when": "Detached ADU.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Height Requirements FAQ; Gov. Code 66321(b)(4)(A)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_height_detached_18ft_transit",
+      "rule": "Detached ADU height floor rises to 18 ft when the lot is within 1/2 mile walking distance of a major transit stop or high-quality transit corridor, plus 2 more ft to match the primary dwelling's roof pitch.",
+      "value": 18,
+      "unit": "ft (+2 ft for roof pitch)",
+      "applies_when": "Detached ADU near transit.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Height Requirements FAQ; Gov. Code 66321(b)(4)(B)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_height_attached_25ft",
+      "rule": "Attached ADU: a city may not set a limit below 25 ft or the primary dwelling's zoning height limit, whichever is lower; must allow at least two stories if within the height limit and building code. Not required to allow more than two stories.",
+      "value": 25,
+      "unit": "ft",
+      "applies_when": "Attached ADU.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Height Requirements FAQ; Gov. Code 66321(b)(4)(D)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_parking_max_one",
+      "rule": "ADU parking may not exceed one space per unit or per bedroom, whichever is less; may be tandem on a driveway; no guest parking; no replacement parking when a garage/carport is demolished or converted for the ADU.",
+      "value": 1,
+      "unit": "space per ADU or per bedroom (max)",
+      "applies_when": "ADU not exempt under 66322(a).",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Parking Requirements FAQ; Gov. Code 66314(d)(10)-(11)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_parking_exemptions",
+      "rule": "No ADU parking may be required if the ADU is: within 1/2 mile walking distance of public transit; in an architecturally and historically significant district; part of the proposed or existing primary residence or an accessory structure; where on-street permits are required but not offered to the ADU occupant; within one block of a car-share vehicle; or submitted with a permit for a new single-family or multifamily dwelling on the same lot when the ADU or parcel meets one of the other criteria.",
+      "value": 0.5,
+      "unit": "mile walking distance to public transit",
+      "applies_when": "Any of the 66322(a) conditions.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Parking Requirements FAQ; Gov. Code 66322(a)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_no_owner_occupancy",
+      "rule": "No owner-occupancy requirement and no affordability deed restriction may be imposed on an ADU (except an ADU sold separately under 66341(c)(3)); a city may require rentals of 30 days or longer.",
+      "value": null,
+      "unit": null,
+      "applies_when": "ADU.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Owner-Occupancy and Deed Restrictions FAQ; Gov. Code 66315"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "jadu_definition_500sf",
+      "rule": "A JADU is no more than 500 sf of interior livable space, contained entirely within a single-family residence (attached garage counts); not allowed in detached accessory structures; one JADU per lot zoned single-family; may have its own or shared sanitation; needs an efficiency kitchen. A JADU without its own bathroom needs a separate entrance plus an interior entry to the main living area.",
+      "value": 500,
+      "unit": "sq ft interior livable space",
+      "applies_when": "SFR + ADU project that includes a JADU.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "JADUs FAQ; Gov. Code 66313(d), 66333(a), (d), (e)(2), (f)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "jadu_owner_occupancy_deed_restriction",
+      "rule": "If a JADU shares sanitation with the primary dwelling, owner-occupancy is required (owner lives in the main house or the JADU); not required if the JADU has its own sanitation. A JADU ordinance must require a recorded deed restriction prohibiting separate sale and restricting size/attributes. JADUs cannot be short-term rentals (rentals > 30 days).",
+      "value": null,
+      "unit": null,
+      "applies_when": "Project includes a JADU.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Owner-Occupancy and Deed Restrictions FAQ; Gov. Code 66333(b), (c)(1)-(2), (g)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_66323_units_single_family",
+      "rule": "On a lot with a proposed or existing single-family dwelling, the city must allow (as 66323 Units, no local standards beyond 66323): one ADU within existing/proposed space, one JADU, and one new detached ADU of up to 800 sf interior livable space with 4-ft side and rear setbacks (height per 66321(b)(4)); no parking may be required for 66323 Units. Separately, at least one 66314 ADU must be allowed.",
+      "value": 800,
+      "unit": "sq ft (66323(a)(2) detached ADU max)",
+      "applies_when": "SFR + ADU where the ADU is claimed under 66323.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "66323 Units FAQ and 'Allowable 66323 ADU Combinations' table; Gov. Code 66323(a)(1)-(2), (b)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_sprinklers_follow_primary",
+      "rule": "Fire sprinklers are required in an ADU/JADU only if required for the primary residence, and an ADU/JADU cannot trigger sprinklers in the primary residence. A new SFR in Irvine is sprinklered (local amendment / CRC R309), so an ADU built with it should expect sprinklers (OCFA SFR form Q2 routes it to PR400-402).",
+      "value": null,
+      "unit": null,
+      "applies_when": "SFR + ADU.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Fire Sprinkler FAQ; Gov. Code 66314(d)(12), 66323(d)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_impact_fees_750sf",
+      "rule": "No impact fees on an ADU of 750 sf interior livable space or less (or a JADU of 500 sf or less); above 750 sf, impact fees must be proportional to the primary dwelling's square footage. Utilities may treat an ADU as a new residential use for connection/capacity fees when it is built concurrently with a new single-family home. Irvine Form 42-97 lists 'ADU is 749 sq. ft. or less' as a school-fee exemption.",
+      "value": 750,
+      "unit": "sq ft",
+      "applies_when": "ADU fees.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026); Irvine Form 42-97 (ADU package)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Fees; Gov. Code 66311.5(c), (d)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "adu_no_group_r_occupancy_change",
+      "rule": "Construction of an ADU does not constitute a Group R occupancy change under the local building code unless the city makes a written finding of a specific adverse health/safety impact.",
+      "value": null,
+      "unit": null,
+      "applies_when": "ADU attached to or near the SFR.",
+      "source": {
+        "title": "HCD ADU Handbook (March 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/policy-and-research/adu-handbook-update.pdf",
+        "section": "Summary of Recent Changes - Occupancy Change; Gov. Code 66314(d)(8)"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["sfr_adu"]
+    },
+    {
+      "id": "ab2011_commercial_site_housing",
+      "rule": "AB 2011 (Affordable Housing and High Road Jobs Act, Gov. Code 65912.100-65912.140) creates an optional streamlined, ministerial, CEQA-exempt review for multifamily housing on sites that allow commercial uses (office, retail, parking). Two pathways: 100% affordable lower-income, or mixed-income with specified affordability. Requires prevailing wage; 50+ units also need apprenticeship access and healthcare expenditures. Cities may exempt and replace parcels with no-net-loss findings. Effective July 1, 2023 until January 1, 2033. Amended by AB 2243 (2024) and AB 893 (2025).",
+      "value": null,
+      "unit": null,
+      "applies_when": "Applicant claims AB 2011 for residential or mixed-use on commercially zoned land.",
+      "source": {
+        "title": "HCD Housing Law Fact Sheet - AB 2011 (April 2026)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/aff-hsg-high-roads-jobs-act-ab-2011.pdf",
+        "section": "Key Provisions; Legislation Highlights"
+      },
+      "status": "VERIFIED",
+      "applies_to": ["mixed_use"]
+    },
+    {
+      "id": "ab2011_site_and_density_criteria",
+      "rule": "AB 2011 site eligibility, density, height, setback and affordability percentages.",
+      "value": null,
+      "unit": null,
+      "applies_when": "AB 2011 project.",
+      "source": {
+        "title": "HCD draft AB 2011 guidelines (comment period May-June 2026; not read)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/draft-ab-2011-guidelines.pdf",
+        "section": "Gov. Code 65912.111-65912.124"
+      },
+      "status": "UNVERIFIED",
+      "applies_to": ["mixed_use"]
+    },
+    {
+      "id": "sb6_middle_class_housing_act",
+      "rule": "SB 6 (Middle Class Housing Act, Gov. Code 65852.24) makes housing an allowable use on commercially zoned parcels where office, retail or parking is a principal permitted use, subject to conditions.",
+      "value": null,
+      "unit": null,
+      "applies_when": "Applicant claims SB 6.",
+      "source": {
+        "title": "Not read (65852.24 is only named in the HCD AB 2011 fact sheet as amended by AB 2243)",
+        "url": null,
+        "section": "Gov. Code 65852.24"
+      },
+      "status": "UNVERIFIED",
+      "applies_to": ["mixed_use"]
+    }
+  ],
+  "new_zoning_districts": [
+    {
+      "code": "2.1",
+      "name": "Estate Density Residential; 2.1, 2.1A",
+      "allows": ["single-family detached", "sfr", "sfr_adu"],
+      "max_density_du_per_acre": 1,
+      "min_lot_area_sf": null,
+      "max_height_ft": null,
+      "setbacks_ft": { "front": null, "side": null, "rear": null },
+      "max_lot_coverage_pct": 25,
+      "parking_spaces_per_unit": 2,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4; 5.3.3.6",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-3 (0-1 du/net ac), Table 5-4"
+      },
+      "status": "VERIFIED",
+      "note": "Very low density SFD on large lots. Min lot printed as '2,400 sf or 20,000 sf (2.1A only) or 1 acre'; front 10-50, side 5-35, rear 10-25, bldg-to-bldg 10 ft; coverage 25% (35% in 2.1A); height 35 ft (2.1A) or 50 ft. Parking 2 covered per SFD, 3 if 4+ bedrooms; Housing Element also says an ADU with 1+ bedrooms needs one more space. sfr_adu: state law lets an ADU accompany a proposed SFR; Irvine's ADU Verification Form confirms eligibility. Ordinance text not read."
+    },
+    {
+      "code": "3.1",
+      "name": "Multi-Use (MTU); 3.1, 3.1A-3.1H",
+      "allows": ["mixed_use"],
+      "max_density_du_per_acre": 50,
+      "min_lot_area_sf": 10890,
+      "max_height_ft": 70,
+      "setbacks_ft": { "front": null, "side": null, "rear": null },
+      "max_lot_coverage_pct": 75,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-3, Table 5-4, 5.3.3.7"
+      },
+      "status": "VERIFIED",
+      "note": "Mix of retail, commercial services, restaurants, offices, residences and civic uses. Min lot 2,400 sf (SFD) or 0.25 acre (10,890 sf) for all other uses. Front 15-45 ft; side and rear TBD at Master Plan/CUP review; bldg-to-bldg 6 or 10 ft. Height printed as 35-70 ft. Master Plan required for residential uses in 3.1. Parking per multifamily ratios (see 2.3 note). Ordinance text not read."
+    },
+    {
+      "code": "4.7",
+      "name": "Urban Commercial / Regional Urban Commercial (REC); 4.7, 4.7A-4.7C",
+      "allows": ["mixed_use"],
+      "max_density_du_per_acre": 55,
+      "min_lot_area_sf": 10000,
+      "max_height_ft": null,
+      "setbacks_ft": { "front": null, "side": null, "rear": null },
+      "max_lot_coverage_pct": 80,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-3, Table 5-4"
+      },
+      "status": "VERIFIED",
+      "note": "Retail and office commercial with residential CONDITIONALLY permitted (urban, high intensity). Front 15-30, side and rear 5-10 ft; coverage 80% (area within required setbacks); height up to 20 stories subject to Master Plan or CUP. Ordinance text not read."
+    },
+    {
+      "code": "5.0",
+      "name": "IBC Mixed Use (Urban/Industrial)",
+      "allows": ["mixed_use"],
+      "max_density_du_per_acre": null,
+      "min_lot_area_sf": 21780,
+      "max_height_ft": null,
+      "setbacks_ft": { "front": null, "side": 10, "rear": null },
+      "max_lot_coverage_pct": 75,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4; IBC Residential Mixed Use Vision Plan section",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-3, Table 5-4, 5.3.3.7"
+      },
+      "status": "VERIFIED",
+      "note": "Urban/Industrial (URI) land use, 30+ du/ac (Vision Plan minimum residential density 30 du/ac); mix of commercial, retail, residential and light industrial. Min lot 0.5 acre for residential uses; front 10-40, side 10, rear N/A; coverage 75% for residential and mixed use; height = FAA limits (75-ft max inside the IBC Residential Mixed Use Overlay). Column alignment in the extracted table is partly ambiguous between the 5.0 and 5.1 rows. Ordinance text not read."
+    },
+    {
+      "code": "5.1",
+      "name": "IBC Multi-Use",
+      "allows": ["mixed_use"],
+      "max_density_du_per_acre": null,
+      "min_lot_area_sf": 30000,
+      "max_height_ft": null,
+      "setbacks_ft": { "front": null, "side": 10, "rear": 0 },
+      "max_lot_coverage_pct": 50,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-3, Table 5-4"
+      },
+      "status": "VERIFIED",
+      "note": "URI land use, 30+ du/ac. Front 8-40, side 10, rear 0 ft (see Zoning Ordinance footnotes and IBC Vision Plan criteria); height = FAA limits. Setback/coverage values sit between the 5.0 and 5.1 rows in the extracted text; alignment is ambiguous. Vision Plan's 'Multi-Use District' (south of Barranca Pkwy) and 'Urban Neighborhood District' (up to 7 stories) encourage ground-floor commercial. Ordinance text not read."
+    },
+    {
+      "code": "8.1",
+      "name": "Trails and Transit-Oriented Development (Orange County Great Park); 8.1, 8.1B",
+      "allows": ["sfr", "mixed_use"],
+      "max_density_du_per_acre": 50,
+      "min_lot_area_sf": 2400,
+      "max_height_ft": 70,
+      "setbacks_ft": { "front": null, "side": 5, "rear": 10 },
+      "max_lot_coverage_pct": 65,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4; Orange County Great Park section",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-3, Table 5-4"
+      },
+      "status": "VERIFIED",
+      "note": "Great Park land use 5-50 du/ac; mix of residential (attached and detached), commercial, institutional, industrial, educational. Min lot 2,400 sf or 0.25 acre (all other uses); front 8-45, side 5, rear 10, bldg-to-bldg 6 ft. Coverage 50% SFD, 65% nonresidential and mixed use (unlimited in 8.1B), unlimited attached residential. Height SFD 35 ft; residential attached and nonresidential 70 ft (text also says 55-70 ft). Master Plan required for residential uses. Ordinance text not read."
+    }
+  ],
+  "construction_project_types": {
+    "sfr": {
+      "code": "CRC",
+      "occupancy": "R-3",
+      "note": "Detached one-family dwelling not more than 3 stories above grade plane is within CRC scope (R101.2). Over 3 stories it goes to the CBC as R-3 (310.4: not more than two dwelling units); use the R-3 allowable rows. Sprinklers per CRC R309 (NFPA 13D or R309.3).",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/1/administration#R101.2",
+        "section": "R101.2; CBC 310.4; CRC R309"
+      },
+      "status": "VERIFIED"
+    },
+    "sfr_adu": {
+      "code": "CRC",
+      "occupancy": "R-3",
+      "note": "The ADU is its own dwelling unit. Detached ADU = a second detached one-family dwelling on the lot (fire separation distance to the house measured to an imaginary line, R302.1). Attached ADU = the building has two dwelling units, so the unit separation of CRC R302.3 (1 hour, or 1/2 hour when sprinklered per R309) applies; this classification is an inference from the code text, and Gov. Code 66314(d)(8) says an ADU is not a Group R occupancy change. A JADU is within the SFR and is not treated as a separate dwelling unit here (not confirmed in code text).",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes; HCD ADU Handbook (March 2026)",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/3/building-planning#R302.3",
+        "section": "R101.2, R302.1, R302.3; Gov. Code 66314(d)(8)"
+      },
+      "status": "VERIFIED"
+    },
+    "mixed_use": {
+      "code": "CBC",
+      "occupancy": "R-2",
+      "note": "Residential portion with more than two dwelling units is R-2 (310.3); the commercial portion is typically B (office/service) or M (retail) - each portion is classified individually (508.1) and designed as accessory, nonseparated or separated occupancies under 508. With separated occupancies, Table 508.4 requires 1 hour between R-2 and B/M in a building sprinklered per 903.3.1.1 (NFPA 13), 2 hours otherwise. Each occupancy must stay within its own height/story limits (504.2), so check the B/M rows too (not stored in this file). A mixed-use building with 1-2 units would be R-3 under the CBC (not modeled).",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "310.3; 504.2; 508.1-508.4; Table 508.4"
+      },
+      "status": "VERIFIED"
+    }
+  },
+  "new_construction_requirements": [
+    {
+      "id": "cbc_508_4_r_to_b_m_separation",
+      "applies_to": ["mixed_use"],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Separated occupancies (Table 508.4): R-2 to B, F-1, M or S-1 = 1 hour in a building sprinklered throughout per 903.3.1.1 (NFPA 13), 2 hours if not. R row carries footnote a (see Section 420). Separations are fire barriers (707) and/or horizontal assemblies (711) that completely separate the occupancies. An NFPA 13R system does not count as 'S' for this table.",
+      "required_evidence_on_plans": "Code analysis naming 'separated occupancies'; floor/wall legend with listed 1-hour (NFPA 13) or 2-hour assemblies between residential and commercial; podium slab/horizontal assembly detail; sprinkler type stated on title sheet.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "508.4.4, 508.4.4.1, Table 508.4 (R row x B/F-1/M/S-1 column)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_508_4_r_to_parking_separation",
+      "applies_to": ["mixed_use"],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Separated occupancies (Table 508.4): R-2 to F-2, S-2 (e.g. parking garage) or U = 1 hour sprinklered (903.3.1.1) / 2 hours not, with footnote c (see 406.3.2 and 406.6.4). Footnote b on S-2: separation from areas used only for private or pleasure vehicles may be reduced by 1 hour but not below 1 hour.",
+      "required_evidence_on_plans": "Rated separation between garage/parking level and dwellings; parking use noted.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Table 508.4 (R row x F-2/S-2/U column), footnotes b, c"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_508_3_nonseparated",
+      "applies_to": ["mixed_use"],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Nonseparated occupancies: no separation between the occupancies is required, but the most restrictive Chapter 9 provisions apply to the total nonseparated area, and R-2/R-3 dwelling units must still be separated from other units and from other contiguous occupancies per Section 420 (508.3.3 exception).",
+      "required_evidence_on_plans": "Code analysis naming 'nonseparated occupancies'; height/area checked against the most restrictive occupancy; Section 420 unit separations (1-hour fire partitions/horizontal assemblies) between dwelling units and commercial space.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "508.3, 508.3.3"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_508_2_accessory_10pct",
+      "applies_to": ["mixed_use"],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Accessory occupancies: aggregate accessory occupancies may not occupy more than 10 percent of the floor area of the story they are on (and each is limited to the nonsprinklered Table 506.2 area for that occupancy). A commercial space larger than this is not 'accessory' and must use 508.3 or 508.4.",
+      "required_evidence_on_plans": "Area tabulation per story showing commercial area as a percent of the story if the accessory method is claimed.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "508.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "crc_attached_adu_separation",
+      "applies_to": ["sfr_adu"],
+      "construction_types": ["any"],
+      "rule": "An attached ADU makes the building a two-family dwelling: the units must be separated by 1-hour fire-resistance-rated wall and/or floor assemblies, or 1/2 hour when sprinklered throughout per CRC R309 (NFPA 13D or R309.3), continuous to the foundation and roof sheathing. Applying R302.3 to an attached ADU is an inference from the code text, not stated by Irvine.",
+      "required_evidence_on_plans": "Plans/sections tagging the wall or floor between the house and attached ADU with a listed assembly and rating; continuity detail; sprinkler note if 1/2 hour is used.",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/3/building-planning#R302.3",
+        "section": "R302.3"
+      },
+      "status": "VERIFIED"
+    }
+  ]
+}

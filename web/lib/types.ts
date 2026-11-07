@@ -41,6 +41,7 @@ export interface ZoningDistrict {
 
 export interface StateLawRule {
   id: string;
+  applies_to?: string[];
   rule: string;
   value?: number | null;
   unit?: string;

@@ -40,7 +40,8 @@ export default function Requirements({
   const codes = rules.code_triggers.filter((t) =>
     t.applies_to.includes(projectType),
   );
-  const label = (rules.project_types.find((t) => t.id === projectType)?.label ?? projectType).toLowerCase();
+  const label = rules.project_types.find((t) => t.id === projectType)?.label ?? projectType;
+  const laws = rules.state_law.filter((l) => !l.applies_to || l.applies_to.includes(projectType));
   const c = rules.construction;
   const pt = c?.project_types[projectType];
   const rows = c && pt ? c.allowable.filter((r) => r.occupancy === pt.occupancy) : [];
@@ -51,7 +52,7 @@ export default function Requirements({
   return (
     <section className={styles.requirements}>
       <h2>
-        What {rules.city} requires for a new {label}
+        {rules.city} requirements for {label}
       </h2>
       <p className={styles.meta}>
         Every rule HouseX checks, with its source. Checked {rules.checked}.
@@ -132,7 +133,7 @@ export default function Requirements({
       <details className={styles.section}>
         <summary>
           Building, fire and energy code <span>({codes.length})</span>
-          <em>What the plans must show for a new {label}</em>
+          <em>What the plans must show</em>
         </summary>
         <ul>
           {codes.map((t) => (
@@ -186,11 +187,11 @@ export default function Requirements({
 
       <details className={styles.section}>
         <summary>
-          State housing law <span>({rules.state_law.length})</span>
+          State housing law <span>({laws.length})</span>
           <em>Limits on what the city may require, such as SB 9</em>
         </summary>
         <ul>
-          {rules.state_law.map((s) => (
+          {laws.map((s) => (
             <li key={s.id} className={styles.finding}>
               <strong>{s.rule}</strong>
               {s.applies_when && (
