@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     const pdf = Buffer.from(await file.arrayBuffer()).toString("base64");
     // The site lookup runs while Claude reads the plans.
     const [plan, site] = await Promise.all([
-      extractPlan(pdf, rules),
+      extractPlan(pdf, rules, projectType),
       address ? lookupSite(address) : Promise.resolve(null),
     ]);
     return NextResponse.json(runCheck(rules, plan, district, projectType, site));

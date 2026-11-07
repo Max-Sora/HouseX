@@ -67,14 +67,16 @@ const SCHEMA = obj({
   notes: { type: "string" },
 });
 
-function instructions(rules: RuleSet): string {
+function instructions(rules: RuleSet, projectType: string): string {
   const docs = rules.required_documents
+    .filter((d) => d.applies_to.includes(projectType))
     .map(
       (d) =>
         `- ${d.id}: ${d.name} — ${d.description} (look for: ${d.detect_hints.join(", ")})`,
     )
     .join("\n");
   const triggers = rules.code_triggers
+    .filter((t) => t.applies_to.includes(projectType))
     .map(
       (t) =>
         `- ${t.id}: ${t.rule} Evidence a plan checker looks for: ${t.required_evidence_on_plans}`,
@@ -104,6 +106,7 @@ Also list any legal or code citations that look outdated (for example Gov Code 6
 export async function extractPlan(
   pdfBase64: string,
   rules: RuleSet,
+  projectType: string,
 ): Promise<ExtractedPlan> {
   const stream = client.beta.messages.stream({
     model: "claude-opus-5-5",
@@ -118,7 +121,7 @@ export async function extractPlan(
     system: [
       {
         type: "text",
-        text: instructions(rules),
+        text: instructions(rules, projectType),
         cache_control: { type: "ephemeral" },
       },
     ],
