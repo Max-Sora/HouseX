@@ -3,6 +3,7 @@
 import type { FixPackage } from "@/lib/fix";
 import type { Report } from "@/lib/types";
 import WaitPanel from "./WaitPanel";
+import { FIX_STEPS, type Live } from "./live";
 import styles from "./page.module.css";
 
 function toMarkdown(report: Report, pkg: FixPackage): string {
@@ -49,12 +50,14 @@ export default function Fix({
   loading,
   error,
   onDraft,
+  live,
 }: {
   report: Report;
   pkg: FixPackage | null;
   loading: boolean;
   error: string | null;
   onDraft: () => void;
+  live: Live;
 }) {
   const docs = report.findings.filter((f) => f.kind === "missing_document");
 
@@ -78,17 +81,7 @@ export default function Fix({
           {loading ? "Drafting the package…" : "Draft my correction package"}
         </button>
         {loading && (
-          <WaitPanel
-            title="Drafting your correction package"
-            typical="about 2 minutes"
-            steps={[
-              { label: "Collecting the findings from your report", at: 0 },
-              { label: "AI is drafting the updated title-sheet notes and code list", at: 4 },
-              { label: "AI is writing the exact fix for each correction", at: 25 },
-              { label: "Matching each missing document to the city's form", at: 70 },
-              { label: "AI is writing your letter to the plan checker", at: 95 },
-            ]}
-          />
+          <WaitPanel title="Drafting your correction package" typical="about 2 minutes" steps={FIX_STEPS} live={live} />
         )}
         {error && <p className={styles.error}>{error}</p>}
       </section>

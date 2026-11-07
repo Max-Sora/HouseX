@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { START, show, type Live, type Step } from "./live";
 import styles from "./wait.module.css";
 
-// Shown while a long request runs. The server answers once at the end, so steps advance on a timer
-// matched to how long each stage usually takes; the last step stays active until the answer arrives.
-export type WaitStep = { label: string; at: number };
+// Shown while a long request runs. Steps and the bar follow the server's real progress events (live.ts);
+// the clock, scan line and facts keep the wait from feeling stuck.
 
 const FACTS = [
   "Irvine requires fire sprinklers in all new residential buildings.",
@@ -21,21 +21,23 @@ const FACTS = [
 export default function WaitPanel({
   title,
   steps,
+  live,
   typical,
 }: {
   title: string;
-  steps: WaitStep[];
+  steps: Step[];
+  live: Live;
   typical: string;
 }) {
-  const [elapsed, setElapsed] = useState(0);
+  const [now, setNow] = useState(() => Date.now());
   useEffect(() => {
-    const start = Date.now();
-    const t = setInterval(() => setElapsed((Date.now() - start) / 1000), 250);
+    const t = setInterval(() => setNow(Date.now()), 250);
     return () => clearInterval(t);
   }, []);
 
-  const current = steps.reduce((i, s, n) => (elapsed >= s.at ? n : i), 0);
-  const progress = 95 * (1 - Math.exp(-elapsed / 40));
+  const elapsed = Math.max(0, (now - live.seen[START]) / 1000);
+  const view = show(steps, live, now);
+  const progress = view.fraction * 100;
   const fact = FACTS[Math.floor(elapsed / 7) % FACTS.length];
   const mm = Math.floor(elapsed / 60);
   const ss = String(Math.floor(elapsed % 60)).padStart(2, "0");
@@ -74,21 +76,16 @@ export default function WaitPanel({
       </div>
 
       <ol className={styles.steps}>
-        {steps.map((s, i) => {
-          const state =
-            i < current ? "done" : i === current ? "active" : "todo";
-          return (
-            <li key={s.label} className={styles[state]}>
-              <span className={styles.mark} aria-hidden="true">
-                {state === "done" ? "✓" : ""}
-              </span>
-              {s.label}
-              {state === "active" && (
-                <span className={styles.dots} aria-hidden="true" />
-              )}
-            </li>
-          );
-        })}
+        {view.steps.map(({ label, state, detail }) => (
+          <li key={label} className={styles[state]}>
+            <span className={styles.mark} aria-hidden="true">
+              {state === "done" ? "✓" : ""}
+            </span>
+            {label}
+            {detail && <span className={styles.detail}>{detail}</span>}
+            {state === "active" && !detail && <span className={styles.dots} aria-hidden="true" />}
+          </li>
+        ))}
       </ol>
 
       <p key={fact} className={styles.fact}>

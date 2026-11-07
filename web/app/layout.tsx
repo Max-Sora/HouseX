@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./Store";
 import Chat from "./Chat";
+import WhyHouseX from "./WhyHouseX";
 import { rules } from "@/lib/rules";
 import styles from "./page.module.css";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className={`${plexSans.variable} ${plexMono.variable}`}>
         <StoreProvider>
           {children}
+          <WhyHouseX />
           <footer className={styles.footer}>
             <span>Prototype built at the UCI Impact Lab, not legal advice and not a city decision</span>
             <span>Rules checked {rules.checked}. Items marked unverified are leads, not facts</span>

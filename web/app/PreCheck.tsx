@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { rules } from "@/lib/rules";
 import { useStore } from "./Store";
 import WaitPanel from "./WaitPanel";
+import { CHECK_STEPS, addEvent, freshLive, readProgress, type Live } from "./live";
+import type { Report } from "@/lib/types";
 import styles from "./page.module.css";
 
 const SAMPLES = [
@@ -13,6 +15,12 @@ const SAMPLES = [
     type: "duplex",
     label: "Try a real duplex plan set",
     note: "Fresno County pre-approved plans, sheets 1–7",
+  },
+  {
+    file: "fictional-duplex-passing.pdf",
+    type: "duplex",
+    label: "Try a passing duplex",
+    note: "made up, written to meet every rule HouseX checks",
   },
   {
     file: "fictional-triplex-cover-sheet.pdf",
@@ -38,12 +46,14 @@ export default function PreCheck() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [live, setLive] = useState<Live>(freshLive);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!file) return;
     setLoading(true);
     setError(null);
+    setLive(freshLive());
     const body = new FormData();
     body.append("file", file);
     body.append("projectType", projectType);
@@ -51,8 +61,7 @@ export default function PreCheck() {
     body.append("address", address);
     try {
       const res = await fetch("/api/check", { method: "POST", body });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Check failed");
+      const data = await readProgress<Report>(res, (ev) => setLive((l) => addEvent(l, ev)));
       setPkg(null);
       setReport(data);
       router.push("/report");
@@ -140,15 +149,8 @@ export default function PreCheck() {
         <WaitPanel
           title="Pre-checking your plan set"
           typical="1 to 2 minutes"
-          steps={[
-            { label: "Uploading your plan set", at: 0 },
-            ...(address.trim() ? [{ label: "Looking up the lot in Irvine's zoning and parcel maps", at: 2 }] : []),
-            { label: "AI is reading every sheet of your plans", at: 5 },
-            { label: "AI is finding the project data: units, height, setbacks, parking", at: 22 },
-            { label: "Checking against Irvine's submittal checklist", at: 42 },
-            { label: "Checking zoning, building code and state housing law", at: 58 },
-            { label: "Linking every finding to its source", at: 74 },
-          ]}
+          steps={CHECK_STEPS(!!address.trim())}
+          live={live}
         />
       )}
       {error && <p className={styles.error}>{error}</p>}

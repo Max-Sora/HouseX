@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import type { FixPackage } from "@/lib/fix";
 import type { Report } from "@/lib/types";
 import { DEFAULTS, type Assumptions } from "./Savings";
+import { addEvent, freshLive, readProgress, type Live } from "./live";
 
 // Shared across pages so a report, its fix package and the savings inputs survive navigation.
 // Also kept in sessionStorage so a reload of the tab keeps them.
@@ -23,6 +24,7 @@ interface Store {
   setAssume: (a: Assumptions) => void;
   fixing: boolean;
   fixError: string | null;
+  fixLive: Live;
   draft: () => Promise<boolean>;
 }
 
@@ -48,6 +50,7 @@ export default function StoreProvider({
   const [assume, setAssume] = useState<Assumptions>(DEFAULTS);
   const [fixing, setFixing] = useState(false);
   const [fixError, setFixError] = useState<string | null>(null);
+  const [fixLive, setFixLive] = useState<Live>(freshLive);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -83,14 +86,14 @@ export default function StoreProvider({
     if (!report) return false;
     setFixing(true);
     setFixError(null);
+    setFixLive(freshLive());
     try {
       const res = await fetch("/api/fix", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(report),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Drafting failed");
+      const data = await readProgress<FixPackage>(res, (ev) => setFixLive((l) => addEvent(l, ev)));
       setPkg(data);
       return true;
     } catch (err) {
@@ -119,6 +122,7 @@ export default function StoreProvider({
         setAssume,
         fixing,
         fixError,
+        fixLive,
         draft,
       }}
     >

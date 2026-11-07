@@ -1,9 +1,9 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { NextResponse } from "next/server";
 import { extractPlan } from "@/lib/extract";
 import { runCheck } from "@/lib/check";
 import { rules } from "@/lib/rules";
 import { lookupSite } from "@/lib/site";
+import { ndjson } from "@/lib/ndjson";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -28,36 +28,20 @@ export async function POST(req: Request) {
     );
   }
 
-  try {
-    const pdf = Buffer.from(await file.arrayBuffer()).toString("base64");
+  const pdf = Buffer.from(await file.arrayBuffer()).toString("base64");
+  return ndjson(async (send) => {
+    send({ stage: "received" });
     // The site lookup runs while Claude reads the plans.
-    const [plan, site] = await Promise.all([
-      extractPlan(pdf, rules, projectType),
-      address ? lookupSite(address) : Promise.resolve(null),
-    ]);
-    return NextResponse.json(runCheck(rules, plan, district, projectType, site));
-  } catch (err) {
-    if (err instanceof Anthropic.AuthenticationError) {
-      return NextResponse.json(
-        { error: "Server is missing a valid ANTHROPIC_API_KEY." },
-        { status: 500 },
-      );
-    }
-    if (err instanceof Anthropic.RateLimitError) {
-      return NextResponse.json(
-        { error: "Rate limited. Try again in a minute." },
-        { status: 429 },
-      );
-    }
-    if (err instanceof Anthropic.APIError) {
-      return NextResponse.json(
-        { error: `Claude API error ${err.status}: ${err.message}` },
-        { status: 502 },
-      );
-    }
-    return NextResponse.json(
-      { error: err instanceof Error ? err.message : "Check failed." },
-      { status: 500 },
-    );
-  }
+    const site = address
+      ? (send({ stage: "site" }),
+        lookupSite(address).then((s) => {
+          send({ stage: "site_done" });
+          return s;
+        }))
+      : Promise.resolve(null);
+    send({ stage: "reading" });
+    const [plan, siteFacts] = await Promise.all([extractPlan(pdf, rules, projectType, send), site]);
+    send({ stage: "rules" });
+    return runCheck(rules, plan, district, projectType, siteFacts);
+  });
 }
