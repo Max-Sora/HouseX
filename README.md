@@ -32,6 +32,7 @@ A small builder or nonprofit project manager submitting a new home, ADU, duplex,
 5. **Savings.** An estimate of the weeks and dollars saved by catching these problems before submittal. Every input is shown and editable: the waiting cost per home is derived from the challenge brief's mock example, review times from AB 2234 legal maximums, and the rest are labelled assumptions.
 6. **Fix my plan.** Claude drafts a correction package from the findings: updated title-sheet notes and code list, the exact text for each correction, a checklist of missing documents with the city's form links, and a letter to the plan checker. Values the designer must decide stay as [designer to confirm]. Downloads as Markdown for the architect to review and stamp. The savings step then shows the estimate with the package included.
 7. **Requirements.** Before uploading anything, the page lists everything Irvine requires for the chosen project type, with sources.
+8. **Ask a question.** A chat popup on every page answers questions about permits, the rules and the user's own report. It answers only from HouseX's rule data and the current report, cites sources, and says when it doesn't know.
 
 **Demo video:** _TODO_
 **Live demo:** _TODO_

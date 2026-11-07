@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./Store";
 import TopNav from "./TopNav";
+import Chat from "./Chat";
 import { rules } from "@/lib/rules";
 import styles from "./page.module.css";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
             <span>Rules checked {rules.checked}. Items marked unverified are leads, not facts</span>
             <span>Structural, mechanical, electrical and plumbing design are left to a licensed plan checker</span>
           </footer>
+          <Chat />
         </StoreProvider>
       </body>
     </html>
