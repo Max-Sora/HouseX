@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { ExtractedPlan, RuleSet } from "./types";
+import { watchSections, type OnProgress } from "./progress";
 
 const client = new Anthropic();
 
@@ -108,6 +109,7 @@ export async function extractPlan(
   pdfBase64: string,
   rules: RuleSet,
   projectType: string,
+  onProgress?: OnProgress,
 ): Promise<ExtractedPlan> {
   const stream = client.beta.messages.stream({
     model: "claude-opus-5-5",
@@ -146,6 +148,16 @@ export async function extractPlan(
       },
     ],
   });
+  await watchSections(
+    stream,
+    [
+      { key: "project", stage: "project" },
+      { key: "required_items", stage: "documents", itemKey: "id", total: rules.required_documents.filter((d) => d.applies_to.includes(projectType)).length },
+      { key: "code_triggers", stage: "codes", itemKey: "id", total: rules.code_triggers.filter((t) => t.applies_to.includes(projectType)).length },
+      { key: "outdated_citations", stage: "citations" },
+    ],
+    onProgress,
+  );
   const message = await stream.finalMessage();
   if (message.stop_reason === "refusal")
     throw new Error("The model declined to read this document.");

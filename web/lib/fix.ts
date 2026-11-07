@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { Report } from "./types";
+import { watchSections, type OnProgress } from "./progress";
 
 const client = new Anthropic();
 
@@ -59,7 +60,7 @@ Rules:
 - "title_sheet_notes" is the updated block of code references and general notes for the title sheet, one line per item.
 - "cover_letter" is a short letter to the city plan checker listing what the resubmittal changes. Plain words, no greeting fluff. Leave [Applicant name] and [Date] as placeholders.`;
 
-export async function draftFixes(report: Report): Promise<FixPackage> {
+export async function draftFixes(report: Report, onProgress?: OnProgress): Promise<FixPackage> {
   const toFix = report.findings
     .filter(
       (f) =>
@@ -109,6 +110,15 @@ export async function draftFixes(report: Report): Promise<FixPackage> {
       },
     ],
   });
+  await watchSections(
+    stream,
+    [
+      { key: "title_sheet_notes", stage: "notes" },
+      { key: "fixes", stage: "fixes", itemKey: "finding", total: toFix.length },
+      { key: "cover_letter", stage: "letter" },
+    ],
+    onProgress,
+  );
   const message = await stream.finalMessage();
   if (message.stop_reason === "refusal")
     throw new Error("The model declined to draft this package.");

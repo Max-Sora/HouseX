@@ -57,18 +57,12 @@ export function SavingsView({ withFix }: { withFix: boolean }) {
 }
 
 export function FixView() {
-  const { report, pkg, fixing, fixError, draft, loaded } = useStore();
+  const { report, pkg, fixing, fixError, fixLive, draft, loaded } = useStore();
   if (!loaded) return null;
   if (!report) return <NeedReport />;
   return (
     <>
-      <Fix
-        report={report}
-        pkg={pkg}
-        loading={fixing}
-        error={fixError}
-        onDraft={draft}
-      />
+      <Fix report={report} pkg={pkg} loading={fixing} error={fixError} onDraft={draft} live={fixLive} />
       {pkg ? (
         <StepNav back="/savings" next={{ href: "/savings-after-fix", label: "Continue: savings with the fixes" }} />
       ) : (

@@ -209,3 +209,11 @@
     transition: none;
   }
 }
+
+.detail {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}

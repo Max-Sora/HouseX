@@ -1013,3 +1013,13 @@ button.back {
   margin-top: 12px;
   font-size: 14px;
 }
+
+.whyWrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px 16px;
+}
+
+.whyWrap .why {
+  margin-top: 0;
+}
