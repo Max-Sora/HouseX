@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import StoreProvider from "./Store";
+import TopNav from "./TopNav";
+import { rules } from "@/lib/rules";
+import styles from "./page.module.css";
 
 const plexSans = IBM_Plex_Sans({
   variable: "--font-sans",
@@ -27,7 +31,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plexSans.variable} ${plexMono.variable}`}>
-        {children}
+        <StoreProvider>
+          <TopNav />
+          {children}
+          <footer className={styles.footer}>
+            <span>Prototype built at the UCI Impact Lab, not legal advice and not a city decision</span>
+            <span>Rules checked {rules.checked}. Items marked unverified are leads, not facts</span>
+            <span>Structural, mechanical, electrical and plumbing design are left to a licensed plan checker</span>
+          </footer>
+        </StoreProvider>
       </body>
     </html>
   );
