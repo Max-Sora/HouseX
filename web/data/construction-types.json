@@ -1,7 +1,812 @@
 {
   "checked": "2026-11-07",
-  "code_edition": "pending research",
-  "project_types": {},
-  "allowable": [],
-  "requirements": []
+  "code_edition": "2025 CBC/CRC (read on UpCodes 2025-edition pages; effective date Jan 1, 2026 not checked here)",
+  "project_types": {
+    "duplex": {
+      "code": "CRC",
+      "occupancy": "R-3",
+      "note": "Detached two-family dwelling up to 3 stories above grade plane is within CRC scope (R101.2). The CRC sections read here (R101.2, R302, R309) do not depend on construction type. Over 3 stories it goes to the CBC as R-3 (310.4: not more than two dwelling units); use the R-3 allowable rows.",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/1/administration#R101.2",
+        "section": "R101.2; CBC 310.4"
+      },
+      "status": "VERIFIED"
+    },
+    "triplex": {
+      "code": "CBC",
+      "occupancy": "R-2",
+      "note": "3 units in one building = 'more than two dwelling units' -> R-2 (310.3); R-3 is limited to buildings with not more than two units (310.4). Exception path: if the 3 units are built as townhouses (not more than 3 stories, separate means of egress), CRC R101.2 scope covers them. The CRC townhouse definition itself was not read.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/3/occupancy-classification-and-use#310.3",
+        "section": "310.3, 310.4; CRC R101.2"
+      },
+      "status": "VERIFIED"
+    }
+  },
+  "allowable": [
+    {
+      "occupancy": "R-2",
+      "construction_type": "I-A",
+      "height_ft": {
+        "NS": "UL",
+        "S13R": 60,
+        "S": "UL"
+      },
+      "stories": {
+        "NS": "UL",
+        "S13R": 4,
+        "S": "UL"
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "I-B",
+      "height_ft": {
+        "NS": 160,
+        "S13R": 60,
+        "S": 180
+      },
+      "stories": {
+        "NS": 11,
+        "S13R": 4,
+        "S": 12
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "II-A",
+      "height_ft": {
+        "NS": 65,
+        "S13R": 60,
+        "S": 85
+      },
+      "stories": {
+        "NS": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": 24000,
+        "S13R": 24000,
+        "S1": 96000,
+        "SM": 72000
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "II-B",
+      "height_ft": {
+        "NS": 55,
+        "S13R": 55,
+        "S": 75
+      },
+      "stories": {
+        "NS": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": 16000,
+        "S13R": 16000,
+        "S1": 64000,
+        "SM": 48000
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "III-A",
+      "height_ft": {
+        "NS": 65,
+        "S13R": 60,
+        "S": 85
+      },
+      "stories": {
+        "NS": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": 24000,
+        "S13R": 24000,
+        "S1": 96000,
+        "SM": 72000
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "III-B",
+      "height_ft": {
+        "NS": 55,
+        "S13R": 55,
+        "S": 75
+      },
+      "stories": {
+        "NS": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": 16000,
+        "S13R": 16000,
+        "S1": 64000,
+        "SM": 48000
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "IV-HT",
+      "height_ft": {
+        "NS": 65,
+        "S13R": 60,
+        "S": 85
+      },
+      "stories": {
+        "NS": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": 20500,
+        "S13R": 20500,
+        "S1": 82000,
+        "SM": 61500
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "V-A",
+      "height_ft": {
+        "NS": 50,
+        "S13R": 50,
+        "S": 70
+      },
+      "stories": {
+        "NS": 3,
+        "S13R": 3,
+        "S": 4
+      },
+      "area_per_story_sf": {
+        "NS": 12000,
+        "S13R": 12000,
+        "S1": 48000,
+        "SM": 36000
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-2",
+      "construction_type": "V-B",
+      "height_ft": {
+        "NS": 40,
+        "S13R": 40,
+        "S": 60
+      },
+      "stories": {
+        "NS": 2,
+        "S13R": 2,
+        "S": 3
+      },
+      "area_per_story_sf": {
+        "NS": 7000,
+        "S13R": 7000,
+        "S1": 28000,
+        "SM": 21000
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "I-A",
+      "height_ft": {
+        "NS": "UL",
+        "S13D": 60,
+        "S13R": 60,
+        "S": "UL"
+      },
+      "stories": {
+        "NS": "UL",
+        "S13D": 4,
+        "S13R": 4,
+        "S": "UL"
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "I-B",
+      "height_ft": {
+        "NS": 160,
+        "S13D": 60,
+        "S13R": 60,
+        "S": 160
+      },
+      "stories": {
+        "NS": 11,
+        "S13D": 4,
+        "S13R": 4,
+        "S": 12
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "II-A",
+      "height_ft": {
+        "NS": 65,
+        "S13D": 60,
+        "S13R": 60,
+        "S": 65
+      },
+      "stories": {
+        "NS": 4,
+        "S13D": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "II-B",
+      "height_ft": {
+        "NS": 55,
+        "S13D": 60,
+        "S13R": 55,
+        "S": 55
+      },
+      "stories": {
+        "NS": 4,
+        "S13D": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "III-A",
+      "height_ft": {
+        "NS": 65,
+        "S13D": 60,
+        "S13R": 60,
+        "S": 65
+      },
+      "stories": {
+        "NS": 4,
+        "S13D": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "III-B",
+      "height_ft": {
+        "NS": 55,
+        "S13D": 60,
+        "S13R": 55,
+        "S": 55
+      },
+      "stories": {
+        "NS": 4,
+        "S13D": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "IV-HT",
+      "height_ft": {
+        "NS": 65,
+        "S13D": 60,
+        "S13R": 60,
+        "S": 65
+      },
+      "stories": {
+        "NS": 4,
+        "S13D": 4,
+        "S13R": 4,
+        "S": 5
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "V-A",
+      "height_ft": {
+        "NS": 50,
+        "S13D": 50,
+        "S13R": 60,
+        "S": 70
+      },
+      "stories": {
+        "NS": 3,
+        "S13D": 3,
+        "S13R": 4,
+        "S": 4
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "occupancy": "R-3",
+      "construction_type": "V-B",
+      "height_ft": {
+        "NS": 40,
+        "S13D": 40,
+        "S13R": 60,
+        "S": 60
+      },
+      "stories": {
+        "NS": 3,
+        "S13D": 3,
+        "S13R": 4,
+        "S": 4
+      },
+      "area_per_story_sf": {
+        "NS": "UL",
+        "S13D": "UL",
+        "S13R": "UL",
+        "S1": "UL",
+        "SM": "UL"
+      },
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas",
+        "section": "Tables 504.3, 504.4, 506.2"
+      },
+      "status": "VERIFIED"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "crc_scope",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "construction_types": [
+        "any"
+      ],
+      "rule": "The CRC covers detached one- and two-family dwellings and townhouses not more than three stories above grade plane, each with a separate means of egress. A duplex of 4+ stories, or any non-townhouse building with 3+ units, goes to the CBC.",
+      "required_evidence_on_plans": "Cover sheet: governing code (CRC vs CBC), number of dwelling units, number of stories above grade plane; sections/elevations showing story count.",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/1/administration#R101.2",
+        "section": "R101.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_occupancy_r2_r3",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "construction_types": [
+        "any"
+      ],
+      "rule": "R-2 = buildings with more than two dwelling units (apartment houses etc.). R-3 = buildings with not more than two dwelling units. A 3-unit building under the CBC is R-2; a duplex under the CBC is R-3.",
+      "required_evidence_on_plans": "Code analysis block: occupancy classification consistent with unit count.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/3/occupancy-classification-and-use#310.3",
+        "section": "310.3, 310.4"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "crc_two_family_separation",
+      "applies_to": [
+        "duplex"
+      ],
+      "construction_types": [
+        "any"
+      ],
+      "rule": "The two units must be separated by vertical and/or horizontal fire-resistance-rated assemblies of 1 hour, or 1/2 hour when the building is sprinklered throughout per CRC R309 (NFPA 13D or R309.3). Applies whether or not a lot line runs between the units. Assemblies must be continuous: walls run to the foundation and to the underside of roof sheathing (or a rated ceiling/floor), floors run tight to exterior walls or the rated wall.",
+      "required_evidence_on_plans": "Floor plans/sections tagging the unit separation wall and/or floor with a tested assembly (UL/GA number, ASTM E119/UL 263) and its rating; detail showing continuity to foundation and roof sheathing; sprinkler note if 1/2-hour is used.",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/3/building-planning#R302.3",
+        "section": "R302.3, R302.3.1-R302.3.3"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_unit_separation_walls",
+      "applies_to": [
+        "triplex",
+        "duplex"
+      ],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "III-A",
+        "IV-HT",
+        "V-A"
+      ],
+      "rule": "Walls between dwelling units are fire partitions (Section 708) with at least a 1-hour fire-resistance rating.",
+      "required_evidence_on_plans": "Wall legend with a 1-hour rated assembly (listed design number) at every demising wall; fire partition continuity details (708.4).",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/7/fire-and-smoke-protection-features#708.3",
+        "section": "420.2, 708.3"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_unit_separation_walls_half_hour",
+      "applies_to": [
+        "triplex",
+        "duplex"
+      ],
+      "construction_types": [
+        "II-B",
+        "III-B",
+        "V-B"
+      ],
+      "rule": "Dwelling unit separation walls may be 1/2 hour in Types IIB, IIIB and VB only when the building is sprinklered throughout with NFPA 13 (903.3.1.1). With NFPA 13R or 13D the 1-hour minimum stays.",
+      "required_evidence_on_plans": "If 1/2-hour is shown: construction type IIB/IIIB/VB and NFPA 13 (903.3.1.1) sprinkler system stated on the cover sheet.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/7/fire-and-smoke-protection-features#708.3",
+        "section": "708.3 Exception 2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_unit_separation_floors",
+      "applies_to": [
+        "triplex",
+        "duplex"
+      ],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Floors between dwelling units are horizontal assemblies (Section 711) of at least 1 hour. Exception: 1/2 hour in Types IIB, IIIB and VB when sprinklered throughout with NFPA 13 (903.3.1.1).",
+      "required_evidence_on_plans": "Sections/floor-ceiling assembly detail with listed rating at floors between units; sprinkler type stated if 1/2-hour is used.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/7/fire-and-smoke-protection-features#711.2.4.3",
+        "section": "420.3, 711.2.4.3"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_group_r_sprinklers",
+      "applies_to": [
+        "triplex",
+        "duplex"
+      ],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Every building with a Group R fire area needs an automatic sprinkler system per 903.3 (NFPA 13, 13R or 13D as allowed). R-3 may use NFPA 13D (903.2.8.1, 903.3.1.3). The NS columns in Tables 504.3/504.4/506.2 are only for existing buildings (footnote d), so new R buildings use the sprinklered columns.",
+      "required_evidence_on_plans": "Cover sheet: 'Fire sprinklers: NFPA 13 / 13R / 13D' (deferred submittal to fire authority); code analysis uses the matching table column.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/9/fire-protection-and-life-safety-systems#903.2.8",
+        "section": "420.4, 903.2.8, 903.2.8.1, 903.3.1.3"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_nfpa13r_limits",
+      "applies_to": [
+        "triplex"
+      ],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "NFPA 13R is allowed for Group R only if: 4 stories or fewer above grade plane; for R-2 the roof assembly is less than 45 ft above the lowest fire department vehicle access (measured to eave of highest pitched roof, roof/wall intersection or top of parapet, whichever is greatest); lowest story floor is 30 ft or less below that access. Above these limits use NFPA 13.",
+      "required_evidence_on_plans": "Elevations with height from fire access road to eave/parapet; story count; sprinkler type on cover sheet.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/9/fire-protection-and-life-safety-systems#903.3.1.2",
+        "section": "903.3.1.2"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "crc_sprinklers",
+      "applies_to": [
+        "duplex"
+      ],
+      "construction_types": [
+        "any"
+      ],
+      "rule": "New one- and two-family dwellings need an automatic sprinkler system designed per NFPA 13D or CRC Section R309.3 (the former plumbing-system method, treated as equivalent to 13D). In the 2025 CRC this is Section R309, not R313.",
+      "required_evidence_on_plans": "Cover sheet note: fire sprinklers per NFPA 13D / CRC R309 (usually deferred submittal).",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/3/building-planning#R309.2",
+        "section": "R309.2, R309.2.1, R309.3.1"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_s_increase_choice_r",
+      "applies_to": [
+        "triplex",
+        "duplex"
+      ],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "For Group R (and A, E, H, I, L), the NFPA 13 height/story increase may not be combined with the sprinkler area increase. The 'S' height/story values in this file are the 'S (without area increase)' row; if the S1/SM area factor is used, the 'S (with area increase)' row applies. For R-2 that row is: height UL,160,65,55,65,55,(IV-HT)65,(V-A)60,(V-B)40 ft; stories UL,11,4,4,4,4,(IV-HT)4,(V-A)4,(V-B)2. R-2 Type V-A with NFPA 13 may use the area increase together with the height/story increase up to 60 ft and 4 stories (separate R-2 Type VA row in Table 506.2: S1 48,000 sf, SM 36,000 sf).",
+      "required_evidence_on_plans": "Code analysis states whether height/story or area increase is used and which table row; allowable-area calc (Eq. 5-1/5-2) for multistory buildings.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas#504.3",
+        "section": "Tables 504.3, 504.4, 506.2 footnotes (R-2 Type VA footnote)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_allowable_table_caveats",
+      "applies_to": [
+        "triplex",
+        "duplex"
+      ],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Values are as published in the 2025 CBC on UpCodes. California rows differ from the IBC model: R-2 with NFPA 13R is limited to 50 ft/3 stories in V-A and 40 ft/2 stories in V-B. UpCodes notes the R-1 13R V-A/V-B story values are a known publishing error per OSFM (R-1 only). The R-3 'S' height row on the page reads UL,160,65,55,65,55,...,(IV-HT)65,70,60, which does not match the pattern of other S rows on the same page (e.g. R-2 S without area increase 180/85/75); confirm against the official BSC/ICC text before relying on R-3 S heights.",
+      "required_evidence_on_plans": "n/a (tool note)",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas#504.3",
+        "section": "Tables 504.3, 504.4"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "cbc_exterior_wall_fsd",
+      "applies_to": [
+        "triplex",
+        "duplex"
+      ],
+      "construction_types": [
+        "I-A",
+        "I-B",
+        "II-A",
+        "II-B",
+        "III-A",
+        "III-B",
+        "IV-HT",
+        "V-A",
+        "V-B"
+      ],
+      "rule": "Group R exterior walls by fire separation distance X (Table 705.5): X < 5 ft: 1 hour (all types); 5 <= X < 10 ft: 1 hour; 10 <= X < 30 ft: 1 hour, except Types II-B and V-B: 0; X >= 30 ft: 0. For Group R the rating is for exposure from both sides. Footnote: R-3 of Type II-B or V-B needs no rating at X >= 5 ft, or X >= 3 ft when sprinklered per 903.3. Load-bearing exterior walls must also meet Table 601: I-A 3, I-B 2, II-A 1, II-B 0, III-A 2, III-B 2, IV-HT 2, V-A 1, V-B 0 hours.",
+      "required_evidence_on_plans": "Site plan dimensioning each wall to property line / assumed line between buildings; wall legend giving rating for walls inside the trigger distance; construction type on cover sheet.",
+      "source": {
+        "title": "2025 California Building Code (Title 24 Part 2), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-building-code-2025/chapter/7/fire-and-smoke-protection-features#705.5",
+        "section": "705.5, Table 705.5; Table 601; 602.1"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "crc_exterior_wall_fsd",
+      "applies_to": [
+        "duplex"
+      ],
+      "construction_types": [
+        "any"
+      ],
+      "rule": "Sprinklered dwellings (Table R302.1(2), the case in Irvine): walls with fire separation distance < 3 ft need 1-hour rating (exposure from outside); no openings < 3 ft; no projections < 2 ft, projections 2-3 ft need 1-hour underside. Unsprinklered (Table R302.1(1)): walls < 5 ft need 1 hour with exposure from both sides; no openings < 3 ft; openings limited to 25% of wall area at 3-5 ft. Dwellings on the same lot use an imaginary line between them.",
+      "required_evidence_on_plans": "Site plan with distances from each wall and eave to property line; rated wall/eave details where inside 3 ft (sprinklered) or 5 ft (unsprinklered); opening schedule near property lines.",
+      "source": {
+        "title": "2025 California Residential Code (Title 24 Part 2.5), UpCodes",
+        "url": "https://up.codes/viewer/california/ca-residential-code-2025/chapter/3/building-planning#R302.1",
+        "section": "R302.1, Tables R302.1(1) and R302.1(2)"
+      },
+      "status": "VERIFIED"
+    }
+  ]
 }

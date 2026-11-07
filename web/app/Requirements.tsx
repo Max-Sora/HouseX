@@ -1,7 +1,7 @@
 import type { RuleSet, Source, Status } from "@/lib/types";
 import styles from "./page.module.css";
 
-const trio = (l: Record<string, number | null>, keys: string[]) =>
+const trio = (l: Record<string, number | "UL" | null>, keys: string[]) =>
   keys.map((k) => (l[k] === null || l[k] === undefined ? "—" : l[k]!.toLocaleString())).join(" / ");
 const ft = (v: number | null, unit = "") =>
   v === null ? "varies / not confirmed" : `${v}${unit}`;
@@ -54,16 +54,12 @@ export default function Requirements({
       </h2>
       <p className={styles.meta}>
         Every rule HouseX checks, with its source. Checked {rules.checked}.
-        Items marked &ldquo;unverified&rdquo; are leads, not facts.
       </p>
 
       <details className={styles.section}>
         <summary>
           Submittal documents <span>({docs.length})</span>
-          <em>
-            Everything the city&rsquo;s completeness review expects in the
-            package.
-          </em>
+          <em>What the completeness review expects in the package</em>
         </summary>
         <ul>
           {docs.map((d) => (
@@ -83,10 +79,7 @@ export default function Requirements({
           <span>
             ({districts.length} district{districts.length === 1 ? "" : "s"})
           </span>
-          <em>
-            Objective limits by residential district. Many Irvine areas also
-            have planning-area standards.
-          </em>
+          <em>Objective limits by district; many areas also follow planning-area standards</em>
         </summary>
         <div className={styles.tableWrap}>
           <table className={styles.table}>
@@ -138,7 +131,7 @@ export default function Requirements({
       <details className={styles.section}>
         <summary>
           Building, fire and energy code <span>({codes.length})</span>
-          <em>What the plans must show for a {projectType}.</em>
+          <em>What the plans must show for a {projectType}</em>
         </summary>
         <ul>
           {codes.map((t) => (
@@ -157,7 +150,7 @@ export default function Requirements({
           <summary>
             Construction type limits <span>({pt.code}, occupancy {pt.occupancy})</span>
             <em>
-              Allowable height, stories and area per story by construction type and sprinkler system ({c.code_edition}).
+              Allowable height, stories and area per story by construction type and sprinkler system, {c.code_edition}
             </em>
           </summary>
           <p className={styles.evidence}>{pt.note}</p>
@@ -193,7 +186,7 @@ export default function Requirements({
       <details className={styles.section}>
         <summary>
           State housing law <span>({rules.state_law.length})</span>
-          <em>Limits on what the city may require, such as SB 9.</em>
+          <em>Limits on what the city may require, such as SB 9</em>
         </summary>
         <ul>
           {rules.state_law.map((s) => (
@@ -213,7 +206,7 @@ export default function Requirements({
       <details className={styles.section}>
         <summary>
           Process and timelines <span>({rules.process.length})</span>
-          <em>How submittal, completeness review and plan check work.</em>
+          <em>How submittal, completeness review and plan check work</em>
         </summary>
         <ul>
           {rules.process.map((s) => (

@@ -36,3 +36,26 @@
 - **Not read:** Informational Bulletin 279 (turnaround times), planning entitlement checklist, grading package, fee schedule.
 - **Building-code items not read from code text:** CRC R101.2 scope, CRC R313, CBC R-2 classification, Ch. 11A/11B unit thresholds, multifamily PV (believed 170.2(f)), CALGreen 4.106.4.1/4.106.4.2 EV, 2025 code effective date (Jan 1, 2026). Irvine's 2025-cycle local amendments were not found; the Key Amendments page describes the 2022 cycle.
 - **Statute text not read.** Gov. Code 65943 (PSA 30-day completeness) is UNVERIFIED. AB 2234 timelines come from a secondary city page that is internally ambiguous (15 "days" vs "business days").
+
+## Construction types (checked 2026-11-07)
+
+Data file: `research/construction-types.json`. All pages are 2025-edition UpCodes pages. Table cells were read from the page HTML, with row spans resolved by hand.
+
+| #   | URL | What it gave | Status |
+| --- | --- | ------------ | ------ |
+| C1  | https://up.codes/viewer/california/ca-building-code-2025/chapter/5/general-building-heights-and-areas | Tables 504.3, 504.4, 506.2 R-2 and R-3 rows for all types, with footnotes. California splits the S row into "with" and "without area increase" for Group R. The R-2 Type VA row allows NFPA 13 up to 60 ft and 4 stories. UpCodes notes an OSFM-acknowledged publishing error (R-1 13R) | VERIFIED |
+| C2  | https://up.codes/viewer/california/ca-building-code-2025/chapter/3/occupancy-classification-and-use | 310.3 R-2 (more than two dwelling units); 310.4 R-3 (not more than two) | VERIFIED |
+| C3  | https://up.codes/viewer/california/ca-building-code-2025/chapter/4/special-detailed-requirements-based-on-occupancy-and-use | 420.2 fire partitions, 420.3 horizontal assemblies, 420.4 sprinklers | VERIFIED |
+| C4  | https://up.codes/viewer/california/ca-building-code-2025/chapter/7/fire-and-smoke-protection-features | 708.3 1-hour rating (1/2 hour in IIB/IIIB/VB with NFPA 13 only); 711.2.4.3; 705.5 and Table 705.5 (R column, R-3 IIB/VB footnote) | VERIFIED |
+| C5  | https://up.codes/viewer/california/ca-building-code-2025/chapter/6/types-of-construction | Table 601 exterior bearing walls; 602.1 | VERIFIED |
+| C6  | https://up.codes/viewer/california/ca-building-code-2025/chapter/9/fire-protection-and-life-safety-systems | 903.2.8 Group R sprinklers; 903.2.8.1 R-3 may use 13D; 903.3.1.2 13R limits (4 stories; R-2 roof under 45 ft above FD access); 903.3.1.3 | VERIFIED |
+| C7  | https://up.codes/viewer/california/ca-residential-code-2025/chapter/1/administration | R101.2 scope: detached one- and two-family dwellings and townhouses, not more than 3 stories | VERIFIED |
+| C8  | https://up.codes/viewer/california/ca-residential-code-2025/chapter/3/building-planning | R302.3 two-family separation (1 hour, or 1/2 hour with R309 sprinklers); R302.1 and Tables R302.1(1)/(2); R309.2 sprinklers (NFPA 13D or R309.3). In the 2025 CRC the sprinkler section is R309 | VERIFIED |
+
+### Construction-type gaps
+
+- **Single source.** Table values come only from UpCodes. They were not cross-checked against the official BSC/ICC text.
+- **R-3 "S" height row needs checking.** The row reads 160/65/55 for I-B/II-A/II-B. That doesn't match the other S rows on the same page, so confirm it before use.
+- **R-2 13R limits differ from the IBC model.** In California, R-2 with 13R is limited to V-A 50 ft / 3 stories and V-B 40 ft / 2 stories. These values come from the page as published.
+- **Townhouse definition not read.** This matters for whether a 3-unit townhouse row can use the CRC.
+- **2025 code effective date (Jan 1, 2026) not confirmed** from a BSC page in this pass.

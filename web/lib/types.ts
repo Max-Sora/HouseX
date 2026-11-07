@@ -59,7 +59,8 @@ export interface CodeTrigger {
   status: Status;
 }
 
-export type Limits = Record<string, number | null>;
+// "UL" = unlimited, as printed in the code tables.
+export type Limits = Record<string, number | "UL" | null>;
 
 export interface AllowableRow {
   occupancy: string;

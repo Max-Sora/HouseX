@@ -131,8 +131,10 @@ function constructionFindings(c: ConstructionRules, projectType: string, p: Extr
   const col = sprinklerColumn(p);
   const label = `${pt.occupancy}, Type ${type}, ${col === "NS" ? "no sprinklers" : col}`;
   const out: Finding[] = [];
-  const limit = (title: string, plan: number | null, max: number | null | undefined, unit: string) => {
-    if (max === null || max === undefined) {
+  const limit = (title: string, plan: number | null, max: number | "UL" | null | undefined, unit: string) => {
+    if (max === "UL") {
+      out.push({ kind: "passed", title, detail: `No limit (UL) for ${label}.`, required: "unlimited", source: row.source, sourceStatus: row.status });
+    } else if (max === null || max === undefined) {
       out.push({ kind: "unknown", title, detail: `No verified limit for ${label}.`, source: row.source, sourceStatus: row.status });
     } else if (plan === null) {
       out.push({ kind: "unknown", title, detail: "The plans do not state this value.", required: `≤ ${max} ${unit}`, source: row.source, sourceStatus: row.status });

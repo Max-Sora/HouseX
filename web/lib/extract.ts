@@ -4,7 +4,7 @@ import type { ExtractedPlan, RuleSet } from "./types";
 const client = new Anthropic();
 
 const num = { anyOf: [{ type: "number" }, { type: "null" }] };
-const str = { anyOf: [{ type: "string" }, { type: "null" }] };
+const str = { type: "string" };
 const bool = { anyOf: [{ type: "boolean" }, { type: "null" }] };
 const obj = (properties: Record<string, unknown>) => ({
   type: "object",
@@ -84,7 +84,7 @@ function instructions(rules: RuleSet): string {
 Your only job is to report what the document says. Another program applies the rules.
 
 Rules for reading:
-- Report a value only if it is printed in the document. Never estimate, compute from a scaled drawing, or assume. If it is not stated, use null.
+- Report a value only if it is printed in the document. Never estimate, compute from a scaled drawing, or assume. If a number or yes/no is not stated, use null; if a text field is not stated, use an empty string.
 - sprinkler_system is the standard named on the plans, e.g. "NFPA 13", "NFPA 13R", "NFPA 13D"; null if none is named. building_footprint_sf is the largest single-story or footprint area stated.
 - Convert units to feet and square feet. Height means overall building height if stated.
 - "evidence" must name the sheet or page and quote the short text you relied on. If nothing was found, say what you looked for.
@@ -149,5 +149,9 @@ export async function extractPlan(
     throw new Error("The plan set was too long to read in one pass.");
   const text = message.content.find((b) => b.type === "text");
   if (!text || text.type !== "text") throw new Error("No extraction returned.");
-  return JSON.parse(text.text) as ExtractedPlan;
+  const plan = JSON.parse(text.text) as ExtractedPlan;
+  // Empty text means "not stated"; the rest of the app expects null for that.
+  const p = plan.project as unknown as Record<string, unknown>;
+  for (const k of Object.keys(p)) if (p[k] === "") p[k] = null;
+  return plan;
 }

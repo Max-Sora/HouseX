@@ -11,29 +11,45 @@ const SECTIONS: { kind: FindingKind; title: string; blurb: string }[] = [
   {
     kind: "missing_document",
     title: "Missing documents",
-    blurb: "The city will mark the application incomplete without these.",
+    blurb: "Without these the city marks the application incomplete",
   },
   {
     kind: "violation",
     title: "Corrections needed",
-    blurb: "The plans conflict with a written rule.",
+    blurb: "The plans conflict with a written rule",
   },
   {
     kind: "unknown",
     title: "Not stated or not checked",
-    blurb: "The plans don't say, or the rule isn't confirmed yet.",
+    blurb: "The plans don't say, or the rule isn't confirmed yet",
   },
   {
     kind: "needs_human",
     title: "Needs a human plan checker",
-    blurb: "HouseX flags these but never decides them.",
+    blurb: "Flagged for a licensed plan checker, never decided here",
   },
-  { kind: "passed", title: "Passed", blurb: "Meets the rule as written." },
+  { kind: "passed", title: "Passed", blurb: "Meets the rule as written" },
+];
+
+const SAMPLES = [
+  {
+    file: "fresno-county-duplex-option-1_sheets-1-7.pdf",
+    type: "duplex",
+    label: "Try a real duplex plan set",
+    note: "Fresno County pre-approved plans, sheets 1–7",
+  },
+  {
+    file: "fictional-triplex-cover-sheet.pdf",
+    type: "triplex",
+    label: "Try the fictional triplex",
+    note: "made up, with deliberate errors",
+  },
 ];
 
 function FindingRow({ f }: { f: Finding }) {
+  const mark = f.kind === "violation" || f.kind === "missing_document";
   return (
-    <li className={styles.finding}>
+    <li className={`${styles.finding} ${mark ? styles.mark : ""}`}>
       <div className={styles.findingHead}>
         <strong>{f.title}</strong>
         {f.sourceStatus === "UNVERIFIED" && (
@@ -92,10 +108,10 @@ export default function PreCheck({
     try {
       const res = await fetch("/api/check", { method: "POST", body });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Check failed.");
+      if (!res.ok) throw new Error(data.error ?? "Check failed");
       setReport(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Check failed.");
+      setError(err instanceof Error ? err.message : "Check failed");
     } finally {
       setLoading(false);
     }
@@ -115,23 +131,22 @@ export default function PreCheck({
           />
           <span>{file ? file.name : "Choose a plan set PDF"}</span>
         </label>
-        <button
-          type="button"
-          className={styles.sample}
-          onClick={async () => {
-            const blob = await (
-              await fetch("/samples/fictional-triplex-cover-sheet.pdf")
-            ).blob();
-            setFile(
-              new File([blob], "fictional-triplex-cover-sheet.pdf", {
-                type: "application/pdf",
-              }),
-            );
-            setProjectType("triplex");
-          }}
-        >
-          Or try a fictional triplex sample (made up, with deliberate errors)
-        </button>
+        <div className={styles.samples}>
+          {SAMPLES.map((x) => (
+            <button
+              key={x.file}
+              type="button"
+              className={styles.sample}
+              onClick={async () => {
+                const blob = await (await fetch(`/samples/${x.file}`)).blob();
+                setFile(new File([blob], x.file, { type: "application/pdf" }));
+                setProjectType(x.type);
+              }}
+            >
+              <span className={styles.sampleLabel}>{x.label}</span> {x.note}
+            </button>
+          ))}
+        </div>
         <div className={styles.row}>
           <label>
             Project
@@ -163,7 +178,7 @@ export default function PreCheck({
         </div>
         {loading && (
           <p className={styles.hint}>
-            Claude is reading every sheet. This takes about a minute.
+            Reading every sheet, 1 to 2 minutes
           </p>
         )}
         {error && <p className={styles.error}>{error}</p>}
@@ -171,26 +186,41 @@ export default function PreCheck({
 
       {report && (
         <section className={styles.report}>
-          <div className={styles.summary}>
-            <span
-              className={`${styles.stamp} ${styles[report.result.toLowerCase()]}`}
-            >
-              {report.result}
-            </span>
-            <div>
-              <p>
-                <strong>{count("missing_document")}</strong> missing documents ·{" "}
-                <strong>{count("violation")}</strong> corrections ·{" "}
-                <strong>{count("unknown")}</strong> not stated ·{" "}
-                <strong>{count("passed")}</strong> passed
-              </p>
-              <p className={styles.meta}>
-                {report.city} rules checked {rulesChecked} ·{" "}
-                {report.projectType}
-                {report.district
-                  ? ` · district ${report.district}`
-                  : " · no district selected"}
-              </p>
+          <div className={styles.titleBlock}>
+            <div className={styles.stampCell}>
+              <span
+                className={`${styles.stamp} ${styles[report.result.toLowerCase()]}`}
+              >
+                {report.result}
+              </span>
+            </div>
+            <div className={styles.cells}>
+              {[
+                ["Missing documents", count("missing_document"), true],
+                ["Corrections", count("violation"), true],
+                ["Not stated", count("unknown"), false],
+                ["Passed", count("passed"), false],
+              ].map(([label, n, red]) => (
+                <div key={label as string} className={styles.cell}>
+                  <span className={styles.cellLabel}>{label}</span>
+                  <span
+                    className={`${styles.cellValue} ${styles.figure} ${red && n ? styles.corr : ""}`}
+                  >
+                    {n}
+                  </span>
+                </div>
+              ))}
+              {[
+                ["City", report.city],
+                ["Project", report.projectType],
+                ["District", report.district ?? "Not identified"],
+                ["Rules checked", rulesChecked],
+              ].map(([label, v]) => (
+                <div key={label} className={styles.cell}>
+                  <span className={styles.cellLabel}>{label}</span>
+                  <span className={styles.cellValue}>{v}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -222,7 +252,9 @@ export default function PreCheck({
               <tbody>
                 {Object.entries(report.extracted.project).map(([k, v]) => (
                   <tr key={k}>
-                    <th>{k.replaceAll("_", " ")}</th>
+                    <th>
+                      {k.charAt(0).toUpperCase() + k.slice(1).replaceAll("_", " ")}
+                    </th>
                     <td>
                       {v === null
                         ? "not stated"
