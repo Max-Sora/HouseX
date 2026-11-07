@@ -1,22 +1,22 @@
 {
   "audience": {
-    "seconds": 4.393,
-    "text": "Builders, architects, developers in Orange County? This one's for you."
+    "seconds": 5.1,
+    "text": "Builders, architects, developers, real estate agents in Orange County: this is for you."
   },
   "problem": {
-    "seconds": 7.92,
-    "text": "Land to keys takes four-plus years. And one missing document could delay a project by months, and cause real financial losses."
+    "seconds": 7.84,
+    "text": "Land to keys takes four-plus years, and one missing document could delay it by months and cause real financial losses."
   },
   "purpose": {
-    "seconds": 4.8,
-    "text": "HouseX checks your plan set against Irvine's permit rules, before you submit."
+    "seconds": 5.1,
+    "text": "HouseX checks your plan set against the city's permit requirements, before you submit."
   },
   "demo": {
-    "seconds": 5.52,
-    "text": "Add your address and plans. In under two minutes, you get the missing documents and code conflicts, each with its source."
+    "seconds": 5.49,
+    "text": "Upload your plans. In under two minutes, see the missing documents and code conflicts."
   },
   "payoff": {
-    "seconds": 4.24,
-    "text": "Fewer correction rounds. Fewer months of loan interest. Fewer consulting fees. That's HouseX."
+    "seconds": 7.06,
+    "text": "Fewer correction rounds, less loan interest, lower consulting fees. For Habitat for Humanity, that's more money for homes."
   }
 }

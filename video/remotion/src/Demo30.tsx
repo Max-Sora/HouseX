@@ -46,6 +46,13 @@ const C = {
   mark: "#f6dfa6",
 };
 const ease = Easing.bezier(0.22, 1, 0.36, 1);
+const TEAM = ["Meela A", "Josh Lin", "Mathew Yam", "Joy Zhang", "Max Tang"];
+// Frame where a phrase starts inside a scene's narration, estimated from its position in the text.
+const at = (id: "audience" | "problem" | "purpose" | "demo" | "payoff", phrase: string) => {
+  const { text, seconds } = (vo as Record<string, { text: string; seconds: number }>)[id];
+  const i = Math.max(0, text.indexOf(phrase));
+  return Math.round((i / text.length) * seconds * 30);
+};
 
 type Id = "audience" | "problem" | "purpose" | "demo" | "payoff";
 const V = vo as Record<Id, { seconds: number; text: string }>;
@@ -221,8 +228,8 @@ const Audience: React.FC = () => (
       </div>
     </In>
     <div style={{ display: "flex", gap: 24, marginTop: 48 }}>
-      {["Builders", "Architects", "Developers"].map((t, i) => (
-        <Pop key={t} d={6 + i * 14}>
+      {["Builders", "Architects", "Developers", "Real estate agents"].map((t, i) => (
+        <Pop key={t} d={6 + i * 12}>
           <div
             style={{
               fontSize: 44,
@@ -238,13 +245,19 @@ const Audience: React.FC = () => (
         </Pop>
       ))}
     </div>
+    <In d={30} style={{ marginTop: 72 }}>
+      <div style={{ fontFamily: MONO, fontSize: 34, color: C.sec }}>
+        Team HouseX · {TEAM.join(" · ")}
+      </div>
+    </In>
   </Scene>
 );
 
 const Problem: React.FC = () => {
   const f = useCurrentFrame();
   const years = interpolate(f, [6, 50], [0, 4], { ...clampOpts, easing: ease });
-  const extra = interpolate(f, [86, 130], [0, 1], {
+  const doc = at("problem", "one missing document");
+  const extra = interpolate(f, [doc + 8, doc + 52], [0, 1], {
     ...clampOpts,
     easing: ease,
   });
@@ -321,7 +334,7 @@ const Problem: React.FC = () => {
           />
         ))}
       </div>
-      <In d={78} style={{ marginTop: 48 }}>
+      <In d={doc} style={{ marginTop: 48 }}>
         <div
           style={{
             fontSize: 64,
@@ -342,7 +355,8 @@ const Problem: React.FC = () => {
 
 const Purpose: React.FC = () => {
   const f = useCurrentFrame();
-  const mark = interpolate(f, [52, 72], [0, 100], {
+  const sub = at("purpose", "before you submit");
+  const mark = interpolate(f, [sub, sub + 20], [0, 100], {
     ...clampOpts,
     easing: ease,
   });
@@ -352,7 +366,7 @@ const Purpose: React.FC = () => {
       <In d={4}>
         <div
           style={{
-            fontSize: 96,
+            fontSize: 88,
             fontWeight: 500,
             letterSpacing: "-0.03em",
             lineHeight: 1.08,
@@ -360,7 +374,7 @@ const Purpose: React.FC = () => {
             maxWidth: 1550,
           }}
         >
-          Checks your plan set against Irvine&rsquo;s permit rules,{" "}
+          Checks your plan set against the city&rsquo;s permit requirements,{" "}
           <span style={{ position: "relative", whiteSpace: "nowrap" }}>
             <span
               style={{
@@ -584,31 +598,30 @@ const Payoff: React.FC<{ frames: number }> = ({ frames }) => {
     <AbsoluteFill style={{ background: C.bg }}>
       <Scene>
         <div style={{ opacity: 1 - end }}>
-          {[
-            "Fewer correction rounds.",
-            "Fewer months of loan interest.",
-            "Fewer consulting fees.",
-          ].map(
-            (t, i) => (
-              <In key={t} d={[2, 32, 74][i]}>
-                <div
-                  style={{
-                    fontSize: 92,
-                    fontWeight: 500,
-                    letterSpacing: "-0.035em",
-                    lineHeight: 1.1,
-                  }}
-                >
-                  {t}
-                </div>
-              </In>
-            ),
-          )}
-          <In d={100} style={{ marginTop: 36 }}>
-            <div style={{ fontFamily: MONO, fontSize: 30, color: C.muted }}>
-              A $1M construction loan at 10% costs{" "}
-              <span style={{ color: C.green }}>$8,333</span> a month (team
-              assumption)
+          {(
+            [
+              ["Fewer correction rounds.", "Fewer correction"],
+              ["Less loan interest.", "less loan"],
+              ["Lower consulting fees.", "lower consulting"],
+            ] as const
+          ).map(([t, cue]) => (
+            <In key={t} d={at("payoff", cue)}>
+              <div style={{ fontSize: 88, fontWeight: 500, letterSpacing: "-0.035em", lineHeight: 1.1 }}>{t}</div>
+            </In>
+          ))}
+          <In d={at("payoff", "For Habitat")} style={{ marginTop: 40 }}>
+            <div
+              style={{
+                display: "inline-block",
+                fontSize: 44,
+                fontWeight: 500,
+                padding: "18px 28px",
+                borderRadius: 16,
+                background: C.panel,
+                border: `2px solid ${C.green}`,
+              }}
+            >
+              For Habitat for Humanity: <span style={{ color: C.green }}>more money for homes</span>
             </div>
           </In>
         </div>
