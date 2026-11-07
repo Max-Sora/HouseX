@@ -50,13 +50,7 @@ const ease = Easing.bezier(0.22, 1, 0.36, 1);
 type Id = "audience" | "problem" | "purpose" | "demo" | "payoff";
 const V = vo as Record<Id, { seconds: number; text: string }>;
 // Each scene lasts its narration plus a beat; the demo and the ending get room for visuals.
-const PAD: Record<Id, number> = {
-  audience: 0.4,
-  problem: 0.5,
-  purpose: 0.4,
-  demo: 1.4,
-  payoff: 1.6,
-};
+const PAD: Record<Id, number> = { audience: 0.3, problem: 0.4, purpose: 0.3, demo: 1.1, payoff: 1.5 };
 const TRANSITION = 10;
 const ORDER: Id[] = ["audience", "problem", "purpose", "demo", "payoff"];
 const LEN = Object.fromEntries(
@@ -210,7 +204,7 @@ const Caption: React.FC<{ id: Id }> = ({ id }) => {
 
 const Audience: React.FC = () => (
   <Scene>
-    <Kicker>HouseX · for Irvine permits</Kicker>
+    <Kicker>HouseX · for Orange County</Kicker>
     <In d={4}>
       <div
         style={{
@@ -221,14 +215,14 @@ const Audience: React.FC = () => (
           marginTop: 20,
         }}
       >
-        Building homes
+        Building in
         <br />
-        in Irvine?
+        Orange County?
       </div>
     </In>
     <div style={{ display: "flex", gap: 24, marginTop: 48 }}>
-      {["Small builders", "Nonprofits"].map((t, i) => (
-        <Pop key={t} d={38 + i * 16}>
+      {["Builders", "Architects", "Developers"].map((t, i) => (
+        <Pop key={t} d={6 + i * 14}>
           <div
             style={{
               fontSize: 44,
@@ -299,6 +293,19 @@ const Problem: React.FC = () => {
             borderRadius: 6,
           }}
         />
+        <div
+          style={{
+            position: "absolute",
+            left: 1220,
+            top: -34,
+            fontFamily: MONO,
+            fontSize: 30,
+            color: C.red,
+            opacity: extra,
+          }}
+        >
+          + months
+        </div>
         {[0, 1, 2, 3, 4].map((y) => (
           <div
             key={y}
@@ -317,15 +324,16 @@ const Problem: React.FC = () => {
       <In d={78} style={{ marginTop: 48 }}>
         <div
           style={{
-            fontSize: 72,
+            fontSize: 64,
             fontWeight: 500,
             letterSpacing: "-0.02em",
-            lineHeight: 1.1,
+            lineHeight: 1.12,
           }}
         >
-          <span style={{ color: C.red }}>1 missing document</span> can delay
+          <span style={{ color: C.red }}>1 missing document</span> could delay a
+          project
           <br />
-          the whole project
+          by months, and cause real financial losses
         </div>
       </In>
     </Scene>
@@ -576,12 +584,16 @@ const Payoff: React.FC<{ frames: number }> = ({ frames }) => {
     <AbsoluteFill style={{ background: C.bg }}>
       <Scene>
         <div style={{ opacity: 1 - end }}>
-          {["Fewer correction rounds.", "Fewer months of loan interest."].map(
+          {[
+            "Fewer correction rounds.",
+            "Fewer months of loan interest.",
+            "Fewer consulting fees.",
+          ].map(
             (t, i) => (
-              <In key={t} d={4 + i * 30}>
+              <In key={t} d={[2, 32, 74][i]}>
                 <div
                   style={{
-                    fontSize: 104,
+                    fontSize: 92,
                     fontWeight: 500,
                     letterSpacing: "-0.035em",
                     lineHeight: 1.1,
@@ -592,7 +604,7 @@ const Payoff: React.FC<{ frames: number }> = ({ frames }) => {
               </In>
             ),
           )}
-          <In d={70} style={{ marginTop: 36 }}>
+          <In d={100} style={{ marginTop: 36 }}>
             <div style={{ fontFamily: MONO, fontSize: 30, color: C.muted }}>
               A $1M construction loan at 10% costs{" "}
               <span style={{ color: C.green }}>$8,333</span> a month (team

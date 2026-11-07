@@ -1,5 +1,5 @@
-audience|Building homes in Irvine? Small builder, or nonprofit? This one's for you.
-problem|Land to keys takes four-plus years. And one missing document can delay the whole project.
+audience|Builders, architects, developers in Orange County? This one's for you.
+problem|Land to keys takes four-plus years. And one missing document could delay a project by months, and cause real financial losses.
 purpose|HouseX checks your plan set against Irvine's permit rules, before you submit.
 demo|Add your address and plans. In under two minutes, you get the missing documents and code conflicts, each with its source.
-payoff|Fewer correction rounds. Fewer months of loan interest. That's HouseX.
+payoff|Fewer correction rounds. Fewer months of loan interest. Fewer consulting fees. That's HouseX.
