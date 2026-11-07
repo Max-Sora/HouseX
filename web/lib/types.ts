@@ -160,6 +160,20 @@ export interface Finding {
   sourceStatus?: Status;
 }
 
+// Facts about the lot, looked up from public GIS services by address.
+export interface SiteFacts {
+  address: string;
+  matched_address: string | null;
+  lat: number | null;
+  lon: number | null;
+  apn: string | null;
+  lot_area_sf: number | null;
+  zoning: string | null;
+  flood_zone: string | null;
+  fire_hazard: string | null;
+  lookups: { label: string; publisher: string; url: string; ok: boolean; note?: string }[];
+}
+
 export interface Report {
   result: "PASS" | "FAIL" | "INCOMPLETE";
   city: string;
@@ -168,4 +182,5 @@ export interface Report {
   projectType: string;
   findings: Finding[];
   extracted: ExtractedPlan;
+  site: SiteFacts | null;
 }

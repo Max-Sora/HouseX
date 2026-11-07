@@ -4,6 +4,7 @@ import type {
   Finding,
   Report,
   RuleSet,
+  SiteFacts,
   ZoningDistrict,
 } from "./types";
 
@@ -162,9 +163,14 @@ export function runCheck(
   plan: ExtractedPlan,
   districtCode: string | null,
   projectType: string,
+  site: SiteFacts | null = null,
 ): Report {
   const findings: Finding[] = [];
   const p = plan.project;
+  const sourceOf = (label: string) => {
+    const l = site?.lookups.find((x) => x.label === label);
+    return l ? { title: `${l.publisher} (looked up by address)`, url: l.url } : undefined;
+  };
 
   // 1. Completeness: every required document for this project type.
   for (const doc of rules.required_documents.filter((d) =>
@@ -188,13 +194,20 @@ export function runCheck(
     });
   }
 
-  // 2. Zoning: objective standards for the chosen district, or the one printed on the plans.
-  const fromPlans = p.zoning_district_on_plans?.match(/\d+\.\d+/)?.[0] ?? null;
+  // 2. Zoning: the chosen district, else the city's zoning map at the address, else the plans.
+  const code = (s: string | null | undefined) => s?.match(/\d+\.\d+/)?.[0] ?? null;
+  const fromPlans = code(p.zoning_district_on_plans);
+  const fromSite = code(site?.zoning);
   const district =
     rules.zoning_districts.find(
-      (d) => d.code === (districtCode || fromPlans),
+      (d) => d.code === (districtCode || fromSite || fromPlans),
     ) ?? null;
-  if (district) findings.push(...zoningFindings(district, p));
+  // Lot area from the parcel record when the plans don't state it; coverage computed from stated footprint.
+  const lotArea = p.lot_area_sf ?? site?.lot_area_sf ?? null;
+  const coverage =
+    p.lot_coverage_pct ??
+    (p.building_footprint_sf && lotArea ? +((p.building_footprint_sf / lotArea) * 100).toFixed(1) : null);
+  if (district) findings.push(...zoningFindings(district, { ...p, lot_area_sf: lotArea, lot_coverage_pct: coverage }));
   else
     findings.push({
       kind: "unknown",
@@ -238,7 +251,54 @@ export function runCheck(
     });
   }
 
-  // 5. What HouseX never decides.
+  // 5. Facts about the lot from public GIS, looked up by address.
+  if (site) {
+    if (site.lat === null) {
+      findings.push({ kind: "unknown", title: "Project address", detail: `"${site.address}" could not be located, so no site facts were looked up.` });
+    }
+    if (fromSite && fromPlans && fromSite !== fromPlans) {
+      findings.push({
+        kind: "violation",
+        title: "Zoning on plans does not match the city map",
+        detail: `Plans state district ${fromPlans}; the city zoning map shows ${site.zoning} at this address.`,
+        source: sourceOf("Zoning district"),
+      });
+    }
+    if (p.lot_area_sf === null && site.lot_area_sf !== null) {
+      findings.push({
+        kind: "unknown",
+        title: "Lot area not on plans",
+        detail: `Used ${site.lot_area_sf.toLocaleString()} sf from the county parcel record for density and coverage. The site plan should state it.`,
+        source: sourceOf("Parcel"),
+      });
+    }
+    if (site.flood_zone) {
+      const special = /^(A|V)/i.test(site.flood_zone);
+      findings.push({
+        kind: special ? "needs_human" : "passed",
+        title: `FEMA flood zone ${site.flood_zone}`,
+        detail: special
+          ? "The lot is in a special flood hazard area. Floodplain development rules apply and an elevation certificate is normally required."
+          : "Outside the special flood hazard area.",
+        source: sourceOf("Flood zone"),
+      });
+    }
+    if (site.fire_hazard) {
+      const t = plan.code_triggers.find((c) => c.id === "fhsz_chapter_7a");
+      const shown = t?.status === "addressed";
+      findings.push({
+        kind: shown ? "passed" : "violation",
+        title: `Fire Hazard Severity Zone: ${site.fire_hazard}`,
+        detail: shown
+          ? "The plans show the Chapter 7A wildland-urban interface construction notes."
+          : "The lot is in a mapped fire hazard zone. Plans must show Chapter 7A wildland-urban interface construction (ignition-resistant materials, vents, roofing).",
+        evidence: t?.evidence,
+        source: sourceOf("Fire hazard zone"),
+      });
+    }
+  }
+
+  // 6. What HouseX never decides.
   findings.push({
     kind: "needs_human",
     title: "Structural and MEP review",
@@ -262,5 +322,6 @@ export function runCheck(
     projectType,
     findings,
     extracted: plan,
+    site,
   };
 }

@@ -504,3 +504,69 @@
   outline: 2px solid var(--foreground);
   outline-offset: 2px;
 }
+
+/* Project address */
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.address input {
+  font: inherit;
+  font-size: 15px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.address input::placeholder {
+  color: var(--muted);
+}
+
+.address input:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+.address span {
+  color: var(--muted);
+}
+
+.lookups {
+  list-style: none;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--secondary);
+}
+
+.lookups li + li {
+  margin-top: 4px;
+}
+
+.lookups .source {
+  margin-top: 0;
+}
+
+.ok,
+.miss {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.ok {
+  color: var(--pass);
+}
+
+.miss {
+  color: var(--muted);
+}

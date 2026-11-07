@@ -91,6 +91,7 @@ export default function PreCheck({
   const [file, setFile] = useState<File | null>(null);
   const [projectType, setProjectType] = useState("duplex");
   const [district, setDistrict] = useState("");
+  const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<Report | null>(null);
@@ -107,6 +108,7 @@ export default function PreCheck({
     body.append("file", file);
     body.append("projectType", projectType);
     body.append("district", district);
+    body.append("address", address);
     try {
       const res = await fetch("/api/check", { method: "POST", body });
       const data = await res.json();
@@ -125,6 +127,18 @@ export default function PreCheck({
   return (
     <>
       <form className={styles.form} onSubmit={submit}>
+        <label className={styles.address}>
+          Project address
+          <input
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            placeholder="Street, city, ZIP"
+            autoComplete="street-address"
+            maxLength={200}
+          />
+          <span>Used to look up the lot&rsquo;s zoning, parcel size, flood zone and fire hazard zone</span>
+        </label>
         <label className={styles.drop}>
           <input
             type="file"
@@ -225,6 +239,45 @@ export default function PreCheck({
               ))}
             </div>
           </div>
+
+          {report.site && (
+            <details className={styles.section} open>
+              <summary>
+                Lot facts from public records
+                <em>Looked up from the project address, used in the checks below</em>
+              </summary>
+              <table className={styles.table}>
+                <tbody>
+                  {(
+                    [
+                      ["Matched address", report.site.matched_address],
+                      ["Parcel (APN)", report.site.apn],
+                      ["Lot area", report.site.lot_area_sf === null ? null : `${report.site.lot_area_sf.toLocaleString()} sf`],
+                      ["Zoning (city map)", report.site.zoning],
+                      ["FEMA flood zone", report.site.flood_zone],
+                      ["Fire hazard severity zone", report.site.fire_hazard ?? (report.site.lat !== null ? "None mapped" : null)],
+                    ] as [string, string | null][]
+                  ).map(([k, v]) => (
+                    <tr key={k}>
+                      <th>{k}</th>
+                      <td>{v ?? "not found"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <ul className={styles.lookups}>
+                {report.site.lookups.map((l) => (
+                  <li key={l.label}>
+                    <span className={l.ok ? styles.ok : styles.miss}>{l.ok ? "found" : "not found"}</span>{" "}
+                    {l.label} ·{" "}
+                    <a className={styles.source} href={l.url} target="_blank" rel="noreferrer">
+                      {l.publisher}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
 
           {SECTIONS.map((s) => {
             const items = report.findings.filter((f) => f.kind === s.kind);

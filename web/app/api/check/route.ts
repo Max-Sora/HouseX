@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { extractPlan } from "@/lib/extract";
 import { runCheck } from "@/lib/check";
 import { rules } from "@/lib/rules";
+import { lookupSite } from "@/lib/site";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -12,6 +13,7 @@ export async function POST(req: Request) {
   const file = form.get("file");
   const projectType = String(form.get("projectType") ?? "duplex");
   const district = (form.get("district") as string) || null;
+  const address = String(form.get("address") ?? "").trim().slice(0, 200);
 
   if (!(file instanceof File) || file.type !== "application/pdf") {
     return NextResponse.json(
@@ -28,8 +30,12 @@ export async function POST(req: Request) {
 
   try {
     const pdf = Buffer.from(await file.arrayBuffer()).toString("base64");
-    const plan = await extractPlan(pdf, rules);
-    return NextResponse.json(runCheck(rules, plan, district, projectType));
+    // The site lookup runs while Claude reads the plans.
+    const [plan, site] = await Promise.all([
+      extractPlan(pdf, rules),
+      address ? lookupSite(address) : Promise.resolve(null),
+    ]);
+    return NextResponse.json(runCheck(rules, plan, district, projectType, site));
   } catch (err) {
     if (err instanceof Anthropic.AuthenticationError) {
       return NextResponse.json(
