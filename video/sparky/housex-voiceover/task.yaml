@@ -1,10 +1,10 @@
-# 用 Breeze TTS 2（Sparky 的声音）给 HouseX 30 秒演示视频念 5 段英文旁白：workflow，一次加载模型念完，存到工作目录 out/<名>.wav
+# 用 VoiceStudio 的 OmniVoice 给 HouseX 30 秒演示视频念 5 段英文旁白（美式男声，同一个声音）：workflow，存到工作目录 out/<名>.wav；gen.py 是先前的 Breeze 版本
 name: housex-voiceover
-description: HouseX 演示视频的 5 段英文旁白（Breeze TTS 2，一次念完）
+description: HouseX 演示视频的 5 段英文旁白（OmniVoice 美式男声）
 enabled: false
 trigger: manual
 timeout: 20m
 priority: 9
 resumable: false # 一步只要一两分钟，不在中途打断
 steps:
-  - [1, gen.py, true]
+  - [1, omni.py, true]
