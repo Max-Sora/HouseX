@@ -56,6 +56,7 @@ Open http://localhost:3000 and upload a plan set PDF, or use one of the two samp
 
 - **Real duplex.** Sheets 1 to 7 of Fresno County's free pre-approved Duplex Option #1 ([program page](https://www.fresnocountyca.gov/Departments/Public-Works-and-Planning/divisions-of-public-works-and-planning/community-development-division/Duplex-Plans)). The plans were approved in Fresno County under the 2022 codes, so in Irvine they come back FAIL: 2022 code editions where Irvine now applies the 2025 codes, no Irvine local amendments, and no lot or setback data to check zoning against.
 - **Passing duplex.** A made-up 30-page duplex plan set and document package ([generator](samples/build_passing_duplex.py)) written to meet every rule HouseX checks in district 2.3. It returns PASS, with the Irvine limits HouseX has not confirmed (front and side setbacks, lot coverage, parking) and structural/MEP review listed for a human plan checker.
+- **Failing duplex.** The same set with six planted problems (height 38 ft, rear setback 8 ft, the 2022 Energy Code cited, and no soils report, school fee form or IRWD letter). HouseX returns FAIL with exactly those six findings.
 - **Fictional triplex.** A made-up cover sheet ([source](samples/fictional-triplex-cover-sheet.html)) with deliberate errors in height, rear setback, lot coverage, density, parking, sprinklers, occupancy and code editions.
 
 The full Fresno County triplex (sheets 1 to 8) is in [`samples/public/`](samples/public/) too.

@@ -195,6 +195,24 @@ html = f"<!doctype html><html><head><meta charset='utf-8'><title>FICTIONAL SAMPL
 out = Path(__file__).with_name("fictional-duplex-passing.html")
 out.write_text(html)
 print(out, len(pages), "pages")
+
+# The failing variant: the same set with a few deliberate problems, so the two make a before/after pair.
+DROP = ("Soils / Geotechnical Report", "School Facilities Fee Determination", "Irvine Ranch Water District")
+fail_pages = [pg for pg in pages if not any(f"<h1>{d}" in pg for d in DROP)]
+fail = f"<!doctype html><html><head><meta charset='utf-8'><title>FICTIONAL SAMPLE - Failing duplex plan set</title><style>{CSS}</style></head><body>{''.join(fail_pages)}</body></html>"
+for old, new in [
+    ("2 stories above grade plane / 28'-0\" to top of ridge", "2 stories above grade plane / 38'-0\" to top of ridge"),
+    ("Overall height 28'-0\"", "Overall height 38'-0\""),
+    ("Rear 15'-0\"", "Rear 8'-0\""),
+    ("REAR SETBACK 15'-0\"", "REAR SETBACK 8'-0\""),
+    ("2025 California Energy Code, Title 24 Part 6", "2022 California Energy Code, Title 24 Part 6"),
+    ("<tr><td>Soils engineer</td><td>Sample Geotechnical (fictional) · Report # SG-0000-FICT, dated 09/15/2026</td></tr>", ""),
+]:
+    assert old in fail, old
+    fail = fail.replace(old, new)
+out_fail = Path(__file__).with_name("fictional-duplex-failing.html")
+out_fail.write_text(fail)
+print(out_fail, len(fail_pages), "pages")
 # Render:
 # "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer \
 #   --print-to-pdf=samples/fictional-duplex-passing.pdf "file://$PWD/samples/fictional-duplex-passing.html"

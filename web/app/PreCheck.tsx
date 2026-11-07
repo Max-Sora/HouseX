@@ -23,6 +23,12 @@ const SAMPLES = [
     note: "made up, written to meet every rule HouseX checks",
   },
   {
+    file: "fictional-duplex-failing.pdf",
+    type: "duplex",
+    label: "Try a failing duplex",
+    note: "same set with 6 planted problems",
+  },
+  {
     file: "fictional-triplex-cover-sheet.pdf",
     type: "triplex",
     label: "Try the fictional triplex",
