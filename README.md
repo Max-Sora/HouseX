@@ -47,6 +47,10 @@ echo "ANTHROPIC_API_KEY=your-key-here" > .env.local
 npm run dev
 ```
 
+The app has one page per step, linked from the bar at the top: `/` Check, `/report`, `/savings`, `/fix`, `/savings-after-fix`, `/cost-benefit` and `/requirements`. Results stay available across pages and reloads within the browser tab.
+
+The cost-benefit page is a calculator: enter the amount tied up in construction and the number of pages in the plan set. It estimates interest saved on an interest-only construction loan (amount × rate ÷ 12 × months saved; the 10% default rate is a team assumption) and consultant time saved (pages × hours per page × hourly rate; 1 hour per page is an assumption, $200 an hour the default from a typical $100 to $250 range).
+
 Open http://localhost:3000 and upload a plan set PDF, or use one of the two samples on the page. A check takes 1 to 2 minutes.
 
 - **Real duplex.** Sheets 1 to 7 of Fresno County's free pre-approved Duplex Option #1 ([program page](https://www.fresnocountyca.gov/Departments/Public-Works-and-Planning/divisions-of-public-works-and-planning/community-development-division/Duplex-Plans)). The plans were approved in Fresno County under the 2022 codes, so in Irvine they come back FAIL: 2022 code editions where Irvine now applies the 2025 codes, no Irvine local amendments, and no lot or setback data to check zoning against.
