@@ -126,9 +126,12 @@ export function runCheck(
     });
   }
 
-  // 2. Zoning: objective standards for the chosen district.
+  // 2. Zoning: objective standards for the chosen district, or the one printed on the plans.
+  const fromPlans = p.zoning_district_on_plans?.match(/\d+\.\d+/)?.[0] ?? null;
   const district =
-    rules.zoning_districts.find((d) => d.code === districtCode) ?? null;
+    rules.zoning_districts.find(
+      (d) => d.code === (districtCode || fromPlans),
+    ) ?? null;
   if (district) findings.push(...zoningFindings(district, p));
   else
     findings.push({

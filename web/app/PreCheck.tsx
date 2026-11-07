@@ -112,6 +112,23 @@ export default function PreCheck({
           />
           <span>{file ? file.name : "Choose a plan set PDF"}</span>
         </label>
+        <button
+          type="button"
+          className={styles.sample}
+          onClick={async () => {
+            const blob = await (
+              await fetch("/samples/fictional-triplex-cover-sheet.pdf")
+            ).blob();
+            setFile(
+              new File([blob], "fictional-triplex-cover-sheet.pdf", {
+                type: "application/pdf",
+              }),
+            );
+            setProjectType("triplex");
+          }}
+        >
+          Or try a fictional triplex sample (made up, with deliberate errors)
+        </button>
         <div className={styles.row}>
           <label>
             Project

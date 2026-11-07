@@ -1,0 +1,1166 @@
+{
+  "city": "Irvine",
+  "checked": "2026-11-07",
+  "required_documents": [
+    {
+      "id": "e_submittal_checklist",
+      "name": "E-Submittal Checklist and Questionnaire (New Residential Models/Production/Condominiums/Apartments)",
+      "description": "Cover checklist for the Building and Grading project group, project type 'New Residential Models/Production/Condominiums/Apartments'. Lists the required DOCUMENTS below and asks whether the application includes model homes and PV panels (with kW DC).",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "E-SUBMITTAL CHECKLIST AND QUESTIONNAIRE",
+        "NEW RESIDENTIAL MODELS/PRODUCTION/CONDOMINIUMS/APARTMENTS",
+        "kw(DC)"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet (rev. 4.14.23)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "E-Submittal Checklist and Questionnaire, Steps 1-5"
+      },
+      "status": "VERIFIED",
+      "note": "Packet is linked from https://cityofirvine.gov/node/60926 (New Construction). Packet date 4/14/23; check for a newer revision before relying on it."
+    },
+    {
+      "id": "esignature_disclosure",
+      "name": "Electronic/Digital Signature Disclosure",
+      "description": "Signed disclosure agreeing that electronic signatures on City submittals are legally binding.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "ELECTRONIC/DIGITAL SIGNATURE DISCLOSURE"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist"
+      },
+      "status": "VERIFIED",
+      "note": "Online version: https://irvineca.seamlessdocs.com/f/esigdisclosure (linked from the ADU page)."
+    },
+    {
+      "id": "building_permit_application",
+      "name": "Building Permit Application (Form 65-59)",
+      "description": "Project address, tract/lot/units, applicant and owner, description of work, occupancy group(s), construction type, valuation, number of stories, sprinklers yes/no, total dwelling units and total dwelling sq ft; check one of SFD / DET CONDO / ATT CONDO / APT.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "BUILDING PERMIT APPLICATION",
+        "FORM 65-59",
+        "TOTAL NUMBER OF DWELLING UNITS",
+        "OCCUPANCY GROUP(S)",
+        "CONSTRUCTION TYPE"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist; Form 65-59 rev 08/19"
+      },
+      "status": "VERIFIED",
+      "note": ""
+    },
+    {
+      "id": "building_data_sheet",
+      "name": "Building Data Sheet (Form 66-58)",
+      "description": "Per floor plan: addresses, lot and unit numbers, number of buildings, dwelling units per building, building uses and areas, stories, sprinklers, occupancy group(s), construction type, PV panels yes/no and PV system wattage kW(DC).",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "BUILDING DATA SHEET",
+        "FORM 66-58",
+        "PV SYSTEM WATTAGE",
+        "NO. OF DWELLING UNITS PER BLDG"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist; Form 66-58 rev 01/20"
+      },
+      "status": "VERIFIED",
+      "note": ""
+    },
+    {
+      "id": "cd_waste_assessment",
+      "name": "Recycling and Diversion of Construction and Demolition Waste Assessment 2.0 (Form 66-122A) + online C&D Waste Management Plan",
+      "description": "Assessment form; any new single- or multi-family residential building is subject to recycling/diversion, which requires an approved waste management plan and a bond posted at permit issuance. The online Construction and Demolition Waste Management Plan must be approved before a permit can be issued.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "CONSTRUCTION AND DEMOLITION WASTE",
+        "FORM 66-122A",
+        "WASTE MANAGEMENT PLAN",
+        "6-7-900"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "Additional Information item 2; Form 66-122A rev 11/18"
+      },
+      "status": "VERIFIED",
+      "note": "Form cites Irvine Municipal Code 6-7-900 and CALGreen 4.408/5.408/5.713.8. Residential diversion: 75% of concrete/asphalt, 65% of other debris."
+    },
+    {
+      "id": "ocfa_plan_submittal_criteria",
+      "name": "OCFA Plan Submittal Criteria form (Commercial, Multifamily Residential and Residential Tract)",
+      "description": "Orange County Fire Authority questionnaire. Q1 (new building) points to a Fire Master Plan (PR145). Q5 flags an Architectural Plan for apartment/residential facilities with 3+ units AND 3+ stories (3-story townhouses with independent direct exit to grade exempt). Items 11-12 cover sprinklers/alarms and Fire Hazard Severity Zone.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "ORANGE COUNTY FIRE AUTHORITY",
+        "Plan Submittal Criteria",
+        "PR145",
+        "Fire Master Plan"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist; OCFA form 10-08-14"
+      },
+      "status": "VERIFIED",
+      "note": "City staff email an OCFA SR Form if required after review."
+    },
+    {
+      "id": "fire_master_plan",
+      "name": "Approved OCFA Fire Master Plan (PR145) - optional upload at submittal",
+      "description": "Uploading the approved Fire Master Plans as an Attachment saves 10 business days on the first review.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "FIRE MASTER PLAN",
+        "PR145",
+        "OCFA"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "Additional Information item 5; OCFA form Q1"
+      },
+      "status": "VERIFIED",
+      "note": "Recommended, not a completeness blocker per packet wording."
+    },
+    {
+      "id": "developer_deposit_case_setup",
+      "name": "Developer Deposit Case Set Up",
+      "description": "Deposit account set-up form.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "DEVELOPER DEPOSIT",
+        "CASE SET UP",
+        "CASE SET-UP"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist"
+      },
+      "status": "VERIFIED",
+      "note": "Online form: https://irvineca.seamlessdocs.com/f/ddcasesetup (linked from ADU page)."
+    },
+    {
+      "id": "area_tabulations",
+      "name": "Area Tabulations",
+      "description": "Floor-area tabulation document.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "AREA TABULATION",
+        "AREA SUMMARY",
+        "SQ. FT."
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist"
+      },
+      "status": "VERIFIED",
+      "note": "Listed by name only; required format not described in the packet."
+    },
+    {
+      "id": "address_sequence_sheet",
+      "name": "Address Sequence Sheet",
+      "description": "Address assignment sheet for the new units.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "ADDRESS SEQUENCE",
+        "ADDRESS APPLICATION"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist"
+      },
+      "status": "VERIFIED",
+      "note": "ADU page instead uses an 'Address Application': https://cityofirvine.gov/sites/default/files/legacy-documents/civica-19334-41-60.pdf"
+    },
+    {
+      "id": "tca_fee_form",
+      "name": "Transportation Corridor Agencies Residential Fee Determination (Form 66-92)",
+      "description": "Per-unit table: lot, address, separate lot Y/N, detached Y/N, unit sq ft >= 1500 Y/N (garage excluded). A unit is single-family if 2+ SF traits, multi-family if 2+ MF traits (TCA Interpretation 92-1). Fee payable to Transportation Corridor Agency.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "TRANSPORTATION CORRIDOR AGENCIES",
+        "RESIDENTIAL FEE DETERMINATION",
+        "FORM 66-92"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist; Form 66-92 rev 12/15"
+      },
+      "status": "VERIFIED",
+      "note": "Fee rates are filled in by City staff; no dollar amounts in the form."
+    },
+    {
+      "id": "school_fee_form",
+      "name": "School Facilities Fee Determination (Form 42-97)",
+      "description": "Required with all Code Compliance applications except tenant improvements. A Certificate of Compliance from the school district (IUSD, SVUSD, SAUSD or TUSD) must be obtained before building permit issuance; parcels in an IUSD CFD are exempt.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "SCHOOL FACILITIES FEE DETERMINATION",
+        "FORM 42-97",
+        "IUSD"
+      ],
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "DOCUMENTS checklist; Form 42-97 rev 05/20"
+      },
+      "status": "VERIFIED",
+      "note": "Fee factor ($/sq ft) is filled in by staff; no amount stated."
+    },
+    {
+      "id": "title_sheet",
+      "name": "City of Irvine standard Building Plans title/cover sheet - New Construction (sheets 1 of 2 and 2 of 2, ver 2025.0)",
+      "description": "Template fields: vicinity and location maps, street address and tract/lot, project description, code years, planning action and reference number, per-building use/occupancy, floor area, stories, construction type, fire-rated elements, sprinkler type (NFPA 13/13D/13R under separate OCFA approval), list of deferred submittals, soils engineer and report number, parking spaces required and provided, solar zone orientation on site plan, architect license, plan check and permit numbers. Sheet 2 has FHSZ/WUI construction notes, erosion and sediment control, and stormwater pollution prevention notes.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "BUILDING PLANS",
+        "THE CITY OF IRVINE",
+        "VICINITY MAP",
+        "DEFERRED SUBMITTALS",
+        "SOILS ENGINEER",
+        "REPORT #",
+        "OCCUPANCY",
+        "CONSTRUCTION TYPE",
+        "SHEET INDEX",
+        "T-1",
+        "G-0.0",
+        "A0.0"
+      ],
+      "source": {
+        "title": "City of Irvine - Plan Check Title Sheet (New Construction 1 of 2 / 2 of 2 cover sheets)",
+        "url": "https://cityofirvine.gov/community-development/plan-check-title-sheet",
+        "section": "PDFs: civica-34538-new-construction-ver-2025.0-1-of-2-cover-sheet.pdf; civica-34539-new-construction-ver-2025.0-2-of-2-cover-sheet.pdf"
+      },
+      "status": "VERIFIED",
+      "note": "Some field labels are drawn as graphics and did not extract as text; the fields listed are those whose text extracted. Sheet-number hints (T-1, G-0.0, A0.0) are generic industry conventions, not from Irvine."
+    },
+    {
+      "id": "site_plan",
+      "name": "Site plan",
+      "description": "Site plan showing the buildings; Irvine title sheet requires solar zone orientation from true north to be shown on the site plan for roofs steeper than 2:12. ADU pattern: site plan must address the Development Standards Checklist.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "SITE PLAN",
+        "PLOT PLAN",
+        "SETBACK",
+        "PROPERTY LINE",
+        "NORTH ARROW",
+        "A1.0",
+        "A-1"
+      ],
+      "source": {
+        "title": "City of Irvine - New Construction cover sheet 1 of 2 (ver 2025.0)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34538-new-construction-ver-2025.0-1-of-2-cover-sheet.pdf",
+        "section": "Solar zone note"
+      },
+      "status": "VERIFIED",
+      "note": "The packet's DOCUMENTS list does not itemize plan sheets; a site plan is required by the title sheet's own note. ADU Development Standards Checklist: https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35890-67-01.pdf (ADU only)."
+    },
+    {
+      "id": "architectural_plans",
+      "name": "Architectural floor plans, elevations, building sections",
+      "description": "Standard architectural sheets.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "FLOOR PLAN",
+        "ELEVATION",
+        "BUILDING SECTION",
+        "ROOF PLAN",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "source": {
+        "title": "No Irvine page read lists plan sheets individually",
+        "url": "https://cityofirvine.gov/community-development/building-plan-check",
+        "section": ""
+      },
+      "status": "UNVERIFIED",
+      "note": "Building Plan Check page says plans are reviewed for code compliance but does not enumerate sheets. Required in practice; no Irvine source itemizes them."
+    },
+    {
+      "id": "structural_plans_calcs",
+      "name": "Structural plans and structural calculations",
+      "description": "Foundation/framing plans, details, and engineer's calculations.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "STRUCTURAL",
+        "FOUNDATION PLAN",
+        "FRAMING PLAN",
+        "SHEAR WALL",
+        "S-1",
+        "S1.0",
+        "STRUCTURAL CALCULATIONS"
+      ],
+      "source": {
+        "title": "No Irvine page read lists this item",
+        "url": "https://cityofirvine.gov/community-development/building-plan-check",
+        "section": ""
+      },
+      "status": "UNVERIFIED",
+      "note": "The ADU page asks for 'building plans, calculations, and construction documents'; no new-construction source itemizes structural calcs."
+    },
+    {
+      "id": "soils_report",
+      "name": "Soils / geotechnical report",
+      "description": "Title sheet has fields for soils engineer, report number and date, and a block to 'specify recommendations and details if applicable'.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "SOILS REPORT",
+        "GEOTECHNICAL",
+        "SOILS ENGINEER",
+        "REPORT #"
+      ],
+      "source": {
+        "title": "City of Irvine - New Construction cover sheet 1 of 2 (ver 2025.0)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34538-new-construction-ver-2025.0-1-of-2-cover-sheet.pdf",
+        "section": "Soils engineer / report # block"
+      },
+      "status": "VERIFIED",
+      "note": "Requirement is inferred from the title-sheet field; no checklist states it as a separate upload."
+    },
+    {
+      "id": "title24_energy",
+      "name": "Title 24 Part 6 energy compliance documentation",
+      "description": "Plans are checked for the State-mandated energy conservation standards; PV size is reported on the Building Data Sheet.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "TITLE 24",
+        "CF1R",
+        "ENERGY COMPLIANCE",
+        "CBECC",
+        "LMCC",
+        "NRCC"
+      ],
+      "source": {
+        "title": "City of Irvine - Building Plan Check",
+        "url": "https://cityofirvine.gov/community-development/building-plan-check",
+        "section": "Plan review scope"
+      },
+      "status": "VERIFIED",
+      "note": "That energy compliance is reviewed is VERIFIED; the specific form names (CF1R for single-family, LMCC for multifamily) are UNVERIFIED."
+    },
+    {
+      "id": "calgreen_checklist",
+      "name": "CALGreen (Title 24 Part 11) mandatory measures",
+      "description": "Green building mandatory measures on plans.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "CALGREEN",
+        "GREEN BUILDING",
+        "4.106.4",
+        "EV READY",
+        "EV CAPABLE"
+      ],
+      "source": {
+        "title": "No Irvine page read lists a CALGreen checklist",
+        "url": "https://cityofirvine.gov/community-development/building-plan-check",
+        "section": ""
+      },
+      "status": "UNVERIFIED",
+      "note": "Only the CALGreen 4.408 C&D waste item is VERIFIED (via Form 66-122A)."
+    },
+    {
+      "id": "fire_sprinkler_plans",
+      "name": "Fire sprinkler plans (separate OCFA approval / deferred submittal)",
+      "description": "Title sheet note: an NFPA 13, 13D or 13R automatic sprinkler system shall be provided under separate approval through OCFA. For 13D systems fed by the building water main, no plumbing groundwork may be inspected without separate OCFA-approved sprinkler plans.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "NFPA 13D",
+        "NFPA 13R",
+        "FIRE SPRINKLER",
+        "DEFERRED SUBMITTAL",
+        "OCFA"
+      ],
+      "source": {
+        "title": "City of Irvine - New Construction cover sheet 1 of 2 (ver 2025.0)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34538-new-construction-ver-2025.0-1-of-2-cover-sheet.pdf",
+        "section": "Sprinkler notes"
+      },
+      "status": "VERIFIED",
+      "note": "HouseX should look for the sprinkler note and its listing under deferred submittals, not for the sprinkler plans themselves."
+    },
+    {
+      "id": "grading_plan",
+      "name": "Grading plan (rough/precise grading package)",
+      "description": "Listed as a typical approval requirement for both single-family detached and attached residential; separate Rough/Precise Grading package exists.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "GRADING PLAN",
+        "PRECISE GRADING",
+        "ROUGH GRADING",
+        "DRAINAGE",
+        "C-1",
+        "FINISH GRADE",
+        "FG",
+        "FS"
+      ],
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5 Housing Constraints, Table 5-12; New Construction page",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-12; grading package https://www.cityofirvine.gov/sites/default/files/legacy-documents/rough-precise-grading-package-4.14.23-edit.pdf"
+      },
+      "status": "VERIFIED",
+      "note": "Grading package contents were not read. A vacant infill lot may not need a separate grading permit; the threshold is UNVERIFIED."
+    },
+    {
+      "id": "landscape_plan",
+      "name": "Landscape plan",
+      "description": "Listed as a typical approval requirement for residential projects (entitlement through permit).",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "LANDSCAPE PLAN",
+        "IRRIGATION PLAN",
+        "PLANTING PLAN",
+        "L-1",
+        "MWELO"
+      ],
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Table 5-12",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-12"
+      },
+      "status": "VERIFIED",
+      "note": "Typical approvals list, not a building-permit completeness checklist."
+    },
+    {
+      "id": "erosion_stormwater_notes",
+      "name": "Erosion/sediment control and stormwater pollution prevention notes",
+      "description": "Title sheet 2 requires either a reference to grading plans under permit or the City standard stormwater pollution prevention notes (Irvine Municipal Code Title 6, Division 8, Chapter 3).",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "EROSION AND SEDIMENT CONTROL",
+        "STORM WATER POLLUTION PREVENTION",
+        "BMP"
+      ],
+      "source": {
+        "title": "City of Irvine - New Construction cover sheet 2 of 2 (ver 2025.0)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34539-new-construction-ver-2025.0-2-of-2-cover-sheet.pdf",
+        "section": "Erosion and Sediment Control; Storm Water Pollution Prevention Notes"
+      },
+      "status": "VERIFIED",
+      "note": "A WQMP (Water Quality Management Plan) requirement and its trigger were NOT confirmed."
+    },
+    {
+      "id": "wqmp",
+      "name": "Water Quality Management Plan (WQMP)",
+      "description": "Orange County stormwater post-construction plan.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "WQMP",
+        "WATER QUALITY MANAGEMENT PLAN",
+        "LID"
+      ],
+      "source": {
+        "title": "Not found on pages read",
+        "url": null,
+        "section": ""
+      },
+      "status": "UNVERIFIED",
+      "note": "Trigger threshold for small residential projects not confirmed."
+    },
+    {
+      "id": "fhsz_wui_notes",
+      "name": "Fire Hazard Severity Zone / WUI construction notes (if in FHSZ)",
+      "description": "Title sheet 2 includes a WUI/FHSZ block (CWUIC Ch. 5: roofing, vents, exterior covering, windows/doors); select whether it applies. OCFA form item 12 refers to CBC Ch. 7A / CRC R327 for buildings in a FHSZ.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "FIRE HAZARD SEVERITY ZONE",
+        "WILDLAND-URBAN INTERFACE",
+        "CWUIC",
+        "7A",
+        "R327"
+      ],
+      "source": {
+        "title": "City of Irvine - New Construction cover sheet 2 of 2 (ver 2025.0)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34539-new-construction-ver-2025.0-2-of-2-cover-sheet.pdf",
+        "section": "Special Fire Hazard Severity Zone or Wildland-Urban Interface Area"
+      },
+      "status": "VERIFIED",
+      "note": "Conditional on parcel location."
+    },
+    {
+      "id": "master_plan_entitlement",
+      "name": "Planning entitlement: Master Plan (or CUP)",
+      "description": "Housing Element states the Master Plan process is required for permitted residential uses in zoning districts 2.2, 2.3, 2.4, 2.5, 3.1, 5.3 (concurrent with CUP) and 8.1. Planning checklist for all applications is separate.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "MASTER PLAN",
+        "CASE NO.",
+        "PLANNING ACTION",
+        "CONDITIONS OF APPROVAL"
+      ],
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Section on CUP/Master Plan process; Table 5-12"
+      },
+      "status": "VERIFIED",
+      "note": "Title sheet asks for the planning action type and reference number. Whether a Master Plan is required for a single duplex/triplex on an existing lot (vs. tract development) is not confirmed. Entitlement checklist: https://www.cityofirvine.gov/sites/default/files/legacy-documents/plan_entitlement-planning-checklist.pdf (not read)."
+    },
+    {
+      "id": "irwd_clearance",
+      "name": "Irvine Ranch Water District (IRWD) water/sewer clearance",
+      "description": "Utility availability / plan approval.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "IRWD",
+        "IRVINE RANCH WATER DISTRICT",
+        "WILL SERVE"
+      ],
+      "source": {
+        "title": "Not found on pages read",
+        "url": null,
+        "section": ""
+      },
+      "status": "UNVERIFIED",
+      "note": "No IRWD requirement appears in the residential packet's DOCUMENTS list."
+    },
+    {
+      "id": "parcel_map_lot_split",
+      "name": "Tentative parcel map (only if the lot is being split)",
+      "description": "Subdivision of four or fewer residential lots uses a tentative parcel map.",
+      "applies_to": [
+        "duplex",
+        "triplex"
+      ],
+      "detect_hints": [
+        "TENTATIVE PARCEL MAP",
+        "PARCEL MAP",
+        "LOT SPLIT"
+      ],
+      "source": {
+        "title": "City of Irvine - Subdivision page (search-result snippet only)",
+        "url": "https://cityofirvine.gov/community-development/subdivision",
+        "section": ""
+      },
+      "status": "UNVERIFIED",
+      "note": "Seen only in a search snippet; page not fetched."
+    }
+  ],
+  "zoning_districts": [
+    {
+      "code": "2.2",
+      "name": "Low Density Residential (LDR); sub-districts 2.2A-2.2D",
+      "allows": [
+        "single-family detached"
+      ],
+      "max_density_du_per_acre": 6.5,
+      "min_lot_area_sf": 4000,
+      "max_height_ft": 35,
+      "setbacks_ft": {
+        "front": null,
+        "side": null,
+        "rear": 10
+      },
+      "max_lot_coverage_pct": 50,
+      "parking_spaces_per_unit": 2,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4; Section 5.3.3.6",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-3 (density 0-6.5 du/net ac), Table 5-4 (Residential Development Standards)"
+      },
+      "status": "VERIFIED",
+      "note": "Front 10-50 ft and side 5-10 ft are ranges (depend on sub-district/street). Min lot 3,000 sf in 2.2D. Parking = 2 covered per SFD unit, 3 if 4+ bedrooms. Table 5-3 describes 2.2 as single-family detached; Table 5-13 shows 'Residential, attached' as P in some residential columns but column alignment in the extracted text is ambiguous, so duplex/triplex permissibility in 2.2 is unconfirmed. Values are the Housing Element's summary of the Zoning Ordinance (Ch. 3-37 and Division 9 planning-area standards), which was not read (Municode blocked)."
+    },
+    {
+      "code": "2.3",
+      "name": "Medium Density Residential (MDR); sub-districts 2.3A-2.3P",
+      "allows": [
+        "duplex",
+        "triplex"
+      ],
+      "max_density_du_per_acre": 12.5,
+      "min_lot_area_sf": 2400,
+      "max_height_ft": 35,
+      "setbacks_ft": {
+        "front": null,
+        "side": null,
+        "rear": 10
+      },
+      "max_lot_coverage_pct": null,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4; Sections 5.3.3.4 and 5.3.3.6",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-4"
+      },
+      "status": "VERIFIED",
+      "note": "Typical types: SFD and attached units, apartments, townhouses, condominiums. Min lot 2,400 sf (3,000 sf 2.3F; 3,300 sf 2.3P). Front 10-50 ft; side shown as '5-10 ft' range (garbled in extraction); bldg-to-bldg 6 ft. Lot coverage 50% for SFD, unlimited for all other uses. Some sub-districts (2.3D, F, G, H, I, K, L) have unit caps. Multifamily parking: ownership attached studio 1, 1-br 1.5, 2+br 2 per unit + visitor 0.7/unit (garages) or 0.4/unit (carports); rental studio 1, 1-br 1.4, 2-br 1.6, 3+br 2 + visitor 0.25/unit. Housing Element said parking standards would be updated after 2021; current values unconfirmed. Ordinance text not read."
+    },
+    {
+      "code": "2.4",
+      "name": "Medium-High Density Residential; sub-districts 2.4A-2.4H",
+      "allows": [
+        "duplex",
+        "triplex"
+      ],
+      "max_density_du_per_acre": 50,
+      "min_lot_area_sf": 21780,
+      "max_height_ft": null,
+      "setbacks_ft": {
+        "front": null,
+        "side": null,
+        "rear": 10
+      },
+      "max_lot_coverage_pct": 50,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-4"
+      },
+      "status": "VERIFIED",
+      "note": "Min lot 2,400 sf for SFD only, 0.5 acre (21,780 sf) for all other uses, so a duplex/triplex needs 0.5 ac unless planning-area standards differ. Height 35-50 ft (range). Front 10-50, side 5-10, rear '10 ft+'. Table 5-3 density range printed as 0-50 du/net ac. Section 5.3.3.4 text says non-SFD uses in multifamily districts may have unlimited coverage, which conflicts with the 50% in Table 5-4. Parking as in 2.3 note. Ordinance text not read."
+    },
+    {
+      "code": "2.5",
+      "name": "High Density Residential (HDR); 2.5, 2.5A",
+      "allows": [
+        "triplex"
+      ],
+      "max_density_du_per_acre": 50,
+      "min_lot_area_sf": 21780,
+      "max_height_ft": null,
+      "setbacks_ft": {
+        "front": null,
+        "side": null,
+        "rear": 10
+      },
+      "max_lot_coverage_pct": null,
+      "parking_spaces_per_unit": null,
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5, Tables 5-3 and 5-4",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "Table 5-4"
+      },
+      "status": "VERIFIED",
+      "note": "Typical type: multifamily attached housing (duplex fit unconfirmed). Min lot 2,400 sf SFD / 0.5 acre other uses. Height 35-50 ft; lot coverage 50-65% (ranges). Front 10-50, side 5-10, bldg-to-bldg 6 or 10. Parking as in 2.3 note. Ordinance text not read."
+    }
+  ],
+  "state_law": [
+    {
+      "id": "sb9_single_family_zone_only",
+      "rule": "SB 9 applies only to parcels in a single-family residential zone; parcels in multifamily, commercial, mixed-use zones are not subject to SB 9 even if single-family use is permitted.",
+      "value": null,
+      "unit": null,
+      "applies_when": "Applicant claims SB 9 (two-unit development or urban lot split).",
+      "source": {
+        "title": "HCD SB 9 Fact Sheet (Sept 2024)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/sb-9-fact-sheet.pdf",
+        "section": "Single-Family Residential Zones Only; Gov. Code 65852.21(a), 66411.7(a)(3)(A)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_max_units",
+      "rule": "Local agency must ministerially allow up to two primary units on the parcel, or up to two on each parcel after a lot split (up to four units total).",
+      "value": 2,
+      "unit": "primary units per parcel",
+      "applies_when": "SB 9 project in a single-family zone.",
+      "source": {
+        "title": "HCD SB 9 Fact Sheet (Sept 2024)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/sb-9-fact-sheet.pdf",
+        "section": "Objective Standards; Gov. Code 65852.21(b), 66411.7(c)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_min_unit_size",
+      "rule": "Objective standards that would physically preclude units of at least 800 sq ft each must be waived.",
+      "value": 800,
+      "unit": "sq ft",
+      "applies_when": "SB 9 project.",
+      "source": {
+        "title": "HCD SB 9 Fact Sheet (Sept 2024)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/sb-9-fact-sheet.pdf",
+        "section": "Objective Standards"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_side_rear_setback",
+      "rule": "Side and rear setbacks may not exceed 4 ft (city may require less); zone's normal side/rear setbacks cannot be applied; not subject to modification.",
+      "value": 4,
+      "unit": "ft",
+      "applies_when": "SB 9 project; a plan showing side/rear setbacks > 4 ft is fine, but a city may not demand more than 4 ft.",
+      "source": {
+        "title": "HCD SB 9 Fact Sheet (Sept 2024)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/sb-9-fact-sheet.pdf",
+        "section": "Four-Foot Side and Rear Setbacks; Gov. Code 65852.21(b)(2)(B), 66411.7(c)(3)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_existing_structure_setback",
+      "rule": "No setback may be required for an existing structure or one rebuilt in the same location and dimensions.",
+      "value": 0,
+      "unit": "ft",
+      "applies_when": "SB 9 project reusing an existing footprint (not typical for a vacant lot).",
+      "source": {
+        "title": "HCD SB 9 Fact Sheet (Sept 2024)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/sb-9-fact-sheet.pdf",
+        "section": "Setbacks for Existing Structures"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_ministerial",
+      "rule": "SB 9 applications are reviewed ministerially (no discretionary review or hearing) against objective standards only; denial requires a written finding of specific adverse impact on health/safety.",
+      "value": null,
+      "unit": null,
+      "applies_when": "SB 9 project.",
+      "source": {
+        "title": "HCD SB 9 Fact Sheet (Sept 2024)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/sb-9-fact-sheet.pdf",
+        "section": "Ministerial Review; Findings of Denial; Gov. Code 65852.21(d)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_parking_max",
+      "rule": "City may require at most 1 off-street parking space per unit.",
+      "value": 1,
+      "unit": "spaces per unit (max)",
+      "applies_when": "SB 9 project not near transit / car share.",
+      "source": {
+        "title": "County of Orange OC Public Works SB 9 Public Handout (2/9/22) - restates state law",
+        "url": "https://pwds.oc.gov/sites/ocpwocds/files/2022-02/SB9_Public_Handout_2_9_22.pdf",
+        "section": "Item 9 / Item 15; Gov. Code 65852.21(c) (statute text not read)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_parking_transit_exemption",
+      "rule": "No parking may be required if the parcel is within 1/2 mile walking distance of a high-quality transit corridor (PRC 21155) or major transit stop, or a car-share vehicle is within one block.",
+      "value": 0.5,
+      "unit": "mile",
+      "applies_when": "SB 9 project near transit or car share.",
+      "source": {
+        "title": "County of Orange OC Public Works SB 9 Public Handout (2/9/22)",
+        "url": "https://pwds.oc.gov/sites/ocpwocds/files/2022-02/SB9_Public_Handout_2_9_22.pdf",
+        "section": "Item 9a-b"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "sb9_historic_exclusion",
+      "rule": "Not eligible if in a historic district, on the State Historic Resources Inventory, or a designated local landmark/historic property.",
+      "value": null,
+      "unit": null,
+      "applies_when": "SB 9 project.",
+      "source": {
+        "title": "HCD SB 9 Fact Sheet (Sept 2024)",
+        "url": "https://www.hcd.ca.gov/sites/default/files/docs/planning-and-community/sb-9-fact-sheet.pdf",
+        "section": "Gov. Code 65852.21(j), 66411.7(n)"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_sb9_local_ordinance",
+      "rule": "Irvine-specific SB 9 ordinance or objective standards.",
+      "value": null,
+      "unit": null,
+      "applies_when": "SB 9 project in Irvine.",
+      "source": {
+        "title": "Not found",
+        "url": null,
+        "section": ""
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "density_bonus_parking",
+      "rule": "For density-bonus projects, state parking ratios may be used (inclusive of guest/accessible): studio-1br 1 space; 2-3br 1.5; 4+br 2.5.",
+      "value": null,
+      "unit": "spaces per unit by bedroom count",
+      "applies_when": "Project qualifies for state density bonus.",
+      "source": {
+        "title": "Irvine 2021-2029 Housing Element Ch. 5",
+        "url": "https://cityofirvine.gov/sites/default/files/legacy-documents/5_housing-constraints_4-11-2022-final.pdf",
+        "section": "5.3.3.6 Parking"
+      },
+      "status": "VERIFIED"
+    }
+  ],
+  "code_triggers": [
+    {
+      "id": "irvine_sprinklers_new_residential",
+      "rule": "Irvine local amendment: fire sprinklers are required in new residential buildings; sprinkler system (NFPA 13/13D/13R) is approved separately by OCFA.",
+      "applies_when": "Any new duplex or triplex.",
+      "required_evidence_on_plans": "Title sheet: 'SPRINKLERS: YES' with system type (13D for one/two-family, 13R or 13 for multifamily) and a note that sprinklers are under separate OCFA approval / deferred submittal.",
+      "source": {
+        "title": "City of Irvine - Key Amendments; New Construction cover sheet 1 of 2",
+        "url": "https://www.cityofirvine.gov/community-development/key-amendments",
+        "section": "Fire sprinklers - new residential buildings"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_5_9_401_over_5000sf",
+      "rule": "Title sheet note options cite Irvine Municipal Code 5-9-401 for sprinklers in buildings with gross area exceeding 5,000 sq ft (incl. as substitution for rated construction or to justify height/area increases).",
+      "applies_when": "Building gross area > 5,000 sq ft.",
+      "required_evidence_on_plans": "Sprinkler note citing IMC 5-9-401 and, if used for increases, a height/area analysis.",
+      "source": {
+        "title": "City of Irvine - New Construction cover sheet 1 of 2 (ver 2025.0)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-34538-new-construction-ver-2025.0-1-of-2-cover-sheet.pdf",
+        "section": "Sprinkler note"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "crc_r313_sprinklers",
+      "rule": "CRC R313: automatic fire sprinklers in new one- and two-family dwellings and townhouses.",
+      "applies_when": "Duplex built under the CRC.",
+      "required_evidence_on_plans": "NFPA 13D or R313.3 system noted on title sheet.",
+      "source": {
+        "title": "2025 California Residential Code R313 (ICC site returned 403)",
+        "url": "https://codes.iccsafe.org/content/CARC2022P1/chapter-3-building-planning",
+        "section": "R313"
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "crc_scope_duplex",
+      "rule": "CRC applies to detached one- and two-family dwellings and townhouses (not more than three stories); a duplex is normally designed under the CRC.",
+      "applies_when": "2 units.",
+      "required_evidence_on_plans": "Title sheet code list includes CRC; occupancy R-3.",
+      "source": {
+        "title": "CRC R101.2 (not read)",
+        "url": null,
+        "section": "R101.2"
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "cbc_r2_for_3plus",
+      "rule": "Three or more dwelling units in one building fall outside CRC scope and are designed under the CBC as occupancy R-2.",
+      "applies_when": "Triplex (3 units in one building).",
+      "required_evidence_on_plans": "Title sheet: occupancy R-2, CBC construction type (e.g., V-A/V-B), code analysis (allowable height/area), fire separation between units.",
+      "source": {
+        "title": "CBC 310.4 (not read)",
+        "url": null,
+        "section": "CBC 310 / CRC R101.2"
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "cbc_11a_removed_2025",
+      "rule": "2025 CBC (HCD amendment): Chapter 11A was removed from the requirements for newly constructed covered multifamily dwellings; these occupancies continue to be subject to Chapter 11B.",
+      "applies_when": "New covered multifamily dwellings (traditionally: 3+ apartments or 4+ condominiums - threshold UNVERIFIED).",
+      "required_evidence_on_plans": "Accessibility (11B) notes/details for covered units in a triplex rental; a 2-unit duplex is generally not a covered multifamily dwelling (UNVERIFIED).",
+      "source": {
+        "title": "California Building Standards Commission - 2025 Part 2 Chapter 11A Housing Accessibility (code changes)",
+        "url": "https://www.dgs.ca.gov/BSC/Resources/2025-Title-24-California-Code-Changes/2025-Part-2-Chapter-11A-Housing-Accessibility",
+        "section": "1101A.1 Scope and 1102A.1 Where required"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "energy_pv_single_family",
+      "rule": "2025 Energy Code 150.1(c)14 requires solar PV on newly constructed single-family residential buildings. Exceptions include: required size < 1.8 kWdc; SARA < 80 contiguous sf; 25% PV reduction with a JA12 battery of at least 7.5 kWh. Not for additions/alterations.",
+      "applies_when": "New duplex (Energy Code 'single-family' classification of a duplex is UNVERIFIED).",
+      "required_evidence_on_plans": "PV system size in kWdc on title sheet / Building Data Sheet, solar zone on site plan, energy compliance report.",
+      "source": {
+        "title": "California Energy Commission - 2025 Single-Family Solar PV (Energy Code Support Center)",
+        "url": "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/energy-code-support-center-12",
+        "section": "150.1(c)14"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "energy_pv_multifamily",
+      "rule": "Multifamily (3+ units) PV requirement under the 2025 Energy Code multifamily sections.",
+      "applies_when": "New triplex.",
+      "required_evidence_on_plans": "PV size and multifamily compliance documents.",
+      "source": {
+        "title": "Not read (believed 170.2(f))",
+        "url": null,
+        "section": ""
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "energy_code_2025_effective",
+      "rule": "2025 Energy Code applies to permit applications submitted on or after January 1, 2026.",
+      "applies_when": "Any new submittal now.",
+      "required_evidence_on_plans": "Title sheet code list cites 2025 California codes.",
+      "source": {
+        "title": "CEC 2025 Building Energy Efficiency Standards page (seen in search results only)",
+        "url": "https://www.energy.ca.gov/programs-and-topics/programs/building-energy-efficiency-standards/2025-building-energy-efficiency",
+        "section": ""
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "calgreen_ev_one_two_family",
+      "rule": "CALGreen 4.106.4.1: EV-ready infrastructure for new one- and two-family dwellings and townhouses with private garages.",
+      "applies_when": "Duplex with private garages.",
+      "required_evidence_on_plans": "EV-ready receptacle/raceway shown on electrical plan and noted in CALGreen notes.",
+      "source": {
+        "title": "2025 CALGreen 4.106.4.1 (state text not read; Menlo Park page shows only local amendments)",
+        "url": null,
+        "section": "4.106.4.1"
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "calgreen_ev_multifamily",
+      "rule": "CALGreen 4.106.4.2: EV-capable/EV-ready parking for new multifamily dwellings.",
+      "applies_when": "Triplex with parking.",
+      "required_evidence_on_plans": "EV space count and receptacle/raceway on site and electrical plans.",
+      "source": {
+        "title": "2025 CALGreen 4.106.4.2 (not read)",
+        "url": null,
+        "section": "4.106.4.2"
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "calgreen_cd_waste",
+      "rule": "New residential buildings must divert 75% of concrete/asphalt and 65% of other C&D debris; waste management plan approved and bond posted before permit.",
+      "applies_when": "Any new duplex/triplex.",
+      "required_evidence_on_plans": "Form 66-122A and approved online C&D Waste Management Plan.",
+      "source": {
+        "title": "City of Irvine Form 66-122A (in Residential New Construction Packet)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "IMC 6-7-900; CALGreen 4.408"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "ocfa_arch_plan_3units_3stories",
+      "rule": "OCFA Architectural Plan review is triggered for apartment/residential facilities with 3+ units AND 3+ stories (3-story townhouses with an independent direct exit to grade are exempt).",
+      "applies_when": "Triplex of 3 or more stories.",
+      "required_evidence_on_plans": "Stories count on title sheet; OCFA architectural plan if triggered.",
+      "source": {
+        "title": "OCFA Plan Submittal Criteria (in Irvine packet)",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "Question 5"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_class_a_roof",
+      "rule": "Irvine local amendment: all new roofs shall be Class A (UL 790 or ASTM E108).",
+      "applies_when": "Any new building.",
+      "required_evidence_on_plans": "Roof covering spec 'Class A' on roof plan / general notes.",
+      "source": {
+        "title": "City of Irvine - Key Amendments",
+        "url": "https://www.cityofirvine.gov/community-development/key-amendments",
+        "section": "Roofing"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_underground_wiring",
+      "rule": "Irvine local amendment: all outside wiring on private property shall be underground.",
+      "applies_when": "Any new building.",
+      "required_evidence_on_plans": "Underground service shown on site/electrical plan.",
+      "source": {
+        "title": "City of Irvine - Key Amendments",
+        "url": "https://www.cityofirvine.gov/community-development/key-amendments",
+        "section": "Electrical"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "fhsz_chapter_7a",
+      "rule": "Buildings in any Fire Hazard Severity Zone must comply with CBC Chapter 7A / CRC R327 (Irvine title sheet 2 uses CWUIC Chapter 5 references).",
+      "applies_when": "Parcel in a FHSZ.",
+      "required_evidence_on_plans": "WUI notes block on title sheet 2 with details for roofing, vents, exterior walls, windows, doors.",
+      "source": {
+        "title": "City of Irvine - Key Amendments; New Construction cover sheet 2 of 2",
+        "url": "https://www.cityofirvine.gov/community-development/key-amendments",
+        "section": "Wildfire"
+      },
+      "status": "VERIFIED"
+    }
+  ],
+  "process": [
+    {
+      "id": "irvine_online_submittal",
+      "rule": "New residential construction is submitted online via IrvineReady!/goPost (https://gopost-irvine.eplansoftreview.com/#/login?portal=irvine); completed forms go in the Attachments tab, only plan sheets in the Plans tab; must comply with City E-Plan Submittal Requirements; Google Chrome required.",
+      "source": {
+        "title": "City of Irvine - New Construction page; New Residential Dwellings page",
+        "url": "https://cityofirvine.gov/node/60926",
+        "section": ""
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_permitsdirect",
+      "rule": "The Building Permits & Inspections page states all new online permit applications must be submitted through PermitsDIRECT! (Symbium). This conflicts with the goPost instructions on the New Construction page; which portal governs new duplex/triplex plan check is unresolved.",
+      "source": {
+        "title": "City of Irvine - Building Permits and Inspections",
+        "url": "https://cityofirvine.gov/building-permits-and-inspections",
+        "section": ""
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_fees_before_review",
+      "rule": "After pre-application processing, the applicant is billed plan review fees; the submittal is not distributed and the review period does not start until payment is received.",
+      "source": {
+        "title": "City of Irvine - Residential New Construction Packet",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "Additional Information item 3"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_multi_department_review",
+      "rule": "Planning, Public Works, Community & Library Services (waste management plans) and OCFA also review; no permit issues until all sections approve.",
+      "source": {
+        "title": "City of Irvine - Building Plan Check",
+        "url": "https://cityofirvine.gov/community-development/building-plan-check",
+        "section": ""
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_plan_check_turnaround",
+      "rule": "Plan check turnaround times are defined in Informational Bulletin No. 279 (not read).",
+      "source": {
+        "title": "City of Irvine Informational Bulletin No. 279",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/civica-13947-bulletin-279.pdf",
+        "section": ""
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "irvine_adu_completeness_pattern",
+      "rule": "For ADUs, City staff do a completeness check within about two business days before fees are emailed (pattern reference; not stated for new duplex/triplex).",
+      "source": {
+        "title": "City of Irvine - Project: Constructing an ADU",
+        "url": "https://cityofirvine.gov/building-permits-and-inspections/project-constructing-accessory-dwelling-unit-adu",
+        "section": ""
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "irvine_school_fee_before_permit",
+      "rule": "A school district Certificate of Compliance must be obtained before building permit issuance.",
+      "source": {
+        "title": "City of Irvine Form 42-97",
+        "url": "https://www.cityofirvine.gov/sites/default/files/legacy-documents/residential-new-construction-packet-4.14.23-edit.pdf",
+        "section": "Part III"
+      },
+      "status": "VERIFIED"
+    },
+    {
+      "id": "psa_completeness",
+      "rule": "Permit Streamlining Act: agency must determine in writing whether a development application is complete within 30 calendar days of receipt, or it is deemed complete.",
+      "source": {
+        "title": "Gov. Code 65943 (leginfo blocks automated fetch; not read)",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=65943",
+        "section": "65943"
+      },
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "ab2234_post_entitlement",
+      "rule": "AB 2234 (2022), Gov. Code 65913.3: for post-entitlement phase permits on projects at least 2/3 residential, the agency determines completeness within 15 days (source heading says business days, body says days) and completes review within 30 business days (25 or fewer units) or 60 business days (26+ units). AB 1114 (2023) extended this to all building permits; SB 489 (approved Oct 10, 2025) folded these rules into the Permit Streamlining Act.",
+      "source": {
+        "title": "City of La Canada Flintridge - Post-Entitlement Phase Permit Guidance (secondary; statute not read)",
+        "url": "https://lcf.ca.gov/Housing/",
+        "section": "Gov. Code 65913.3"
+      },
+      "status": "VERIFIED"
+    }
+  ]
+}
