@@ -52,10 +52,39 @@ export interface CodeTrigger {
   id: string;
   rule: string;
   applies_to: string[];
+  construction_types?: string[];
   applies_when: string;
   required_evidence_on_plans: string;
   source: Source;
   status: Status;
+}
+
+export type Limits = Record<string, number | null>;
+
+export interface AllowableRow {
+  occupancy: string;
+  construction_type: string;
+  height_ft: Limits;
+  stories: Limits;
+  area_per_story_sf: Limits;
+  source: Source;
+  status: Status;
+}
+
+export interface ConstructionRules {
+  checked: string;
+  code_edition: string;
+  project_types: Record<string, { code: string; occupancy: string; note: string; source: Source; status: Status }>;
+  allowable: AllowableRow[];
+  requirements: {
+    id: string;
+    applies_to: string[];
+    construction_types: string[];
+    rule: string;
+    required_evidence_on_plans: string;
+    source: Source;
+    status: Status;
+  }[];
 }
 
 export interface RuleSet {
@@ -66,6 +95,7 @@ export interface RuleSet {
   state_law: StateLawRule[];
   code_triggers: CodeTrigger[];
   process: { id: string; rule: string; source: Source; status: Status }[];
+  construction?: ConstructionRules;
 }
 
 // What Claude reads off the plan set. Every value is null when the plans do not say.
@@ -84,6 +114,8 @@ export interface ExtractedPlan {
     occupancy_group: string | null;
     construction_type: string | null;
     sprinklered: boolean | null;
+    sprinkler_system: string | null;
+    building_footprint_sf: number | null;
     parking_spaces: number | null;
     setbacks_ft: {
       front: number | null;

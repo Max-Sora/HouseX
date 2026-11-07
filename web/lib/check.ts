@@ -1,4 +1,5 @@
 import type {
+  ConstructionRules,
   ExtractedPlan,
   Finding,
   Report,
@@ -96,6 +97,64 @@ function zoningFindings(
   return out;
 }
 
+// "Type V-B", "VB", "v-b" -> "V-B"
+export function normalizeType(raw: string | null): string | null {
+  const m = raw?.toUpperCase().replace(/TYPE|\s/g, "").match(/^(IV|V|I{1,3})-?(A|B|HT)$/);
+  return m ? `${m[1]}-${m[2]}` : null;
+}
+
+function sprinklerColumn(p: ExtractedPlan["project"]): string {
+  const s = (p.sprinkler_system ?? "").toUpperCase().replace(/\s/g, "");
+  if (s.includes("13R")) return "S13R";
+  if (s.includes("13D")) return "S13D";
+  if (s.includes("13")) return "S";
+  return "NS";
+}
+
+function constructionFindings(c: ConstructionRules, projectType: string, p: ExtractedPlan["project"]): Finding[] {
+  const pt = c.project_types[projectType];
+  if (!pt) return [];
+  const type = normalizeType(p.construction_type);
+  if (!type) {
+    return [{
+      kind: "unknown",
+      title: "Construction type",
+      detail: "The plans do not state a construction type (for example V-B), so allowable height, stories and area were not checked.",
+      source: pt.source,
+      sourceStatus: pt.status,
+    }];
+  }
+  const row = c.allowable.find((r) => r.occupancy === pt.occupancy && r.construction_type === type);
+  if (!row) {
+    return [{ kind: "unknown", title: `Construction type ${type}`, detail: `No verified ${c.code_edition} limits for ${pt.occupancy} Type ${type}.` }];
+  }
+  const col = sprinklerColumn(p);
+  const label = `${pt.occupancy}, Type ${type}, ${col === "NS" ? "no sprinklers" : col}`;
+  const out: Finding[] = [];
+  const limit = (title: string, plan: number | null, max: number | null | undefined, unit: string) => {
+    if (max === null || max === undefined) {
+      out.push({ kind: "unknown", title, detail: `No verified limit for ${label}.`, source: row.source, sourceStatus: row.status });
+    } else if (plan === null) {
+      out.push({ kind: "unknown", title, detail: "The plans do not state this value.", required: `≤ ${max} ${unit}`, source: row.source, sourceStatus: row.status });
+    } else {
+      const ok = plan <= max;
+      out.push({
+        kind: ok ? "passed" : "violation",
+        title,
+        detail: ok ? `Within the limit for ${label}.` : `Plan shows ${plan} ${unit}; ${label} allows at most ${max} ${unit}.`,
+        planValue: `${plan} ${unit}`,
+        required: `≤ ${max} ${unit}`,
+        source: row.source,
+        sourceStatus: row.status,
+      });
+    }
+  };
+  limit("Allowable height (construction type)", p.building_height_ft, row.height_ft[col], "ft");
+  limit("Allowable stories (construction type)", p.stories, row.stories[col], "stories");
+  limit("Allowable area per story (construction type)", p.building_footprint_sf, row.area_per_story_sf[col === "S" ? "S1" : col], "sf");
+  return out;
+}
+
 export function runCheck(
   rules: RuleSet,
   plan: ExtractedPlan,
@@ -142,7 +201,11 @@ export function runCheck(
     });
 
   // 3. Building and energy code items the plans must show.
+  const type = normalizeType(p.construction_type);
+  if (rules.construction) findings.push(...constructionFindings(rules.construction, projectType, p));
   for (const t of rules.code_triggers.filter((t) => t.applies_to.includes(projectType))) {
+    const ct = t.construction_types;
+    if (ct && !ct.includes("any") && type && !ct.includes(type)) continue;
     const seen = plan.code_triggers.find((c) => c.id === t.id);
     if (!seen || seen.status === "not_applicable") continue;
     findings.push({

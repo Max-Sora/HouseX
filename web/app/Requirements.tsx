@@ -1,6 +1,8 @@
 import type { RuleSet, Source, Status } from "@/lib/types";
 import styles from "./page.module.css";
 
+const trio = (l: Record<string, number | null>, keys: string[]) =>
+  keys.map((k) => (l[k] === null || l[k] === undefined ? "—" : l[k]!.toLocaleString())).join(" / ");
 const ft = (v: number | null, unit = "") =>
   v === null ? "varies / not confirmed" : `${v}${unit}`;
 
@@ -38,6 +40,9 @@ export default function Requirements({
   const codes = rules.code_triggers.filter((t) =>
     t.applies_to.includes(projectType),
   );
+  const c = rules.construction;
+  const pt = c?.project_types[projectType];
+  const rows = c && pt ? c.allowable.filter((r) => r.occupancy === pt.occupancy) : [];
   const districts = district
     ? rules.zoning_districts.filter((d) => d.code === district)
     : rules.zoning_districts;
@@ -146,6 +151,44 @@ export default function Requirements({
           ))}
         </ul>
       </details>
+
+      {c && pt && (
+        <details className={styles.section}>
+          <summary>
+            Construction type limits <span>({pt.code}, occupancy {pt.occupancy})</span>
+            <em>
+              Allowable height, stories and area per story by construction type and sprinkler system ({c.code_edition}).
+            </em>
+          </summary>
+          <p className={styles.evidence}>{pt.note}</p>
+          <div className={styles.tableWrap}>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Height ft (NS / 13R / 13)</th>
+                  <th>Stories (NS / 13R / 13)</th>
+                  <th>Area per story sf (NS / 13R / 13)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r) => (
+                  <tr key={r.construction_type}>
+                    <td>
+                      <strong>{r.construction_type}</strong>
+                      {r.status === "UNVERIFIED" && <span className={styles.badge}>unverified</span>}
+                    </td>
+                    <td>{trio(r.height_ft, ["NS", "S13R", "S"])}</td>
+                    <td>{trio(r.stories, ["NS", "S13R", "S"])}</td>
+                    <td>{trio(r.area_per_story_sf, ["NS", "S13R", "S1"])}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {rows[0] && <Cite source={rows[0].source} status={rows[0].status} />}
+        </details>
+      )}
 
       <details className={styles.section}>
         <summary>

@@ -31,6 +31,8 @@ const SCHEMA = obj({
     occupancy_group: str,
     construction_type: str,
     sprinklered: bool,
+    sprinkler_system: str,
+    building_footprint_sf: num,
     parking_spaces: num,
     setbacks_ft: obj({ front: num, side: num, rear: num }),
     code_editions_cited: { type: "array", items: { type: "string" } },
@@ -83,6 +85,7 @@ Your only job is to report what the document says. Another program applies the r
 
 Rules for reading:
 - Report a value only if it is printed in the document. Never estimate, compute from a scaled drawing, or assume. If it is not stated, use null.
+- sprinkler_system is the standard named on the plans, e.g. "NFPA 13", "NFPA 13R", "NFPA 13D"; null if none is named. building_footprint_sf is the largest single-story or footprint area stated.
 - Convert units to feet and square feet. Height means overall building height if stated.
 - "evidence" must name the sheet or page and quote the short text you relied on. If nothing was found, say what you looked for.
 - A required item is "present" only if the document itself contains it or its sheet index lists it. "unclear" if it is referenced but not included.
