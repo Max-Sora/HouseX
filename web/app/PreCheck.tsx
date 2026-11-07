@@ -15,6 +15,12 @@ const SAMPLES = [
     note: "Fresno County pre-approved plans, sheets 1–7",
   },
   {
+    file: "fictional-duplex-passing.pdf",
+    type: "duplex",
+    label: "Try a passing duplex",
+    note: "made up, written to meet every rule HouseX checks",
+  },
+  {
     file: "fictional-triplex-cover-sheet.pdf",
     type: "triplex",
     label: "Try the fictional triplex",
