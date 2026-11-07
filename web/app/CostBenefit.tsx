@@ -191,6 +191,22 @@ export default function CostBenefit({
       </div>
 
       <h3 className={styles.subhead}>Loan interest saved</h3>
+      <div className={styles.explain}>
+        <p>
+          Construction finance is typically interest-only at about 10%. A builder with {usd(1_000_000)} tied up pays{" "}
+          {usd(1_000_000 * 0.1 / 12)} a month in interest, so every month HouseX saves is that much kept.
+        </p>
+        <ul>
+          <li>
+            {usd(1_000_000)}: 1 month saved = <strong>{usd(1_000_000 * 0.1 / 12)}</strong>, 3 months ={" "}
+            <strong>{usd((1_000_000 * 0.1 / 12) * 3)}</strong>
+          </li>
+          <li>
+            {usd(1_500_000)}: 1 month saved = <strong>{usd(1_500_000 * 0.1 / 12)}</strong>, 3 months ={" "}
+            <strong>{usd((1_500_000 * 0.1 / 12) * 3)}</strong>
+          </li>
+        </ul>
+      </div>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <thead>
@@ -221,7 +237,21 @@ export default function CostBenefit({
         </table>
       </div>
 
-      <h3 className={styles.subhead}>Consultant time saved</h3>
+      <h3 className={styles.subhead}>Daily rates: consultant time saved</h3>
+      <div className={styles.explain}>
+        <p>
+          General consultants or architects charge $100 to $250+ per hour. Every correction HouseX catches is time
+          they don&rsquo;t bill for researching the rule, revising sheets and answering the plan checker.
+        </p>
+        <ul>
+          <li>
+            10 hours saved at $200/hour = <strong>{usd(10 * 200)}</strong> additional savings
+          </li>
+          <li>
+            30 hours saved at $250/hour = <strong>{usd(30 * 250)}</strong> additional savings
+          </li>
+        </ul>
+      </div>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <thead>
