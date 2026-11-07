@@ -4,6 +4,7 @@ import Link from "next/link";
 import { rules } from "@/lib/rules";
 import { useStore } from "./Store";
 import NeedReport from "./NeedReport";
+import StepNav from "./StepNav";
 import Savings, { estimate } from "./Savings";
 import Fix from "./Fix";
 import CostBenefit from "./CostBenefit";
@@ -36,13 +37,14 @@ export function SavingsView({ withFix }: { withFix: boolean }) {
         onChange={setAssume}
         withFix={withFix}
       />
-      <p className={styles.next}>
-        <Link href={withFix ? "/cost-benefit" : "/fix"}>
-          {withFix
-            ? "Next: cost benefit for your loan →"
-            : "Next: let HouseX draft the fixes →"}
-        </Link>
-      </p>
+      <StepNav
+        back={withFix ? "/fix" : "/report"}
+        next={
+          withFix
+            ? { href: "/cost-benefit", label: "Continue: cost benefit for your loan" }
+            : { href: "/fix", label: "Continue: draft my fixes" }
+        }
+      />
     </>
   );
 }
@@ -60,10 +62,10 @@ export function FixView() {
         error={fixError}
         onDraft={draft}
       />
-      {pkg && (
-        <p className={styles.next}>
-          <Link href="/savings-after-fix">Next: savings with the fixes →</Link>
-        </p>
+      {pkg ? (
+        <StepNav back="/savings" next={{ href: "/savings-after-fix", label: "Continue: savings with the fixes" }} />
+      ) : (
+        <StepNav back="/savings" />
       )}
     </>
   );
@@ -74,6 +76,7 @@ export function CostBenefitView() {
   if (!loaded) return null;
   const e = report ? estimate(report, assume) : null;
   return (
+    <>
     <CostBenefit
       monthsFromReport={e ? (e.check.weeks * 12) / 52 : null}
       withFixMonths={e && pkg ? (e.fix.weeks * 12) / 52 : null}
@@ -81,6 +84,8 @@ export function CostBenefitView() {
         report ? report.extracted.sheet_index.length || null : null
       }
     />
+    <StepNav back={report ? (pkg ? "/savings-after-fix" : "/savings") : "/"} next={{ href: "/", label: "Start a new check" }} />
+    </>
   );
 }
 

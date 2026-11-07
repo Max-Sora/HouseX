@@ -7,6 +7,7 @@ export default function Page() {
   return (
     <main className={styles.page}>
       <header className={styles.pageHead}>
+        <p className={styles.kicker}>Step 6 of 6</p>
         <h1>Cost benefit</h1>
         <p className={styles.lede}>What a faster permit is worth on a construction loan, plus the consultant hours you don't spend</p>
       </header>

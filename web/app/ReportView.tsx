@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import type { Finding, FindingKind } from "@/lib/types";
 import { useStore } from "./Store";
 import NeedReport from "./NeedReport";
 import More from "./More";
+import StepNav from "./StepNav";
 import styles from "./page.module.css";
 
 const SECTIONS: { kind: FindingKind; title: string; blurb: string }[] = [
@@ -257,9 +257,7 @@ export default function ReportView() {
         )}
       </details>
 
-      <p className={styles.next}>
-        <Link href="/savings">Next: what this saves →</Link>
-      </p>
+      <StepNav back="/" next={{ href: "/savings", label: "Continue: see what this saves" }} />
     </section>
   );
 }

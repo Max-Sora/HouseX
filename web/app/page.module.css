@@ -920,3 +920,36 @@ a.primary {
 .moreBody {
   margin-top: 4px;
 }
+
+/* Guided steps */
+
+.stepNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.back {
+  font-size: 15px;
+  color: var(--secondary);
+  transition: color 160ms var(--ease);
+}
+
+.back:hover {
+  color: var(--foreground);
+}
+
+.inlineLink {
+  color: var(--secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--muted);
+  text-underline-offset: 4px;
+}
+
+.pageHead .kicker {
+  margin-bottom: 8px;
+}

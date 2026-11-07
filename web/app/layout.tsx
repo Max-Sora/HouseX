@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./Store";
-import TopNav from "./TopNav";
 import Chat from "./Chat";
 import { rules } from "@/lib/rules";
 import styles from "./page.module.css";
@@ -33,7 +32,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${plexSans.variable} ${plexMono.variable}`}>
         <StoreProvider>
-          <TopNav />
           {children}
           <footer className={styles.footer}>
             <span>Prototype built at the UCI Impact Lab, not legal advice and not a city decision</span>
