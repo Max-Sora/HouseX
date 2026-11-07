@@ -91,6 +91,7 @@ export interface ConstructionRules {
 
 export interface RuleSet {
   city: string;
+  project_types: { id: string; label: string }[];
   checked: string;
   required_documents: RequiredDocument[];
   zoning_districts: ZoningDistrict[];

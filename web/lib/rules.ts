@@ -8,6 +8,10 @@ const base = irvine as RuleSet;
 // Construction-type requirements join the city's code checklist so they are read, checked and shown the same way.
 export const rules: RuleSet = {
   ...base,
+  project_types: [
+    { id: "duplex", label: "Duplex (2 units)" },
+    { id: "triplex", label: "Triplex (3 units)" },
+  ],
   construction: c,
   code_triggers: [
     ...base.code_triggers,

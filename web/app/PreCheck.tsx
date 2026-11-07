@@ -170,8 +170,11 @@ export default function PreCheck({
               value={projectType}
               onChange={(e) => setProjectType(e.target.value)}
             >
-              <option value="duplex">Duplex (2 units)</option>
-              <option value="triplex">Triplex (3 units)</option>
+              {rules.project_types.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.label}
+                </option>
+              ))}
             </select>
           </label>
           <label>

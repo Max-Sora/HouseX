@@ -40,6 +40,7 @@ export default function Requirements({
   const codes = rules.code_triggers.filter((t) =>
     t.applies_to.includes(projectType),
   );
+  const label = (rules.project_types.find((t) => t.id === projectType)?.label ?? projectType).toLowerCase();
   const c = rules.construction;
   const pt = c?.project_types[projectType];
   const rows = c && pt ? c.allowable.filter((r) => r.occupancy === pt.occupancy) : [];
@@ -50,7 +51,7 @@ export default function Requirements({
   return (
     <section className={styles.requirements}>
       <h2>
-        What {rules.city} requires for a new {projectType}
+        What {rules.city} requires for a new {label}
       </h2>
       <p className={styles.meta}>
         Every rule HouseX checks, with its source. Checked {rules.checked}.
@@ -131,7 +132,7 @@ export default function Requirements({
       <details className={styles.section}>
         <summary>
           Building, fire and energy code <span>({codes.length})</span>
-          <em>What the plans must show for a {projectType}</em>
+          <em>What the plans must show for a new {label}</em>
         </summary>
         <ul>
           {codes.map((t) => (
