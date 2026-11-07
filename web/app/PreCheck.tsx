@@ -5,6 +5,7 @@ import type { Finding, FindingKind, Report, RuleSet } from "@/lib/types";
 import Requirements from "./Requirements";
 import Savings, { DEFAULTS, estimate, type Assumptions } from "./Savings";
 import Fix from "./Fix";
+import CostBenefit from "./CostBenefit";
 import type { FixPackage } from "@/lib/fix";
 import styles from "./page.module.css";
 
@@ -280,6 +281,7 @@ export default function PreCheck({
               ["Savings", estimate(report, assume).check.money],
               ["Fix my plan", null],
               ["Savings after fix", pkg ? estimate(report, assume).fix.money : null],
+              ["Cost benefit", null],
             ].map(([label, money], i) => (
               <button
                 key={label as string}
@@ -415,6 +417,12 @@ export default function PreCheck({
           )}
           {step === 1 && <Savings report={report} assumptions={assume} onChange={setAssume} withFix={false} />}
           {step === 2 && <Fix report={report} pkg={pkg} loading={fixing} error={fixError} onDraft={draft} />}
+          {step === 4 && (
+            <CostBenefit
+              monthsFromReport={(estimate(report, assume).check.weeks * 12) / 52}
+              withFixMonths={pkg ? (estimate(report, assume).fix.weeks * 12) / 52 : null}
+            />
+          )}
           {step === 3 &&
             (pkg ? (
               <Savings report={report} assumptions={assume} onChange={setAssume} withFix />
