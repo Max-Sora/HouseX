@@ -9,7 +9,7 @@ export default function Page() {
       <header className={styles.pageHead}>
         <p className={styles.kicker}>HouseX · savings calculator</p>
         <h1>Cost benefit</h1>
-        <p className={styles.lede}>What a faster permit is worth on a construction loan, plus the consultant hours you don't spend</p>
+        <p className={styles.lede}>What a faster permit is worth on a construction loan, plus the consultant hours you don&apos;t spend</p>
       </header>
       <CostBenefitView />
     </main>
