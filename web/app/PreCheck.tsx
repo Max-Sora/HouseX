@@ -3,6 +3,9 @@
 import { useState } from "react";
 import type { Finding, FindingKind, Report, RuleSet } from "@/lib/types";
 import Requirements from "./Requirements";
+import Savings, { DEFAULTS, estimate, type Assumptions } from "./Savings";
+import Fix from "./Fix";
+import type { FixPackage } from "@/lib/fix";
 import styles from "./page.module.css";
 
 type District = { code: string; name: string; allows: string[] };
@@ -96,6 +99,32 @@ export default function PreCheck({
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<Report | null>(null);
   const [docType, setDocType] = useState("All");
+  const [step, setStep] = useState(0);
+  const [assume, setAssume] = useState<Assumptions>(DEFAULTS);
+  const [pkg, setPkg] = useState<FixPackage | null>(null);
+  const [fixing, setFixing] = useState(false);
+  const [fixError, setFixError] = useState<string | null>(null);
+
+  async function draft() {
+    if (!report) return;
+    setFixing(true);
+    setFixError(null);
+    try {
+      const res = await fetch("/api/fix", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(report),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? "Drafting failed");
+      setPkg(data);
+      setStep(3);
+    } catch (err) {
+      setFixError(err instanceof Error ? err.message : "Drafting failed");
+    } finally {
+      setFixing(false);
+    }
+  }
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -104,6 +133,8 @@ export default function PreCheck({
     setError(null);
     setReport(null);
     setDocType("All");
+    setStep(0);
+    setPkg(null);
     const body = new FormData();
     body.append("file", file);
     body.append("projectType", projectType);
@@ -243,6 +274,28 @@ export default function PreCheck({
             </div>
           </div>
 
+          <nav className={styles.steps} aria-label="Result steps">
+            {[
+              ["Report", null],
+              ["Savings", estimate(report, assume).check.money],
+              ["Fix my plan", null],
+              ["Savings after fix", pkg ? estimate(report, assume).fix.money : null],
+            ].map(([label, money], i) => (
+              <button
+                key={label as string}
+                type="button"
+                className={styles.step}
+                aria-current={step === i ? "step" : undefined}
+                onClick={() => setStep(i)}
+              >
+                <span className={styles.stepNo}>{i + 1}</span> {label}
+                {typeof money === "number" && <span className={styles.stepMeta}>${Math.round(money).toLocaleString()}</span>}
+              </button>
+            ))}
+          </nav>
+
+          {step === 0 && (
+            <>
           {report.site && (
             <details className={styles.section} open>
               <summary>
@@ -358,6 +411,21 @@ export default function PreCheck({
               <p className={styles.meta}>Notes: {report.extracted.notes}</p>
             )}
           </details>
+            </>
+          )}
+          {step === 1 && <Savings report={report} assumptions={assume} onChange={setAssume} withFix={false} />}
+          {step === 2 && <Fix report={report} pkg={pkg} loading={fixing} error={fixError} onDraft={draft} />}
+          {step === 3 &&
+            (pkg ? (
+              <Savings report={report} assumptions={assume} onChange={setAssume} withFix />
+            ) : (
+              <section className={styles.fixIntro}>
+                <p>Draft the correction package in step 3 to see the savings with fixes included.</p>
+                <button type="button" className={styles.primary} onClick={() => setStep(2)}>
+                  Go to Fix my plan
+                </button>
+              </section>
+            ))}
         </section>
       )}
 
