@@ -94,6 +94,7 @@ export default function PreCheck({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<Report | null>(null);
+  const [docType, setDocType] = useState("All");
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -101,6 +102,7 @@ export default function PreCheck({
     setLoading(true);
     setError(null);
     setReport(null);
+    setDocType("All");
     const body = new FormData();
     body.append("file", file);
     body.append("projectType", projectType);
@@ -237,10 +239,32 @@ export default function PreCheck({
                   {s.title} <span>({items.length})</span>
                   <em>{s.blurb}</em>
                 </summary>
+                {s.kind === "missing_document" && (
+                  <div className={styles.chips} role="group" aria-label="Filter by document type">
+                    {["All", ...new Set(items.map((f) => f.category ?? "Other"))].map((c) => (
+                      <button
+                        key={c}
+                        type="button"
+                        className={styles.chip}
+                        aria-pressed={docType === c}
+                        onClick={() => setDocType(c)}
+                      >
+                        {c}{" "}
+                        <span>
+                          {c === "All" ? items.length : items.filter((f) => (f.category ?? "Other") === c).length}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
                 <ul>
-                  {items.map((f, i) => (
-                    <FindingRow key={i} f={f} />
-                  ))}
+                  {items
+                    .filter(
+                      (f) => s.kind !== "missing_document" || docType === "All" || (f.category ?? "Other") === docType,
+                    )
+                    .map((f, i) => (
+                      <FindingRow key={i} f={f} />
+                    ))}
                 </ul>
               </details>
             );

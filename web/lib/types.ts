@@ -11,6 +11,7 @@ export interface Source {
 export interface RequiredDocument {
   id: string;
   name: string;
+  category: string;
   description: string;
   applies_to: string[];
   detect_hints: string[];
@@ -149,6 +150,7 @@ export type FindingKind =
 
 export interface Finding {
   kind: FindingKind;
+  category?: string;
   title: string;
   detail: string;
   planValue?: string;

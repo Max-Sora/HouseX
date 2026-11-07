@@ -21,7 +21,8 @@
         "section": "E-Submittal Checklist and Questionnaire, Steps 1-5"
       },
       "status": "VERIFIED",
-      "note": "Packet is linked from https://cityofirvine.gov/node/60926 (New Construction). Packet date 4/14/23; check for a newer revision before relying on it."
+      "note": "Packet is linked from https://cityofirvine.gov/node/60926 (New Construction). Packet date 4/14/23; check for a newer revision before relying on it.",
+      "category": "City forms"
     },
     {
       "id": "esignature_disclosure",
@@ -40,7 +41,8 @@
         "section": "DOCUMENTS checklist"
       },
       "status": "VERIFIED",
-      "note": "Online version: https://irvineca.seamlessdocs.com/f/esigdisclosure (linked from the ADU page)."
+      "note": "Online version: https://irvineca.seamlessdocs.com/f/esigdisclosure (linked from the ADU page).",
+      "category": "City forms"
     },
     {
       "id": "building_permit_application",
@@ -63,7 +65,8 @@
         "section": "DOCUMENTS checklist; Form 65-59 rev 08/19"
       },
       "status": "VERIFIED",
-      "note": ""
+      "note": "",
+      "category": "City forms"
     },
     {
       "id": "building_data_sheet",
@@ -85,7 +88,8 @@
         "section": "DOCUMENTS checklist; Form 66-58 rev 01/20"
       },
       "status": "VERIFIED",
-      "note": ""
+      "note": "",
+      "category": "City forms"
     },
     {
       "id": "cd_waste_assessment",
@@ -107,7 +111,8 @@
         "section": "Additional Information item 2; Form 66-122A rev 11/18"
       },
       "status": "VERIFIED",
-      "note": "Form cites Irvine Municipal Code 6-7-900 and CALGreen 4.408/5.408/5.713.8. Residential diversion: 75% of concrete/asphalt, 65% of other debris."
+      "note": "Form cites Irvine Municipal Code 6-7-900 and CALGreen 4.408/5.408/5.713.8. Residential diversion: 75% of concrete/asphalt, 65% of other debris.",
+      "category": "Reports and calculations"
     },
     {
       "id": "ocfa_plan_submittal_criteria",
@@ -129,7 +134,8 @@
         "section": "DOCUMENTS checklist; OCFA form 10-08-14"
       },
       "status": "VERIFIED",
-      "note": "City staff email an OCFA SR Form if required after review."
+      "note": "City staff email an OCFA SR Form if required after review.",
+      "category": "Fire (OCFA)"
     },
     {
       "id": "fire_master_plan",
@@ -150,7 +156,8 @@
         "section": "Additional Information item 5; OCFA form Q1"
       },
       "status": "VERIFIED",
-      "note": "Recommended, not a completeness blocker per packet wording."
+      "note": "Recommended, not a completeness blocker per packet wording.",
+      "category": "Fire (OCFA)"
     },
     {
       "id": "developer_deposit_case_setup",
@@ -171,7 +178,8 @@
         "section": "DOCUMENTS checklist"
       },
       "status": "VERIFIED",
-      "note": "Online form: https://irvineca.seamlessdocs.com/f/ddcasesetup (linked from ADU page)."
+      "note": "Online form: https://irvineca.seamlessdocs.com/f/ddcasesetup (linked from ADU page).",
+      "category": "City forms"
     },
     {
       "id": "area_tabulations",
@@ -192,7 +200,8 @@
         "section": "DOCUMENTS checklist"
       },
       "status": "VERIFIED",
-      "note": "Listed by name only; required format not described in the packet."
+      "note": "Listed by name only; required format not described in the packet.",
+      "category": "City forms"
     },
     {
       "id": "address_sequence_sheet",
@@ -212,7 +221,8 @@
         "section": "DOCUMENTS checklist"
       },
       "status": "VERIFIED",
-      "note": "ADU page instead uses an 'Address Application': https://cityofirvine.gov/sites/default/files/legacy-documents/civica-19334-41-60.pdf"
+      "note": "ADU page instead uses an 'Address Application': https://cityofirvine.gov/sites/default/files/legacy-documents/civica-19334-41-60.pdf",
+      "category": "City forms"
     },
     {
       "id": "tca_fee_form",
@@ -233,7 +243,8 @@
         "section": "DOCUMENTS checklist; Form 66-92 rev 12/15"
       },
       "status": "VERIFIED",
-      "note": "Fee rates are filled in by City staff; no dollar amounts in the form."
+      "note": "Fee rates are filled in by City staff; no dollar amounts in the form.",
+      "category": "Fees"
     },
     {
       "id": "school_fee_form",
@@ -254,7 +265,8 @@
         "section": "DOCUMENTS checklist; Form 42-97 rev 05/20"
       },
       "status": "VERIFIED",
-      "note": "Fee factor ($/sq ft) is filled in by staff; no amount stated."
+      "note": "Fee factor ($/sq ft) is filled in by staff; no amount stated.",
+      "category": "Fees"
     },
     {
       "id": "title_sheet",
@@ -284,7 +296,8 @@
         "section": "PDFs: civica-34538-new-construction-ver-2025.0-1-of-2-cover-sheet.pdf; civica-34539-new-construction-ver-2025.0-2-of-2-cover-sheet.pdf"
       },
       "status": "VERIFIED",
-      "note": "Some field labels are drawn as graphics and did not extract as text; the fields listed are those whose text extracted. Sheet-number hints (T-1, G-0.0, A0.0) are generic industry conventions, not from Irvine."
+      "note": "Some field labels are drawn as graphics and did not extract as text; the fields listed are those whose text extracted. Sheet-number hints (T-1, G-0.0, A0.0) are generic industry conventions, not from Irvine.",
+      "category": "Plan sheets"
     },
     {
       "id": "site_plan",
@@ -309,7 +322,8 @@
         "section": "Solar zone note"
       },
       "status": "VERIFIED",
-      "note": "The packet's DOCUMENTS list does not itemize plan sheets; a site plan is required by the title sheet's own note. ADU Development Standards Checklist: https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35890-67-01.pdf (ADU only)."
+      "note": "The packet's DOCUMENTS list does not itemize plan sheets; a site plan is required by the title sheet's own note. ADU Development Standards Checklist: https://cityofirvine.gov/sites/default/files/legacy-documents/civica-35890-67-01.pdf (ADU only).",
+      "category": "Plan sheets"
     },
     {
       "id": "architectural_plans",
@@ -334,7 +348,8 @@
         "section": ""
       },
       "status": "UNVERIFIED",
-      "note": "Building Plan Check page says plans are reviewed for code compliance but does not enumerate sheets. Required in practice; no Irvine source itemizes them."
+      "note": "Building Plan Check page says plans are reviewed for code compliance but does not enumerate sheets. Required in practice; no Irvine source itemizes them.",
+      "category": "Plan sheets"
     },
     {
       "id": "structural_plans_calcs",
@@ -359,7 +374,8 @@
         "section": ""
       },
       "status": "UNVERIFIED",
-      "note": "The ADU page asks for 'building plans, calculations, and construction documents'; no new-construction source itemizes structural calcs."
+      "note": "The ADU page asks for 'building plans, calculations, and construction documents'; no new-construction source itemizes structural calcs.",
+      "category": "Plan sheets"
     },
     {
       "id": "soils_report",
@@ -381,7 +397,8 @@
         "section": "Soils engineer / report # block"
       },
       "status": "VERIFIED",
-      "note": "Requirement is inferred from the title-sheet field; no checklist states it as a separate upload."
+      "note": "Requirement is inferred from the title-sheet field; no checklist states it as a separate upload.",
+      "category": "Reports and calculations"
     },
     {
       "id": "title24_energy",
@@ -405,7 +422,8 @@
         "section": "Plan review scope"
       },
       "status": "VERIFIED",
-      "note": "That energy compliance is reviewed is VERIFIED; the specific form names (CF1R for single-family, LMCC for multifamily) are UNVERIFIED."
+      "note": "That energy compliance is reviewed is VERIFIED; the specific form names (CF1R for single-family, LMCC for multifamily) are UNVERIFIED.",
+      "category": "Reports and calculations"
     },
     {
       "id": "calgreen_checklist",
@@ -428,7 +446,8 @@
         "section": ""
       },
       "status": "UNVERIFIED",
-      "note": "Only the CALGreen 4.408 C&D waste item is VERIFIED (via Form 66-122A)."
+      "note": "Only the CALGreen 4.408 C&D waste item is VERIFIED (via Form 66-122A).",
+      "category": "Reports and calculations"
     },
     {
       "id": "fire_sprinkler_plans",
@@ -451,7 +470,8 @@
         "section": "Sprinkler notes"
       },
       "status": "VERIFIED",
-      "note": "HouseX should look for the sprinkler note and its listing under deferred submittals, not for the sprinkler plans themselves."
+      "note": "HouseX should look for the sprinkler note and its listing under deferred submittals, not for the sprinkler plans themselves.",
+      "category": "Fire (OCFA)"
     },
     {
       "id": "grading_plan",
@@ -477,7 +497,8 @@
         "section": "Table 5-12; grading package https://www.cityofirvine.gov/sites/default/files/legacy-documents/rough-precise-grading-package-4.14.23-edit.pdf"
       },
       "status": "VERIFIED",
-      "note": "Grading package contents were not read. A vacant infill lot may not need a separate grading permit; the threshold is UNVERIFIED."
+      "note": "Grading package contents were not read. A vacant infill lot may not need a separate grading permit; the threshold is UNVERIFIED.",
+      "category": "Plan sheets"
     },
     {
       "id": "landscape_plan",
@@ -500,7 +521,8 @@
         "section": "Table 5-12"
       },
       "status": "VERIFIED",
-      "note": "Typical approvals list, not a building-permit completeness checklist."
+      "note": "Typical approvals list, not a building-permit completeness checklist.",
+      "category": "Plan sheets"
     },
     {
       "id": "erosion_stormwater_notes",
@@ -521,7 +543,8 @@
         "section": "Erosion and Sediment Control; Storm Water Pollution Prevention Notes"
       },
       "status": "VERIFIED",
-      "note": "A WQMP (Water Quality Management Plan) requirement and its trigger were NOT confirmed."
+      "note": "A WQMP (Water Quality Management Plan) requirement and its trigger were NOT confirmed.",
+      "category": "Reports and calculations"
     },
     {
       "id": "wqmp",
@@ -542,7 +565,8 @@
         "section": ""
       },
       "status": "UNVERIFIED",
-      "note": "Trigger threshold for small residential projects not confirmed."
+      "note": "Trigger threshold for small residential projects not confirmed.",
+      "category": "Reports and calculations"
     },
     {
       "id": "fhsz_wui_notes",
@@ -565,7 +589,8 @@
         "section": "Special Fire Hazard Severity Zone or Wildland-Urban Interface Area"
       },
       "status": "VERIFIED",
-      "note": "Conditional on parcel location."
+      "note": "Conditional on parcel location.",
+      "category": "Fire (OCFA)"
     },
     {
       "id": "master_plan_entitlement",
@@ -587,7 +612,8 @@
         "section": "Section on CUP/Master Plan process; Table 5-12"
       },
       "status": "VERIFIED",
-      "note": "Title sheet asks for the planning action type and reference number. Whether a Master Plan is required for a single duplex/triplex on an existing lot (vs. tract development) is not confirmed. Entitlement checklist: https://www.cityofirvine.gov/sites/default/files/legacy-documents/plan_entitlement-planning-checklist.pdf (not read)."
+      "note": "Title sheet asks for the planning action type and reference number. Whether a Master Plan is required for a single duplex/triplex on an existing lot (vs. tract development) is not confirmed. Entitlement checklist: https://www.cityofirvine.gov/sites/default/files/legacy-documents/plan_entitlement-planning-checklist.pdf (not read).",
+      "category": "Approvals and outside agencies"
     },
     {
       "id": "irwd_clearance",
@@ -608,7 +634,8 @@
         "section": ""
       },
       "status": "UNVERIFIED",
-      "note": "No IRWD requirement appears in the residential packet's DOCUMENTS list."
+      "note": "No IRWD requirement appears in the residential packet's DOCUMENTS list.",
+      "category": "Approvals and outside agencies"
     },
     {
       "id": "parcel_map_lot_split",
@@ -629,7 +656,8 @@
         "section": ""
       },
       "status": "UNVERIFIED",
-      "note": "Seen only in a search snippet; page not fetched."
+      "note": "Seen only in a search snippet; page not fetched.",
+      "category": "Approvals and outside agencies"
     }
   ],
   "zoning_districts": [

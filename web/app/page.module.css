@@ -458,3 +458,49 @@
     border-bottom: none;
   }
 }
+
+/* Document type filter */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 4px 20px;
+}
+
+.chip {
+  font: inherit;
+  font-size: 13px;
+  line-height: 20px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--secondary);
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--ease),
+    color 160ms var(--ease);
+}
+
+.chip span {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+.chip:hover {
+  color: var(--foreground);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--raised);
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}

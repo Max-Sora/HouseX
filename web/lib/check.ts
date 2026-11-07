@@ -173,6 +173,7 @@ export function runCheck(
     const seen = plan.required_items.find((r) => r.id === doc.id);
     const status = seen?.status ?? "missing";
     findings.push({
+      category: doc.category,
       kind: status === "present" ? "passed" : "missing_document",
       title: doc.name,
       detail:
