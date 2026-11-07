@@ -4,6 +4,7 @@
 
 **Team HouseX:** Meela A · Josh Lin · Mathew Yam · Joy Zhang · Max Tang
 **Lane:** 2 Clear it · Claude Impact Lab: UCI × SoCal Affordable Housing, Nov 7, 2026
+**Live site:** https://housex-q6gvvhb4m-house-x1.vercel.app/
 **Demo video (28 s):** [`video/housex-demo.mp4`](video/housex-demo.mp4)
 
 ## The problem
@@ -26,19 +27,16 @@ Also: savings and loan-interest calculator, live progress, Q&A chat.
 
 ## Try it in 1 minute
 
-```bash
-cd web && npm install
-echo "ANTHROPIC_API_KEY=your-key" > .env.local
-npm run dev
-```
+Open the [live site](https://housex-q6gvvhb4m-house-x1.vercel.app/) and click a sample:
 
-Open http://localhost:3000 and click a sample:
 
 | Sample                                        | Result                                     |
 | --------------------------------------------- | ------------------------------------------ |
 | Real duplex (Fresno County public plans)      | FAIL: 23 missing documents, 12 corrections |
 | Passing duplex (fictional)                    | PASS                                       |
 | Failing duplex (same set, 6 planted problems) | FAIL: exactly those 6                      |
+
+To run it yourself: `cd web && npm install`, put `ANTHROPIC_API_KEY=...` in `web/.env.local`, then `npm run dev`.
 
 ## Sources and assumptions
 
