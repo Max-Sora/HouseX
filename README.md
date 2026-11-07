@@ -48,7 +48,7 @@ echo "ANTHROPIC_API_KEY=your-key-here" > .env.local
 npm run dev
 ```
 
-The app has one page per step, linked from the bar at the top: `/` Check, `/report`, `/savings`, `/fix`, `/savings-after-fix`, `/cost-benefit` and `/requirements`. Results stay available across pages and reloads within the browser tab.
+The app walks the user through six steps, one page each, with a single Continue button at the bottom of every page: `/` Check → `/report` → `/savings` → `/fix` → `/savings-after-fix` → `/cost-benefit`. `/requirements` is linked from the Check page. Results stay available across pages and reloads within the browser tab.
 
 The cost-benefit page is a calculator: enter the amount tied up in construction and the number of pages in the plan set. It estimates interest saved on an interest-only construction loan (amount × rate ÷ 12 × months saved; the 10% default rate is a team assumption) and consultant time saved (pages × hours per page × hourly rate; 1 hour per page is an assumption, $200 an hour the default from a typical $100 to $250 range).
 
