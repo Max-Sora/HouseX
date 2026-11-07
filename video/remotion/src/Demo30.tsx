@@ -179,6 +179,7 @@ const Caption: React.FC<{ id: Id }> = ({ id }) => {
     }
     t += len;
   }
+  if (f / FPS30 > seconds + 0.4) return null; // the line has been spoken
   return (
     <AbsoluteFill
       style={{
