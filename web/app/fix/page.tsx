@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <main className={styles.page}>
       <header className={styles.pageHead}>
-        <p className={styles.kicker}>Step 4 of 6</p>
+        <p className={styles.kicker}>Step 4 of 5</p>
         <h1>Fix my plan</h1>
         <p className={styles.lede}>A drafted correction package for your architect to review and stamp</p>
       </header>

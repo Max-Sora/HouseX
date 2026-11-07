@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <main className={styles.page}>
       <header className={styles.pageHead}>
-        <p className={styles.kicker}>Step 2 of 6</p>
+        <p className={styles.kicker}>Step 2 of 5</p>
         <h1>Report</h1>
         <p className={styles.lede}>What the city would send back, found before you submit</p>
       </header>

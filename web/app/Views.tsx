@@ -37,11 +37,18 @@ export function SavingsView({ withFix }: { withFix: boolean }) {
         onChange={setAssume}
         withFix={withFix}
       />
+      {withFix && (
+        <p className={styles.hint}>
+          <Link href="/cost-benefit" className={styles.inlineLink}>
+            Estimate this for your construction loan →
+          </Link>
+        </p>
+      )}
       <StepNav
         back={withFix ? "/fix" : "/report"}
         next={
           withFix
-            ? { href: "/cost-benefit", label: "Continue: cost benefit for your loan" }
+            ? { href: "/", label: "Start a new check" }
             : { href: "/fix", label: "Continue: draft my fixes" }
         }
       />
@@ -84,7 +91,7 @@ export function CostBenefitView() {
         report ? report.extracted.sheet_index.length || null : null
       }
     />
-    <StepNav back={report ? (pkg ? "/savings-after-fix" : "/savings") : "/"} next={{ href: "/", label: "Start a new check" }} />
+    <StepNav back="history" next={{ href: "/", label: report ? "Start a new check" : "Run a pre-check on your plans" }} />
     </>
   );
 }

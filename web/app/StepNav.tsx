@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BackButton from "./BackButton";
 import styles from "./page.module.css";
 
 // One way forward: a back link and a single main button to the next step.
@@ -11,7 +12,9 @@ export default function StepNav({
 }) {
   return (
     <nav className={styles.stepNav} aria-label="Step navigation">
-      {back ? (
+      {back === "history" ? (
+        <BackButton className={styles.back} />
+      ) : back ? (
         <Link href={back} className={styles.back}>
           ← Back
         </Link>

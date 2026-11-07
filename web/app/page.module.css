@@ -998,3 +998,18 @@ a.primary {
     grid-template-columns: 1fr;
   }
 }
+
+button.back {
+  font: inherit;
+  font-size: 15px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.whyGrid .inlineLink {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 14px;
+}
